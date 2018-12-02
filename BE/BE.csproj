@@ -43,10 +43,14 @@
   <ItemGroup>
     <Compile Include="Address.cs" />
     <Compile Include="Configuration.cs" />
+    <Compile Include="DrivingTest.cs" />
     <Compile Include="MyEnums.cs" />
     <Compile Include="Name.cs" />
     <Compile Include="Person.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Schedule.cs" />
+    <Compile Include="Tester.cs" />
+    <Compile Include="Trainee.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
