@@ -10,6 +10,10 @@ namespace BE
     {
         public String FirstName { get; set; }
         public String LastName { get; set; }
+        public override string ToString()
+        {
+            return "\nFirstName: " + FirstName.ToString() + " LastName: " + LastName.ToString();
 
+        }
     }
 }

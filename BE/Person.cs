@@ -13,6 +13,12 @@ namespace BE
         public DateTime DayOfBirth { get; set; }
         public Gender Gender { get; set; }
         public Address Address { get; set; }
+        public String PhoneNumber { get; set; }
+        public override string ToString()
+        {
+            return "ID: "+ID+ " Name: "+ Name.ToString()+ " DayOfBirth: "+ DayOfBirth.ToString()+
+                " Gender: "+ Gender.ToString()+ Address.ToString()+ " PhoneNumber: "+ PhoneNumber;
+        }
 
     }
 }

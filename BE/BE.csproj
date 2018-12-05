@@ -33,6 +33,8 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -43,12 +45,13 @@
   <ItemGroup>
     <Compile Include="Address.cs" />
     <Compile Include="Configuration.cs" />
-    <Compile Include="DrivingTest.cs" />
     <Compile Include="MyEnums.cs" />
     <Compile Include="Name.cs" />
     <Compile Include="Person.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Requirement.cs" />
     <Compile Include="Schedule.cs" />
+    <Compile Include="Test.cs" />
     <Compile Include="Tester.cs" />
     <Compile Include="Trainee.cs" />
   </ItemGroup>

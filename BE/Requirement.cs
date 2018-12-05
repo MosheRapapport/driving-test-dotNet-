@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BL
+namespace BE
 {
-    public class Class1
+   public class Requirement
     {
+        public string requirement { get; set; }
+        public bool success { get; set; }
     }
 }
