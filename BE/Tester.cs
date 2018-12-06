@@ -17,9 +17,25 @@ namespace BE
         {
             return base.ToString() + "\n Expertise: " + Expertise.ToString() + " MaxTestWeekly: " + MaxTestWeekly +
                 " MaxDistance: " + MaxDistance + "\nLuz: " + Luz.ToString();
-
-
         }
-
+        public new Tester Clone()
+        {
+            Tester result = null;
+            result = new Tester
+            {
+                Address = this.Address.Clone(),
+                DayOfBirth = this.DayOfBirth,
+                Expertise = this.Expertise,
+                Gender = this.Gender,
+                ID = this.ID,
+                MaxDistance = this.MaxDistance,
+                Name = this.Name,
+                PhoneNumber=this.PhoneNumber,
+                Experience = this.Experience,
+                MaxTestWeekly = this.MaxTestWeekly,
+                Luz = this.Luz.Clone()
+            };
+            return result;
+        }
     }
 }

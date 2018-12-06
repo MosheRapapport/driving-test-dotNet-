@@ -19,5 +19,25 @@ namespace BE
                " GearType: " + GearType.ToString() + " DrivingSchool: " + DrivingSchool +
                "Instructor: " + Instructor.ToString() + " LessonsNb: " + LessonsNb;
         }
+        public new Trainee Clone()
+        {
+            Trainee result = null;
+            result = new Trainee
+            {
+                Address = this.Address.Clone(),
+                DayOfBirth = this.DayOfBirth,
+                Gender = this.Gender,
+                ID = this.ID,
+                Name = this.Name,
+                PhoneNumber = this.PhoneNumber,
+                CarTrained = this.CarTrained,
+                DrivingSchool = this.DrivingSchool,
+                GearType = this.GearType,
+                Instructor = this.Instructor,
+                LessonsNb = this.LessonsNb
+            };
+            return result;
+        }
+
     }
 }

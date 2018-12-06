@@ -19,6 +19,25 @@ namespace BE
             return "ID: "+ID+ " Name: "+ Name.ToString()+ " DayOfBirth: "+ DayOfBirth.ToString()+
                 " Gender: "+ Gender.ToString()+ Address.ToString()+ " PhoneNumber: "+ PhoneNumber;
         }
+        public virtual Person Clone()  //deep clone 
+        {
+            return new Person
+            {
+                ID = this.ID,
+                Address = new Address
+                {
+                    City = this.Address.City,
+                    Number = this.Address.Number,
+                    StreetName = this.Address.StreetName//,
+                    //ZipCode = this.Address.ZipCode
+                },
+                DayOfBirth = this.DayOfBirth,
+                Gender = this.Gender,
+                Name = this.Name,
+                PhoneNumber = this.PhoneNumber
+            };
+        }
+
 
     }
 }

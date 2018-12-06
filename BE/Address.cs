@@ -15,5 +15,16 @@ namespace BE
         {
             return "\nStreetName:"+StreetName.ToString()+ " Number:"+Number.ToString()+ " City:"+ City.ToString();
         }
+
+        public Address Clone()
+        {
+            Address result = new Address
+            {
+                StreetName = this.StreetName,
+                Number = this.Number,
+                City = this.City
+            };
+            return result;
+        }
     }
 }
