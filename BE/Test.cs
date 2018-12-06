@@ -9,7 +9,7 @@ namespace BE
     public class Test
     {
         private int _codeOfTest = 0;
-        public int codeOfTest { get => _codeOfTest; }
+        public int codeOfTest { get => _codeOfTest; set => _codeOfTest = value; }
         private DateTime _date;
         public DateTime Date { get => _date.Date; set => _date = value.Date; }
         private List<Requirement> _requirements = new List<Requirement> ();
@@ -31,6 +31,7 @@ namespace BE
         {
             return new Test
             {
+                codeOfTest = this.codeOfTest,
                 Tester_ID = this.Tester_ID,
                 Trainee_ID = this.Trainee_ID,
                 Date = this.Date,
