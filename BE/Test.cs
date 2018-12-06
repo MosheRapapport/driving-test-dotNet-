@@ -8,12 +8,8 @@ namespace BE
 {
     public class Test
     {
-        public Test()
-        {
-            codeOfTest++;
-        }
-        private static int codeOfTest = 10000000;
-        public int CodeOfTest { get => codeOfTest; }
+        private int _codeOfTest = 0;
+        public int codeOfTest { get => _codeOfTest; }
         private DateTime _date;
         public DateTime Date { get => _date.Date; set => _date = value.Date; }
         private List<Requirement> _requirements = new List<Requirement> ();
@@ -30,6 +26,20 @@ namespace BE
                 " tester ID: " + Tester_ID + " date:  " + Date.ToString() +
                 " requirements: " + Requirements.ToString() + " starting point: " + StartingPoint.ToString() +
                 " success: " + Success + " comment: " + Comment;
+        }
+        public Test Clone()  //amok 
+        {
+            return new Test
+            {
+                Tester_ID = this.Tester_ID,
+                Trainee_ID = this.Trainee_ID,
+                Date = this.Date,
+                Comment = this.Comment,
+                Requirements = this.Requirements.ToList(),
+                StartingPoint = this.StartingPoint.Clone(),
+                Success = this.Success,
+                Time = this.Time
+            };
         }
 
     }

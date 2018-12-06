@@ -21,11 +21,11 @@ namespace BE
             this.data = data;
         }
 
-        //public Schedule Clone()
-        //{
-        //    Schedule result = new Schedule((bool[,])this.data.Clone());
-        //    return result;
-        //}
+        public Schedule Clone()
+        {
+            Schedule result = new Schedule((bool[,])this.data.Clone());
+            return result;
+        }
         public override string ToString()
         {
             int starttime = 9;
