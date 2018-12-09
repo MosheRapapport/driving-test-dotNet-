@@ -11,6 +11,7 @@ namespace BE
         //, , גיל נבחן  מינימלי, טווח זמן בין מבחן למבחן
         public static int MIN_LESSONS = 28; //מספר השיעורים המינימלי
         public static int MAX_TESTER_AGE = 99;
+        public static int MIN_TESTER_AGE = 40;
         public static int MIN_TRAINEE_AGE = 16;
         public static int MIN_GAP_TEST = 30;
         public static int CODE_OF_TEST = 10000000;

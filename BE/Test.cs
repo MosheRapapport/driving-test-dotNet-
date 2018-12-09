@@ -16,7 +16,6 @@ namespace BE
         public List<Requirement> Requirements { get => _requirements; set => _requirements = value; }
         public String Trainee_ID { get; set; }
         public String Tester_ID { get; set; }
-        public TimeSpan Time { get => Date.TimeOfDay; set => _date.AddMilliseconds(value.TotalMilliseconds); }
         public Address StartingPoint { get; set; }
         public bool Success { get; set; }
         public String Comment { get; set; }
@@ -30,7 +29,6 @@ namespace BE
             return "code of test: " + codeOfTest + " trainee ID: " + Trainee_ID +
                 " tester ID: " + Tester_ID + " date:  " + Date.ToString() + A+
                 " starting point: " + StartingPoint.ToString() +
-               
                 " success: " + Success + " comment: " + Comment;
         }
         public Test Clone()  //amok 
@@ -45,7 +43,6 @@ namespace BE
                 Requirements = this.Requirements.ToList(),
                 StartingPoint = this.StartingPoint.Clone(),
                 Success = this.Success,
-                Time = this.Time
             };
         }
 

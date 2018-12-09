@@ -13,6 +13,7 @@ namespace BE
         public String DrivingSchool { get; set; }
         public Name Instructor { get; set; }//name of teacher
         public int LessonsNb { get; set; } //new balance of lessons number
+        public DateTime DateOfTest { get; set; }
         public override string ToString()
         {
             return base.ToString() + " CarTrained: " + CarTrained.ToString() +
@@ -34,7 +35,8 @@ namespace BE
                 DrivingSchool = this.DrivingSchool,
                 GearType = this.GearType,
                 Instructor = this.Instructor,
-                LessonsNb = this.LessonsNb
+                LessonsNb = this.LessonsNb,
+                DateOfTest=this.DateOfTest
             };
             return result;
         }
