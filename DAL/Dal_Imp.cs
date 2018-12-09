@@ -7,10 +7,12 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    public class Dal_Imp : Idal
+    internal class Dal_Imp : Idal
     {
         public bool AddTest(Test drivingTest)
         {
+            if (drivingTest.codeOfTest != 0)
+                throw new Exception("this test is already in the system");
             //initillizing the test code
             Test test = drivingTest.Clone();
             test.codeOfTest = Configuration.CODE_OF_TEST++;
