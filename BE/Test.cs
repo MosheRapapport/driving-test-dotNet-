@@ -22,9 +22,15 @@ namespace BE
         public String Comment { get; set; }
         public override string ToString()
         {
+            string A = "";
+            foreach (Requirement item in Requirements)
+            {
+                A += item.ToString();
+            }
             return "code of test: " + codeOfTest + " trainee ID: " + Trainee_ID +
-                " tester ID: " + Tester_ID + " date:  " + Date.ToString() +
-                " requirements: " + Requirements.ToString() + " starting point: " + StartingPoint.ToString() +
+                " tester ID: " + Tester_ID + " date:  " + Date.ToString() + A+
+                " starting point: " + StartingPoint.ToString() +
+               
                 " success: " + Success + " comment: " + Comment;
         }
         public Test Clone()  //amok 

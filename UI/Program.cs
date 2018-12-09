@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BE;
+using DAL;
 
 namespace UI
 {
@@ -63,8 +64,57 @@ namespace UI
             };
             Console.WriteLine(S.ToString());
             Console.WriteLine("-----------------");
+            List<Requirement> req = new List<Requirement>();
+            req.Add(new Requirement() { requirement = "adom", success = false });
+            Test t = new Test()
+            {
+                Tester_ID = "123456",
+                Trainee_ID = "234567",
+                Date = new DateTime(2018, 12, 09, 11, 00, 00),
+                Comment = "",
+                Requirements = req,
+                StartingPoint = new Address()
+                {
+                    City = "Jerusalem",
+                    Number = 7,
+                    StreetName = "mevo yoram",
+                },
+                Success = false,
+                Time = new TimeSpan(10, 52, 30)
+            };
+            Console.WriteLine(t.ToString());
+
             Console.ReadKey();
-            Test P = new Test();
+            Dal_Imp p = new Dal_Imp();
+            try
+            {
+                p.AddTest(t);
+                p.AddTest(t);
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e);
+            }
+            try
+            {
+                p.AddTester(T);
+                p.AddTester(T);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+            try
+            {
+            p.AddTrainee(S);
+            p.AddTrainee(S);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+            Console.ReadKey();
+
 
         }
     }

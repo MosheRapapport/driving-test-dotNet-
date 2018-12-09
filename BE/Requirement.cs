@@ -10,5 +10,10 @@ namespace BE
     {
         public string requirement { get; set; }
         public bool success { get; set; }
+        public override string ToString()
+        {
+            return "\nrequirement= "+requirement + " success= " +success;
+        }
     }
+   
 }
