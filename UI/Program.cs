@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BE;
-using DAL;
+
 using BL;
 
 namespace UI
@@ -15,7 +15,7 @@ namespace UI
         {
             Trainee S1 = new Trainee()
             {
-                ID = "234567",
+                ID = "1",
                 Name = new Name { FirstName = "yoni", LastName = "labell" },
                 Address = new Address
                 {
@@ -30,7 +30,7 @@ namespace UI
                 DrivingSchool = "beit sefer",
                 Instructor = new Name { FirstName = "moshe", LastName = "bfx" },
                 LessonsNb = 35,
-                DayOfBirth = DateTime.Now.AddYears(31),
+                DayOfBirth = DateTime.Now.AddYears(16),
                 Gender = Gender.MALE,
 
 
@@ -38,7 +38,7 @@ namespace UI
             Console.WriteLine(S1.ToString());
             Trainee S2 = new Trainee()
             {
-                ID = "2345678",
+                ID = "2",
                 Name = new Name { FirstName = "moshe", LastName = "rapaport" },
                 Address = new Address
                 {
@@ -61,7 +61,7 @@ namespace UI
             Console.WriteLine(S2.ToString());
             Trainee S3 = new Trainee()
             {
-                ID = "23456789",
+                ID = "3",
                 Name = new Name { FirstName = "barouch", LastName = "geler" },
                 Address = new Address
                 {
@@ -117,8 +117,8 @@ namespace UI
             Test M1 = new Test()
             {
                 Tester_ID = "12345",
-                Trainee_ID = "234567",
-                Date = new DateTime(2018, 12, 09, 11, 00, 00),
+                Trainee_ID = "1",
+                Date = new DateTime(2018, 12, 06, 11, 00, 00),
                 Comment = "",
                 Requirements = req,
                 StartingPoint = new Address()
@@ -127,14 +127,14 @@ namespace UI
                     Number = 7,
                     StreetName = "mevo yoram",
                 },
-                Success = false,
+                Success = true,
                 
             };
             Console.WriteLine(M1.ToString());
             Test M2 = new Test()
             {
                 Tester_ID = "12345",
-                Trainee_ID = "23456789",
+                Trainee_ID = "1",
                 Date = new DateTime(2018, 12, 09, 11, 00, 00),
                 Comment = "",
                 Requirements = req,
@@ -154,34 +154,22 @@ namespace UI
             try
             {
                 p.AddTester(T1);
-                
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-            }
-            try
-            {
                 p.AddTrainee(S1);
                 p.AddTrainee(S2);
                 p.AddTrainee(S3);
+                p.AddDrivingTest(M1);
+                p.AddDrivingTest(M2);
 
             }
             catch (Exception e)
             {
                 Console.WriteLine(e);
             }
-            Dal_Imp temp = new Dal_Imp();
-            temp.AddTest(M1);
-            try
+            foreach (Test item in p.GetTests())
             {
-               
-                p.AddDrivingTest(M2);
+                Console.WriteLine(item.ToString());
             }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-            }
+            
             Console.ReadKey();
 
 

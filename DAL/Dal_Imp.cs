@@ -62,8 +62,8 @@ namespace DAL
 
         public List<Test> GetTests()
         {
-            if (!DS.DataSource.TestsList.Any())
-                throw new Exception("There is no tests in the database");
+            //if (!DS.DataSource.TestsList.Any())
+            //    throw new Exception("There is no tests in the database");
             List<Test> result = new List<Test>();
             foreach (Test item in DS.DataSource.TestsList)
             {

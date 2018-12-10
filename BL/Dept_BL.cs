@@ -118,7 +118,15 @@ namespace BL
                  throw new Exception("The trainee has not yet had 20 lessons");
             if(currentTrainee.CarTrained!=currentTester.Expertise)//אותו סוג רכב
                  throw new Exception("The type of vehicle does not match theTester's  expertise ");
-            pastTests(currentTrainee);//האם נבחן *בהצלחה* על אותו סוג רכב
+           
+            var v = from Test item in pastTests(currentTrainee)
+                    where (item.Date - DateTime.Now).Days < 7
+                    select item;
+            foreach (var item in v )
+            {
+                throw new Exception("The trainee faild in a test in les then 7 days");
+            }
+                 
 
             //foreach (Trainee item in DAL.FactorySingletonDal.getInstance().GetTrainees())
             //{
@@ -136,14 +144,23 @@ namespace BL
 
             //    }
             // }
+            DAL.FactorySingletonDal.getInstance().AddTest(drivingTest);
             return true;
-        }
-        public bool RemoveDrivingTest(Test drivingTest) { return true; }
+        }      
         public bool UpdateDrivingTest(Test drivingTest) { return true; }
 
-        public List<Tester> GetTesters() { return null; }
-        public List<Trainee> GetTrainees() { return null; }
-        public List<Test> GetTests() { return null; }
+        public List<Tester> GetTesters()
+        {
+            return DAL.FactorySingletonDal.getInstance().GetTesters();
+        }
+        public List<Trainee> GetTrainees()
+        {
+            return DAL.FactorySingletonDal.getInstance().GetTrainees();
+        }
+        public List<Test> GetTests()
+        {
+            return DAL.FactorySingletonDal.getInstance().GetTests();
+        }
 
         public List<Tester> rangOfTesters(Address address, int rang)
         {
@@ -216,9 +233,10 @@ namespace BL
             throw new Exception("Tester not found");
         }
 
-        public bool pastTests(Trainee trainee)
+        public List<Test> pastTests(Trainee trainee)
         {
-            
+            List<Test> lastTestsList = new List<Test>();
+         
             foreach (Test item in DAL.FactorySingletonDal.getInstance().GetTests())
             {
                 if( (trainee.ID == item.Trainee_ID)&&(trainee.CarTrained==item.carType))
@@ -227,11 +245,11 @@ namespace BL
                     {
                         throw new Exception("Has already passed a test on this type of vehicle");
                     }
-                   
+                     lastTestsList .Add(item);
                 }
                 
             }
-            return true;
+            return  lastTestsList ;
         }
     }
 }

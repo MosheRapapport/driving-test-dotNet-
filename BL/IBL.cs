@@ -9,25 +9,24 @@ namespace BL
 {
     interface IBL
     {
-        bool AddDrivingTest(Test drivingTest);
-        bool AddTester(Tester tester);
-        bool AddTrainee(Trainee trainee);
-
-        bool RemoveDrivingTest(Test drivingTest);
-        bool RemoveTester(Tester tester);
-        bool RemoveTrainee(Trainee trainee);
-
-        bool UpdateDrivingTest(Test drivingTest);
-        bool UpdateTester(Tester tester);
-        bool UpdateTrainee(Trainee trainee);
-
-        List<Test> GetTests();
-        List<Tester> GetTesters();
+        //G.A.R.U Trainee
         List<Trainee> GetTrainees();
+        bool AddTrainee(Trainee trainee);
+        bool RemoveTrainee(Trainee trainee);
+        bool UpdateTrainee(Trainee trainee);
+        //G.A.R.U Tester
+        List<Tester> GetTesters();
+        bool AddTester(Tester tester);
+        bool RemoveTester(Tester tester);
+        bool UpdateTester(Tester tester);
+        //G.A.R.U Test
+        List<Test> GetTests();
+        bool AddDrivingTest(Test drivingTest);
+        bool UpdateDrivingTest(Test drivingTest);
 
         Trainee findTrainee(string id);
         Tester findTester(string id);
-        bool pastTests(Trainee trainee);
+        List<Test> pastTests(Trainee trainee);
 
         List<Tester> rangOfTesters(Address address, int rang);
         List<Tester> availableTetsers(DateTime dateTime);
