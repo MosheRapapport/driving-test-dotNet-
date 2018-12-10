@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    internal class Dal_Imp : Idal
+    public class Dal_Imp : Idal
     {
         public bool AddTest(Test drivingTest)
         {

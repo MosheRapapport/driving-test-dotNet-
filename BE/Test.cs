@@ -19,6 +19,7 @@ namespace BE
         public Address StartingPoint { get; set; }
         public bool Success { get; set; }
         public String Comment { get; set; }
+        public  CarType carType { get; set; }
         public override string ToString()
         {
             string A = "";
@@ -43,6 +44,7 @@ namespace BE
                 Requirements = this.Requirements.ToList(),
                 StartingPoint = this.StartingPoint.Clone(),
                 Success = this.Success,
+                carType = this.carType
             };
         }
 

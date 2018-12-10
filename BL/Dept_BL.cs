@@ -7,7 +7,7 @@ using BE;
 
 namespace BL
 {
-    internal class Dept_BL:IBL
+    public class Dept_BL:IBL
     {
         public bool AddTester(Tester tester)
         {
@@ -27,6 +27,7 @@ namespace BL
         }
         public bool RemoveTester(Tester tester)
         {
+            //אפשר להשתמש בפונקציה שמקבלת תנאי
             foreach (Test item in DAL.FactorySingletonDal.getInstance().GetTests())
             {
                 if (tester.ID == item.Tester_ID && item.Date > DateTime.Now)
@@ -108,20 +109,33 @@ namespace BL
             }
             return true;
         }
-        //באמצע..... עעעע
+       
         public bool AddDrivingTest(Test drivingTest)
         {
-            foreach (Trainee item in DAL.FactorySingletonDal.getInstance().GetTrainees())
-            {
-                if(drivingTest.Trainee_ID==item.ID)
-                {
-                    if (item.LessonsNb < 20)
-                        throw new Exception("The trainee has not yet had 20 lessons");
-                    if (item.DateOfTest != null && (DateTime.Now - item.DateOfTest).Days <= 7)
-                        throw new Exception("Since the last test it has not been a week");
-                    
-                }
-            }
+            Trainee currentTrainee= findTrainee(drivingTest.Trainee_ID);//האם קיים הנבחן
+            Tester currentTester = findTester(drivingTest.Tester_ID);//האם קיים הבוחן
+            if (currentTrainee.LessonsNb < Configuration.MIN_LESSONS_TO_REGISTER)//עשה מספיק שיעורים
+                 throw new Exception("The trainee has not yet had 20 lessons");
+            if(currentTrainee.CarTrained!=currentTester.Expertise)//אותו סוג רכב
+                 throw new Exception("The type of vehicle does not match theTester's  expertise ");
+            pastTests(currentTrainee);//האם נבחן *בהצלחה* על אותו סוג רכב
+
+            //foreach (Trainee item in DAL.FactorySingletonDal.getInstance().GetTrainees())
+            //{
+            //    if(drivingTest.Trainee_ID==item.ID)
+            //    {
+            //        if (item.LessonsNb < Configuration.MIN_LESSONS_TO_REGISTER)
+            //            throw new Exception("The trainee has not yet had 20 lessons");
+            //        //if (item.DateOfTest != null && (DateTime.Now - item.DateOfTest).Days <= 7)
+            //        //    throw new Exception("Since the last test it has not been a week");
+            //        foreach (Test item2 in DAL.FactorySingletonDal.getInstance().GetTests())
+            //        {
+            //            if (item.ID == item2.Trainee_ID && drivingTest.carType == item2.carType && item2.Success == true)
+            //                throw new Exception("    ");
+            //        }
+
+            //    }
+            // }
             return true;
         }
         public bool RemoveDrivingTest(Test drivingTest) { return true; }
@@ -131,5 +145,93 @@ namespace BL
         public List<Trainee> GetTrainees() { return null; }
         public List<Test> GetTests() { return null; }
 
+        public List<Tester> rangOfTesters(Address address, int rang)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Tester> availableTetsers(DateTime dateTime)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Test> condition(Func<Test, bool> func)
+        {
+            throw new NotImplementedException();
+        }
+
+        public int numOfTests(Trainee trainee)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool PassedTest(Trainee trainee)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Test> TestsToday(DateTime dateTime)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Tester> TestersExpertise(bool sorted = false)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Trainee> traineesBySchool(bool sorted = false)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Trainee> traineesByTeacher(bool sorted = false)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Trainee> traineesByNumOfTests(bool sorted = false)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Trainee findTrainee(string id)
+        {
+            foreach (Trainee item in DAL.FactorySingletonDal.getInstance().GetTrainees())
+            {
+                if (id == item.ID)
+                    return item;
+            }
+            throw new Exception("Trainee not found");
+        }
+
+        public Tester findTester(string id)
+        {
+            foreach (Tester item in DAL.FactorySingletonDal.getInstance().GetTesters())
+            {
+                if (id == item.ID)
+                    return item;
+            }
+            
+            throw new Exception("Tester not found");
+        }
+
+        public bool pastTests(Trainee trainee)
+        {
+            
+            foreach (Test item in DAL.FactorySingletonDal.getInstance().GetTests())
+            {
+                if( (trainee.ID == item.Trainee_ID)&&(trainee.CarTrained==item.carType))
+                {
+                    if (item.Success)
+                    {
+                        throw new Exception("Has already passed a test on this type of vehicle");
+                    }
+                   
+                }
+                
+            }
+            return true;
+        }
     }
 }
