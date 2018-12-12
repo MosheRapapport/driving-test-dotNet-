@@ -19,26 +19,26 @@ namespace BL
         bool AddTester(Tester tester);
         bool RemoveTester(Tester tester);
         bool UpdateTester(Tester tester);
-        //G.A.R.U Test
+        //G.A.U Test
         List<Test> GetTests();
         bool AddDrivingTest(Test drivingTest);
         bool UpdateDrivingTest(Test drivingTest);
 
         Trainee findTrainee(string id);
         Tester findTester(string id);
-        List<Test> pastTests(Trainee trainee);
+        void TestsInThePast(Trainee trainee);
 
-        List<Tester> rangOfTesters(Address address, int rang);
+        List<Tester> rangOfTesters(Address address);
         List<Tester> availableTetsers(DateTime dateTime);
         List<Test> condition(Func<Test, bool> func);
         int numOfTests(Trainee trainee);
         bool PassedTest(Trainee trainee);
         List<Test> TestsToday(DateTime dateTime);
         //grouping
-        List<Tester> TestersExpertise(bool sorted=false);
-        List<Trainee> traineesBySchool(bool sorted = false);
-        List<Trainee> traineesByTeacher(bool sorted = false);
-        List<Trainee> traineesByNumOfTests(bool sorted = false);
+        List<Tester> TestersExpertise(CarType carType, bool sorted=false);
+        List<Trainee> traineesBySchool(string school , bool sorted = false);
+        List<Trainee> traineesByTeacher(string teacher, bool sorted = false);
+        List<Trainee> traineesByNumOfTests(int numOfTests, bool sorted = false);
 
 
 

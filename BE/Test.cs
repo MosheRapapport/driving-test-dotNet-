@@ -19,7 +19,7 @@ namespace BE
         public Address StartingPoint { get; set; }
         public bool Success { get; set; }
         public String Comment { get; set; }
-        public  CarType carType { get; set; }
+        public CarType carType { get; set; }
         public override string ToString()
         {
             string A = "";
