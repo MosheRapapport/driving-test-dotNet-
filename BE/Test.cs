@@ -10,8 +10,7 @@ namespace BE
     {
         private int _codeOfTest = 0;
         public int codeOfTest { get => _codeOfTest; set => _codeOfTest = value; }
-        private DateTime _date;
-        public DateTime Date { get => _date.Date; set => _date = value.Date; }
+        public DateTime Date{ get; set; }
         private List<Requirement> _requirements = new List<Requirement> ();
         public List<Requirement> Requirements { get => _requirements; set => _requirements = value; }
         public String Trainee_ID { get; set; }
@@ -27,7 +26,7 @@ namespace BE
             {
                 A += item.ToString();
             }
-            return "code of test: " + codeOfTest + " trainee ID: " + Trainee_ID +
+            return "\ncode of test: " + codeOfTest + " trainee ID: " + Trainee_ID +
                 " tester ID: " + Tester_ID + " date:  " + Date.ToString() + A+
                 " starting point: " + StartingPoint.ToString() +
                 " success: " + Success + " comment: " + Comment;

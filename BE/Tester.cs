@@ -16,7 +16,7 @@ namespace BE
         public override string ToString()
         {
             return base.ToString() + "\n Expertise: " + Expertise.ToString() + " MaxTestWeekly: " + MaxTestWeekly +
-                " MaxDistance: " + MaxDistance + "\nLuz: " + Luz.ToString();
+                " MaxDistance: " + MaxDistance + "\nLuz:\n " + Luz.ToString();
         }
         public new Tester Clone()
         {

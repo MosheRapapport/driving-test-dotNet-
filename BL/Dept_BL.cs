@@ -9,7 +9,7 @@ namespace BL
 {
     public class Dept_BL:IBL
     {
-        DAL.Idal dal = DAL.FactorySingletonDal.getInstance();
+        private static  DAL.Idal dal = DAL.FactorySingletonDal.getInstance();
 
         public List<Tester> GetTesters()
         {
@@ -127,22 +127,25 @@ namespace BL
         }
         public bool AddDrivingTest(Test drivingTest)
         {
-            Trainee currentTrainee= findTrainee(drivingTest.Trainee_ID);//האם קיים הנבחן
-            Tester currentTester = findTester(drivingTest.Tester_ID);//האם קיים הבוחן
-
-            if (currentTrainee.LessonsNb < Configuration.MIN_LESSONS_TO_REGISTER)//עשה מספיק שיעורים
+            //האם קיים הנבחן
+            Trainee currentTrainee = findTrainee(drivingTest.Trainee_ID);
+            //האם קיים הבוחן
+            Tester currentTester = findTester(drivingTest.Tester_ID);
+            //עשה מספיק שיעורים
+            if (currentTrainee.LessonsNb < Configuration.MIN_LESSONS_TO_REGISTER)
                  throw new Exception("The trainee has not yet had 20 lessons");
-
-            if (currentTrainee.CarTrained != currentTester.Expertise)//אותו סוג רכב
+            //אותו סוג רכב
+            if (currentTrainee.CarTrained != currentTester.Expertise)
                 throw new Exception("The type of vehicle does not match theTester's  expertise ");
-
-            if (numOfTests(currentTrainee) > 0)//בודק האם ישנם טסטים בעבר שעבר או שקיים לו כבר טסט עתידי או שהאחרון היה לפני פחות משבוע
+            //בודק האם ישנם טסטים בעבר שעבר או שקיים לו כבר טסט עתידי או שהאחרון היה לפני פחות משבוע
+            if (numOfTests(currentTrainee) > 0)
                 TestsInThePast(currentTrainee);
-        
-            if(dal.GetTesters().Count(tester=> tester.ID== currentTester.ID) 
-                >= currentTester.MaxTestWeekly)
+            //עבר את מספר המבחנים השבועי
+            if(dal.GetTesters().Count(tester=> tester.ID== currentTester.ID) >= currentTester.MaxTestWeekly)
                 throw new Exception("The tester has to meny tests this wike");
-
+            //האם הבוחן זמין
+            AvailableTester(currentTester, drivingTest.Date);
+            //ADD
             dal.AddTest(drivingTest);
             return true;
         }      
@@ -239,16 +242,30 @@ namespace BL
             var v = from Test item in lastTestsList
                     where (DateTime.Now - item.Date).Days < 7
                     select item;
-            if (v.Any()) { throw new Exception("The trainee faild in a test in less then 7777 days"); }
-            //foreach (Test item in lastTestsList)
-            //{
-            //    if ((DateTime.Now - item.Date).Days < 7)
-            //        throw new Exception("The trainee faild in a test in less then 7 days");
-            //}
+            if (v.Any()) { throw new Exception("The trainee faild in a test in less then 7 days"); }
+            
 
 
         }
-
+        public bool AvailableTester(Tester tester, DateTime Date)
+        {
+            
+            if (tester.Luz.data[(int)Date.DayOfWeek, Date.Hour-9] == false)
+            {
+                throw new Exception("The Tester is off duty");
+            }
+            
+            var v= from t in dal.GetTests()
+                   where t.Tester_ID== tester.ID
+                   orderby t.Date== Date
+                   select t;
+          
+            if (v.Any())
+            {
+                throw new Exception("Tester is busy");
+            }
+            return true;                       
+        }
         public List<Tester> TestersExpertise(CarType carType, bool sorted = false)
         {
             var v = from tester in dal.GetTesters()
