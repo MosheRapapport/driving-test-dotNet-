@@ -24,12 +24,11 @@ namespace BL
         bool AddDrivingTest(Test drivingTest);
         bool UpdateDrivingTest(Test drivingTest);
 
-        Trainee findTrainee(string id);
-        Tester findTester(string id);
+        Trainee findTrainee(string id);        
         void TestsInThePast(Trainee trainee);
 
         List<Tester> rangOfTesters(Address address);
-        List<Tester> availableTetsers(DateTime dateTime);
+        //List<Tester> availableTetsers(DateTime dateTime);
         List<Test> condition(Func<Test, bool> func);
         int numOfTests(Trainee trainee);
         bool PassedTest(Trainee trainee);

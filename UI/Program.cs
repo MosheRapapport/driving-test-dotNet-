@@ -37,17 +37,17 @@ namespace UI
             {
                 Console.WriteLine(e);
             }
-            Console.WriteLine("Trainees\n--------------------------------------\n");
-            foreach (Trainee item in BL.GetTrainees())
-            {
-                Console.WriteLine(item.ToString());
-            }
-            Console.WriteLine("\nTesters\n---------------------------------------\n");
-            foreach (Tester item in BL.GetTesters())
-            {
-                Console.WriteLine(item.ToString());
-            }
-            Console.WriteLine("\nTests\n-----------------------------------------\n");
+            //Console.WriteLine("Trainees\n--------------------------------------\n");
+            //foreach (Trainee item in BL.GetTrainees())
+            //{
+            //    Console.WriteLine(item.ToString());
+            //}
+            //Console.WriteLine("\nTesters\n---------------------------------------\n");
+            //foreach (Tester item in BL.GetTesters())
+            //{
+            //    Console.WriteLine(item.ToString());
+            //}
+            //Console.WriteLine("\nTests\n-----------------------------------------\n");
             foreach (Test item in BL.GetTests())
             {
                 Console.WriteLine(item.ToString());
@@ -67,9 +67,9 @@ namespace UI
             req.Add(new Requirement() { requirement = "adom", success = false });
             M1 = new Test()
             {
-                Tester_ID = "12345",
+               
                 Trainee_ID = "1",
-                Date = new DateTime(2018,12,18,10,0,0),
+                Date = new DateTime(2018, 12, 18, 11, 0, 0),
                 Comment = "",
                 Requirements = req,
                 StartingPoint = new Address()
@@ -84,10 +84,10 @@ namespace UI
             //Console.WriteLine(M1.ToString());
             M2 = new Test()
             {
-                Tester_ID = "123456",
+                
                 Trainee_ID = "2",
               //  DateTime date1 = new DateTime(2008, 3, 1, 7, 0, 0);
-            Date = new DateTime(2018, 12, 17, 12, 0, 0),
+            Date = new DateTime(2018, 12, 18, 12, 0, 0),
                 Comment = "",
                 Requirements = req,
                 StartingPoint = new Address()
@@ -108,7 +108,7 @@ namespace UI
         {
             T1 = new Tester()
             {
-                ID = "12345",
+                ID = "T1",
                 Name = new Name { FirstName = "jojo", LastName = "chalass" },
                 Address = new Address
                 {
@@ -123,13 +123,13 @@ namespace UI
                 Experience = 10,
                 Expertise = CarType.Private,
                 MaxDistance = 2,
-                MaxTestWeekly = 2,
+                MaxTestWeekly = 1,
                 Luz = new Schedule(new bool[5, 6] {
                         { true, true, true, true, true, true},
                         { true, true, true, true, true, true},
-                        { false, true, false, false, false, false},
-                        { false, false, true, false, false, false},
-                        { false, false, false, true, false, false} })
+                        { true, true, true, true, true, true},
+                        { true, true, true, true, true, true},
+                        { true, true, true, true, true, true} })
             };
             T2 = new Tester()
             {
@@ -148,13 +148,13 @@ namespace UI
                 Experience = 10,
                 Expertise = CarType.Private,
                 MaxDistance = 201,
-                MaxTestWeekly = 2,
+                MaxTestWeekly = 1,
                 Luz = new Schedule(new bool[5, 6] {
-                        { true, false, true, false, false, false},
-                        { false, false, true, false, false, false},
-                        { false, false, false, false, false, false},
-                        { false, false, true, false, false, false},
-                        { true, false, false, false, false, true} })
+                        { true, true, true, true, true, true},
+                        { true, true, true, true, true, true},
+                        { true, true, true, true, true, true},
+                        { true, true, true, true, true, true},
+                        { true, true, true, true, true, true} })
             };
             //Console.WriteLine(T1.ToString());
             //Console.WriteLine("-----------------");
