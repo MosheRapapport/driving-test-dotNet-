@@ -114,7 +114,6 @@ namespace BL
 
         }//v
 
-
         //G.A.R.U Tester
         public List<Tester> GetTesters()
         {
@@ -209,7 +208,7 @@ namespace BL
             //עובר על כל הטסטרים מאותו סוג רכב ובודק האם הם זמינים
             var v = from t1 in TestersExpertise(test.carType)
                     from t2 in rangOfTesters(test.StartingPoint)
-                    where t1 == t2
+                    where t1.ID == t2.ID
                     select t1;
             foreach (var item in v)
             {
@@ -218,8 +217,9 @@ namespace BL
                     return item;
                 }
             }
-
-            throw new Exception("Tester not found `");
+            // if there is no free tester
+            TimeExchangeForTest(test);
+            return null;
         }//v
         public bool AvailableTester(Tester tester, DateTime Date)
         {
@@ -265,6 +265,24 @@ namespace BL
             }
             return newList;
         }//v
+        public void TimeExchangeForTest(Test test)
+        {
+            Console.WriteLine("at " + test.Date.Hour + " o'clock there is no free tester." +
+                "If you want there are free testers at:");
+            Test CopyTest = test.Clone();
+            CopyTest.Date.AddHours(9 - CopyTest.Date.Hour);
+            Tester tester = null;
+            for (int i = 0; i < 6; i++)
+            {
+                tester = findATester(CopyTest);
+                if (tester != null)
+                {
+                    Console.WriteLine(CopyTest.Date.Hour+":00");
+                    tester = null;
+                }
+                CopyTest.Date.AddHours(1);
+            }
+        }
 
 
         //G.A.U Test
@@ -276,6 +294,9 @@ namespace BL
         {
             //האם הנבחן קיים במערכת
             Trainee currentTrainee = findTrainee(drivingTest.Trainee_ID);
+            // עדכון פרטי הטסט
+            drivingTest.carType = currentTrainee.CarTrained.Clone();
+            drivingTest.StartingPoint = currentTrainee.Address.Clone();
             //עשה מספיק שיעורים
             if (currentTrainee.LessonsNb < Configuration.MIN_LESSONS_TO_REGISTER)
                  throw new Exception("The trainee has not yet had 20 lessons");
@@ -284,6 +305,9 @@ namespace BL
                 TestsInThePast(currentTrainee);
             //האם יש בוחן זמין
             Tester currentTester = findATester(drivingTest);
+            if (currentTester == null)
+                throw new Exception("There are no free tasters for this hour. Please create a new test for a different time");
+
             drivingTest.Tester_ID = currentTester.ID;
 
             //ADD
