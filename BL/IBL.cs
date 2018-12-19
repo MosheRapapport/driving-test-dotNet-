@@ -34,10 +34,10 @@ namespace BL
         bool PassedTest(Trainee trainee);
         List<Test> TestsToday(DateTime dateTime);
         //grouping
-        List<Tester> TestersExpertise(CarType carType, bool sorted=false);
-        List<Trainee> traineesBySchool(string school , bool sorted = false);
-        List<Trainee> traineesByTeacher(string teacher, bool sorted = false);
-        List<Trainee> traineesByNumOfTests(int numOfTests, bool sorted = false);
+        IEnumerable<IGrouping<CarType,Tester>> TestersExpertise( bool sorted=false);
+        IEnumerable<IGrouping<string, Trainee>> traineesBySchool( bool sorted = false);
+        IEnumerable<IGrouping<Name, Trainee>> traineesByTeacher( bool sorted = false);
+        IEnumerable<IGrouping<int, Trainee>> traineesByNumOfTests( bool sorted = false);
 
 
 

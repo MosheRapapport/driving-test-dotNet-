@@ -31,23 +31,22 @@ namespace UI
                 BL.AddTrainee(S3);
                 BL.AddDrivingTest(M1);
                 BL.AddDrivingTest(M2);
-
             }
             catch (Exception e)
             {
                 Console.WriteLine(e);
             }
-            //Console.WriteLine("Trainees\n--------------------------------------\n");
-            //foreach (Trainee item in BL.GetTrainees())
-            //{
-            //    Console.WriteLine(item.ToString());
-            //}
-            //Console.WriteLine("\nTesters\n---------------------------------------\n");
-            //foreach (Tester item in BL.GetTesters())
-            //{
-            //    Console.WriteLine(item.ToString());
-            //}
-            //Console.WriteLine("\nTests\n-----------------------------------------\n");
+            Console.WriteLine("Trainees\n--------------------------------------\n");
+            foreach (Trainee item in BL.GetTrainees())
+            {
+                Console.WriteLine(item.ToString());
+            }
+            Console.WriteLine("\nTesters\n---------------------------------------\n");
+            foreach (Tester item in BL.GetTesters())
+            {
+                Console.WriteLine(item.ToString());
+            }
+            Console.WriteLine("\nTests\n-----------------------------------------\n");
             foreach (Test item in BL.GetTests())
             {
                 Console.WriteLine(item.ToString());
@@ -63,42 +62,31 @@ namespace UI
 
         private static void newTests(out Test M1, out Test M2)
         {
-            List<Requirement> req = new List<Requirement>();
-            req.Add(new Requirement() { requirement = "adom", success = false });
             M1 = new Test()
             {
                
                 Trainee_ID = "1",
-                Date = new DateTime(2018, 12, 18, 11, 0, 0),
+                Date = new DateTime(2018, 12, 19, 12, 0, 0),
                 Comment = "",
-                Requirements = req,
-                StartingPoint = new Address()
-                {
-                    City = "Jerusalem",
-                    Number = 7,
-                    StreetName = "mevo yoram",
-                },
-                Success = false,
-                carType = CarType.Private
+               
+                //StartingPoint = new Address()
+                //{
+                //    City = "Jerusalem",
+                //    Number = 7,
+                //    StreetName = "mevo yoram",
+                //},
+                Success = false
             };
             //Console.WriteLine(M1.ToString());
             M2 = new Test()
             {
                 
-                Trainee_ID = "2",
+                Trainee_ID = "3",
               //  DateTime date1 = new DateTime(2008, 3, 1, 7, 0, 0);
-            Date = new DateTime(2018, 12, 18, 12, 0, 0),
+            Date = new DateTime(2018, 12, 19, 12, 0, 0),
                 Comment = "",
-                Requirements = req,
-                StartingPoint = new Address()
-                {
-                    City = "Jerusalem",
-                    Number = 7,
-                    StreetName = "mevo yoram",
-                },
-                Success = false,
-                carType = CarType.Private
-
+               
+                Success = false
             };
             //Console.WriteLine(M2.ToString());
             //Console.ReadKey();
@@ -121,34 +109,34 @@ namespace UI
                 DayOfBirth = DateTime.Now.AddYears(-50),
                 Gender = Gender.MALE,
                 Experience = 10,
-                Expertise = CarType.Private,
-                MaxDistance = 2,
+                Expertise = new CarType { carType = carType.Private, gearType = GearType.Manual },
+                MaxDistance = 3000,
                 MaxTestWeekly = 1,
                 Luz = new Schedule(new bool[5, 6] {
                         { true, true, true, true, true, true},
                         { true, true, true, true, true, true},
                         { true, true, true, true, true, true},
-                        { true, true, true, true, true, true},
+                        { true, true, true, false, true, true},
                         { true, true, true, true, true, true} })
             };
             T2 = new Tester()
             {
-                ID = "123456",
-                Name = new Name { FirstName = "moohamed", LastName = "abo rabak" },
+                ID = "T2",
+                Name = new Name { FirstName = "moshe", LastName = "rabanu" },
                 Address = new Address
                 {
-                    City = "gaza",
+                    City = "lonoba",
                     Number = 21,
-                    StreetName = "shahid",
+                    StreetName = "har sinay",
                 },
                 PhoneNumber = "054770770",
 
                 DayOfBirth = DateTime.Now.AddYears(-50),
                 Gender = Gender.MALE,
                 Experience = 10,
-                Expertise = CarType.Private,
-                MaxDistance = 201,
-                MaxTestWeekly = 1,
+                Expertise = new CarType { carType = carType.Private, gearType = GearType.Manual },
+                MaxDistance = 1000,
+                MaxTestWeekly = 2,
                 Luz = new Schedule(new bool[5, 6] {
                         { true, true, true, true, true, true},
                         { true, true, true, true, true, true},
@@ -174,12 +162,11 @@ namespace UI
 
                 },
                 PhoneNumber = "0542520196",
-                CarTrained = CarType.Private,
-                GearType = GearType.Manual,
+                CarTrained = new CarType { carType = carType.Private, gearType = GearType.Manual },
                 DrivingSchool = "beit sefer",
                 Instructor = new Name { FirstName = "moshe", LastName = "bfx" },
-                LessonsNb = 35,
-                DayOfBirth = DateTime.Now.AddYears(16),
+                LessonsNb = 20,
+                DayOfBirth = DateTime.Now.AddYears(17),
                 Gender = Gender.MALE,
 
 
@@ -197,8 +184,7 @@ namespace UI
 
                 },
                 PhoneNumber = "054567899",
-                CarTrained = CarType.Private,
-                GearType = GearType.Manual,
+                CarTrained = new CarType { carType = carType.Private, gearType = GearType.Manual },
                 DrivingSchool = "beit sefer",
                 Instructor = new Name { FirstName = "moshe", LastName = "bfx" },
                 LessonsNb = 35,
@@ -220,8 +206,7 @@ namespace UI
 
                 },
                 PhoneNumber = "0543434344",
-                CarTrained = CarType.Private,
-                GearType = GearType.Manual,
+                CarTrained = new CarType { carType = carType.Private, gearType = GearType.Manual },                
                 DrivingSchool = "beit sefer",
                 Instructor = new Name { FirstName = "moshe", LastName = "bfx" },
                 LessonsNb = 35,

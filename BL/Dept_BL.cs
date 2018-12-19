@@ -80,7 +80,7 @@ namespace BL
                     return true;
             }
             return false;
-        }
+        }//v
         public Trainee findTrainee(string id)
         {
             foreach (Trainee item in dal.GetTrainees())
@@ -190,10 +190,6 @@ namespace BL
             }
             return testersByRange;
         }//v
-        //public List<Tester> availableTetsers(DateTime dateTime)
-        //{
-        //    throw new NotImplementedException();
-        //}
         public List<Test> condition(Func<Test, bool> func)
         {
             List<Test> boolTest = dal.GetTests().FindAll(item => func(item));
@@ -237,14 +233,12 @@ namespace BL
             {
                 if (item.Date == Date)
                 {
-                    Console.WriteLine("The tester has a test in this date\n");
                     return false;
                 }
             }
             //האם עבר את כמות הטסטים המותרת באותו שבוע
             if(v.Count()>=tester.MaxTestWeekly)
             {
-                Console.WriteLine("The tester has to meny tests this wike\n");
                 return false;
             }
             return true;
@@ -269,20 +263,31 @@ namespace BL
         {
             Console.WriteLine("at " + test.Date.Hour + " o'clock there is no free tester." +
                 "If you want there are free testers at:");
-            Test CopyTest = test.Clone();
-            CopyTest.Date.AddHours(9 - CopyTest.Date.Hour);
-            Tester tester = null;
+            test.Date=test.Date.AddHours(9 - test.Date.Hour);
             for (int i = 0; i < 6; i++)
             {
-                tester = findATester(CopyTest);
-                if (tester != null)
+                if (findIfATester(test))
                 {
-                    Console.WriteLine(CopyTest.Date.Hour+":00");
-                    tester = null;
+                    Console.WriteLine(test.Date.Hour+":00");
                 }
-                CopyTest.Date.AddHours(1);
+                test.Date = test.Date.AddHours(1);
             }
-        }
+        }//v
+        public bool findIfATester(Test test)
+        {
+            var v = from t1 in TestersExpertise(test.carType)
+                    from t2 in rangOfTesters(test.StartingPoint)
+                    where t1.ID == t2.ID
+                    select t1;
+            foreach (var item in v)
+            {
+                if (AvailableTester(item, test.Date))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }//v
 
 
         //G.A.U Test
@@ -320,47 +325,100 @@ namespace BL
                 throw e;
             }
             return true;
-        }//v-
+        }//v+9
         public bool UpdateDrivingTest(Test drivingTest)
         {
+            if (drivingTest.Comment == "not comment yet")
+                throw new Exception("Can not update the test because not all fields are filled");
+            if (drivingTest.Requirements[0].success == false ||
+                drivingTest.Requirements[1].success == false ||
+                drivingTest.Requirements[2].success == false ||
+                drivingTest.Requirements[3].success == false)
+                drivingTest.Success = false;
+            else
+            {
+                if (drivingTest.Requirements[4].success == false && drivingTest.Requirements[5].success == false)
+                    drivingTest.Success = false;
+                else
+                    drivingTest.Success = true;
+            }
+
+            try
+            {
+                dal.UpdateTest(drivingTest);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
             return true;
         }
         public bool SameWeek(DateTime date1, DateTime date2)
         {
             return date1.AddDays(-(int)date1.DayOfWeek).AddHours(-date1.Hour) ==
                 date2.AddDays(-(int)date2.DayOfWeek).AddHours(-date2.Hour);
+        }//v++
+
+
+
+
+
+
+        public IEnumerable<IGrouping<CarType, Tester>> TestersExpertise(bool sorted = false)
+        {
+            if(sorted == false)
+            {
+                var v = from tester in dal.GetTesters()
+                        group tester by tester.Expertise;
+                return v;
+            }
+            var v1 = from tester in dal.GetTesters()
+                     orderby tester.Experience descending
+                    group tester by tester.Expertise;
+            return v1;
+
         }
 
-
-
-
-
-        public List<Test> findTests(Tester tester)
+        public IEnumerable<IGrouping<string, Trainee>> traineesBySchool(bool sorted = false)
         {
-            List <Test> findTests = new List<Test>();
-
-            return findTests;
-        }
-       
-        
-        public List<Trainee> traineesBySchool(string school, bool sorted = false)
-        {
-            throw new NotImplementedException();
+            if (sorted == false)
+            {
+                var v1 = from trainee in dal.GetTrainees()
+                        group trainee by trainee.DrivingSchool;
+                return v1;
+            }
+            var v2 = from trainee in dal.GetTrainees()
+                     orderby trainee.Gender,trainee.ID
+                     group trainee by trainee.DrivingSchool;
+            return v2;
         }
 
-        public List<Trainee> traineesByTeacher(string teacher, bool sorted = false)
+        public IEnumerable<IGrouping<Name, Trainee>> traineesByTeacher(bool sorted = false)
         {
-            throw new NotImplementedException();
+            if (sorted == false)
+            {
+                var v1 = from trainee in dal.GetTrainees()
+                         group trainee by trainee.Instructor;
+                return v1;
+            }
+            var v2 = from trainee in dal.GetTrainees()
+                     orderby trainee.Gender, trainee.ID
+                     group trainee by trainee.Instructor;
+            return v2;
         }
 
-        public List<Trainee> traineesByNumOfTests(int numOfTests, bool sorted = false)
+        public IEnumerable<IGrouping<int, Trainee>> traineesByNumOfTests(bool sorted = false)
         {
-            throw new NotImplementedException();
-        }
-
-        public List<Tester> TestersExpertise(CarType carType, bool sorted = false)
-        {
-            throw new NotImplementedException();
+            if (sorted == false)
+            {
+                var v1 = from trainee in dal.GetTrainees()
+                         group trainee by numOfTests(trainee);
+                return v1;
+            }
+            var v2 = from trainee in dal.GetTrainees()
+                     orderby trainee.Gender, trainee.ID
+                     group trainee by numOfTests(trainee);
+            return v2;
         }
     }
 }

@@ -10,14 +10,21 @@ namespace BE
     {
         private int _codeOfTest = 0;
         public int codeOfTest { get => _codeOfTest; set => _codeOfTest = value; }
-        public DateTime Date{ get; set; }
-        private List<Requirement> _requirements = new List<Requirement> ();
-        public List<Requirement> Requirements { get => _requirements; set => _requirements = value; }
+        public DateTime Date { get; set; }
+        public Requirement[] Requirements = new Requirement[6]
+        { new Requirement {requirement="revers",success=false } ,
+          new Requirement { requirement = "U turn", success = false },
+          new Requirement {requirement = "speed", success = false },
+          new Requirement {requirement = "breks", success = false },
+          new Requirement {requirement = "blinks", success = false },
+          new Requirement { requirement = "Mirrors", success = false }
+        };
         public String Trainee_ID { get; set; }
         public String Tester_ID { get; set; }
         public Address StartingPoint { get; set; }
         public bool Success { get; set; }
-        public String Comment { get; set; }
+        private string comment = "not comment yet";
+        public String Comment { get => comment; set => comment = value; }
         public CarType carType { get; set; }
         public override string ToString()
         {
@@ -40,7 +47,7 @@ namespace BE
                 Trainee_ID = this.Trainee_ID,
                 Date = this.Date,
                 Comment = this.Comment,
-                Requirements = this.Requirements.ToList(),
+                Requirements = this.Requirements,
                 StartingPoint = this.StartingPoint.Clone(),
                 Success = this.Success,
                 carType = this.carType.Clone()

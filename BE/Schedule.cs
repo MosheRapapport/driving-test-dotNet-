@@ -52,6 +52,8 @@ namespace BE
                     result += hayom;
                 }
             }
+            if (result == null)
+                return "";
             return result.Substring(0, result.Length - 1);
 
         }
