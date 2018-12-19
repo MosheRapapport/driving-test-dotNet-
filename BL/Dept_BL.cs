@@ -70,11 +70,16 @@ namespace BL
         public int numOfTests(Trainee trainee)
         {
             return (dal.GetTests().Count(Test =>
-            (Test.Trainee_ID == trainee.ID) && (Test.carType == trainee.CarTrained)));
+            (Test.Trainee_ID == trainee.ID) && (Test.carType == trainee.CarTrained) && (Test.gearType == trainee.GearType)));
         }//v
         public bool PassedTest(Trainee trainee)
         {
-            throw new NotImplementedException();
+            foreach (Test item in dal.GetTests())
+            {
+                if ((trainee.ID == item.Trainee_ID) && (trainee.CarTrained == item.carType) && (item.Success))
+                    return true;
+            }
+            return false;
         }
         public Trainee findTrainee(string id)
         {
@@ -90,7 +95,7 @@ namespace BL
             List<Test> lastTestsList = new List<Test>();
             foreach (Test item in dal.GetTests())
             {
-                if ((trainee.ID == item.Trainee_ID) && (trainee.CarTrained == item.carType))
+                if ((trainee.ID == item.Trainee_ID) && (trainee.CarTrained == item.carType)&&(trainee.GearType==item.gearType))
                 {
                     if (item.Success)         //בדיקה האם עבר כבר טסט בסוג רכב זה
                         throw new Exception("Has already passed a test on this type of vehicle");
@@ -106,8 +111,6 @@ namespace BL
                     where (DateTime.Now - item.Date).Days < 7
                     select item;
             if (v.Any()) { throw new Exception("The trainee faild in a test in less then 7 days"); }
-
-
 
         }//v
 
@@ -199,14 +202,18 @@ namespace BL
         }//v
         public List<Test> TestsToday(DateTime dateTime)
         {
-            return condition(test => test.Date == dateTime);
+            return condition(test => test.Date.AddHours(-test.Date.Hour) == dateTime.AddHours(-dateTime.Hour));
         }//v    
-        public Tester findATester(DateTime dateTime, CarType carType)
+        public Tester findATester(Test test)
         {
             //עובר על כל הטסטרים מאותו סוג רכב ובודק האם הם זמינים
-            foreach (var item in TestersExpertise(carType))
+            var v = from t1 in TestersExpertise(test.carType)
+                    from t2 in rangOfTesters(test.StartingPoint)
+                    where t1 == t2
+                    select t1;
+            foreach (var item in v)
             {
-                if (AvailableTester(item, dateTime))
+                if (AvailableTester(item, test.Date))
                 {
                     return item;
                 }
@@ -222,9 +229,8 @@ namespace BL
                 return false;
             }
             //האם כבר יש לו טסט באותו שעה
-            int x = 0;
             var v = from t in dal.GetTests()
-                    where t.Tester_ID == tester.ID  
+                    where t.Tester_ID == tester.ID && SameWeek(t.Date,Date)
                    // orderby t.Date==Date
                     select t;
             foreach (var item in v)
@@ -234,29 +240,15 @@ namespace BL
                     Console.WriteLine("The tester has a test in this date\n");
                     return false;
                 }
-                if (SameWeek(item.Date, Date))
-                {
-                    x++;
-                }  
-
-
             }
-
-            //if (v.Any())
-            //{
-            //    Console.WriteLine("The tester has a test in this date\n");
-            //    return false;
-            //}
-            //עבר את מספר המבחנים השבועי
-            Console.WriteLine(x);
-            if (x>=tester.MaxTestWeekly)
-              {
+            //האם עבר את כמות הטסטים המותרת באותו שבוע
+            if(v.Count()>=tester.MaxTestWeekly)
+            {
                 Console.WriteLine("The tester has to meny tests this wike\n");
                 return false;
-              }
-                
+            }
             return true;
-        }//v-
+        }//v+
         public List<Tester> TestersExpertise(CarType carType)
         {
             var v = from tester in dal.GetTesters()
@@ -291,11 +283,18 @@ namespace BL
             if (numOfTests(currentTrainee) > 0)
                 TestsInThePast(currentTrainee);
             //האם יש בוחן זמין
-            Tester currentTester = findATester(drivingTest.Date, currentTrainee.CarTrained);
+            Tester currentTester = findATester(drivingTest);
             drivingTest.Tester_ID = currentTester.ID;
-       
+
             //ADD
-            dal.AddTest(drivingTest);
+            try
+            {
+                dal.AddTest(drivingTest);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
             return true;
         }//v-
         public bool UpdateDrivingTest(Test drivingTest)
