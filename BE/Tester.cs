@@ -25,7 +25,7 @@ namespace BE
             {
                 Address = this.Address.Clone(),
                 DayOfBirth = this.DayOfBirth,
-                Expertise = this.Expertise,
+                Expertise = this.Expertise.Clone(),
                 Gender = this.Gender,
                 ID = this.ID,
                 MaxDistance = this.MaxDistance,

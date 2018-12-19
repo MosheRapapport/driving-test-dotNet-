@@ -70,13 +70,13 @@ namespace BL
         public int numOfTests(Trainee trainee)
         {
             return (dal.GetTests().Count(Test =>
-            (Test.Trainee_ID == trainee.ID) && (Test.carType == trainee.CarTrained) && (Test.gearType == trainee.GearType)));
+            (Test.Trainee_ID == trainee.ID) && (Test.carType >= trainee.CarTrained)));
         }//v
         public bool PassedTest(Trainee trainee)
         {
             foreach (Test item in dal.GetTests())
             {
-                if ((trainee.ID == item.Trainee_ID) && (trainee.CarTrained == item.carType) && (item.Success))
+                if ((trainee.ID == item.Trainee_ID) && (trainee.CarTrained <= item.carType) && (item.Success))
                     return true;
             }
             return false;
@@ -95,13 +95,13 @@ namespace BL
             List<Test> lastTestsList = new List<Test>();
             foreach (Test item in dal.GetTests())
             {
-                if ((trainee.ID == item.Trainee_ID) && (trainee.CarTrained == item.carType)&&(trainee.GearType==item.gearType))
+                if ((trainee.ID == item.Trainee_ID) && (trainee.CarTrained <= item.carType) )
                 {
                     if (item.Success)         //בדיקה האם עבר כבר טסט בסוג רכב זה
-                        throw new Exception("Has already passed a test on this type of vehicle");
+                        throw new Exception("Has already passed a test on this type of vehicle or better");
 
                     if (item.Date > DateTime.Now)     //בדיקה האם יש לו טסט עתידי
-                        throw new Exception("Has already have a test on this type of vehicle in the future");
+                        throw new Exception("Has already have a test on this type of vehicle or better in the future");
                     lastTestsList.Add(item);
                 }
 

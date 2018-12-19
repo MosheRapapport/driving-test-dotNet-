@@ -9,15 +9,14 @@ namespace BE
     public class Trainee:Person
     {
         public CarType CarTrained { get; set; }
-        public GearType GearType { get; set; }
         public String DrivingSchool { get; set; }
         public Name Instructor { get; set; }//name of teacher
         public int LessonsNb { get; set; } //new balance of lessons number
        
         public override string ToString()
         {
-            return base.ToString() + " CarTrained: " + CarTrained.ToString() +
-               " GearType: " + GearType.ToString() + " DrivingSchool: " + DrivingSchool +
+            return base.ToString() + " CarTrained: " + CarTrained.ToString() 
+                + " DrivingSchool: " + DrivingSchool +
                "Instructor: " + Instructor.ToString() + " LessonsNb: " + LessonsNb;
         }
         public new Trainee Clone()
@@ -31,9 +30,8 @@ namespace BE
                 ID = this.ID,
                 Name = this.Name,
                 PhoneNumber = this.PhoneNumber,
-                CarTrained = this.CarTrained,
+                CarTrained = this.CarTrained.Clone(),
                 DrivingSchool = this.DrivingSchool,
-                GearType = this.GearType,
                 Instructor = this.Instructor,
                 LessonsNb = this.LessonsNb,
                 
