@@ -10,9 +10,9 @@ namespace BE
     {
         MALE, FEMALE
     }
-    public enum CarType
+    public enum carType
     {
-        Private, TwoWheels, Truck_Medium, Truck_Heavy
+        TwoWheels, Private, Truck_Medium, Truck_Heavy
     }
     public enum GearType
     {
