@@ -328,7 +328,7 @@ namespace BL
         }//v+9
         public bool UpdateDrivingTest(Test drivingTest)
         {
-            if (drivingTest.Comment == "not comment yet")
+            if (drivingTest.Comment == null)
                 throw new Exception("Can not update the test because not all fields are filled");
             if (drivingTest.Requirements[0].success == false ||
                 drivingTest.Requirements[1].success == false ||

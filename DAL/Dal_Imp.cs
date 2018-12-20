@@ -15,7 +15,10 @@ namespace DAL
                 throw new Exception("this test is already in the system");
             //initillizing the test code
             Test test = drivingTest.Clone();
+            drivingTest.codeOfTest = Configuration.CODE_OF_TEST;
             test.codeOfTest = Configuration.CODE_OF_TEST++;
+          
+           
 
             DS.DataSource.TestsList.Add(test);
             return true;

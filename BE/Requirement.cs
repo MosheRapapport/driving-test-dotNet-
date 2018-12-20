@@ -14,6 +14,15 @@ namespace BE
         {
             return "\nrequirement= "+requirement + " success= " +success;
         }
+        public Requirement Clone()
+        {
+            Requirement result = new Requirement
+            {
+                requirement = this.requirement,
+                success = this.success,
+            };
+            return result;
+        }
     }
    
 }

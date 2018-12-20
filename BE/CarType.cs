@@ -47,7 +47,10 @@ namespace BE
                 return true;
             return false;
         }
-
+        public override string ToString()
+        {
+            return carType.ToString()+" "+gearType.ToString();
+        } 
 
     }
 }

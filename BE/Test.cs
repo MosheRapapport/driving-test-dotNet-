@@ -23,7 +23,7 @@ namespace BE
         public String Tester_ID { get; set; }
         public Address StartingPoint { get; set; }
         public bool Success { get; set; }
-        private string comment = "not comment yet";
+        private string comment;
         public String Comment { get => comment; set => comment = value; }
         public CarType carType { get; set; }
         public override string ToString()
@@ -47,7 +47,14 @@ namespace BE
                 Trainee_ID = this.Trainee_ID,
                 Date = this.Date,
                 Comment = this.Comment,
-                Requirements = this.Requirements,
+                Requirements = new Requirement[6]
+                {this.Requirements[0].Clone(),
+                this.Requirements[1].Clone(),
+                this.Requirements[2].Clone(),
+                this.Requirements[3].Clone(),
+                this.Requirements[4].Clone(),
+                this.Requirements[5].Clone(),
+                },
                 StartingPoint = this.StartingPoint.Clone(),
                 Success = this.Success,
                 carType = this.carType.Clone()
