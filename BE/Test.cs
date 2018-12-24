@@ -11,7 +11,7 @@ namespace BE
         private int _codeOfTest = 0;
         public int codeOfTest { get => _codeOfTest; set => _codeOfTest = value; }
         public DateTime Date { get; set; }
-        public Requirement[] Requirements = new Requirement[6]
+        public Requirement[] requirements = new Requirement[6]
         { new Requirement {requirement="revers",success=false } ,
           new Requirement { requirement = "U turn", success = false },
           new Requirement {requirement = "speed", success = false },
@@ -29,12 +29,13 @@ namespace BE
         public override string ToString()
         {
             string A = "";
-            foreach (Requirement item in Requirements)
+            foreach (Requirement item in requirements)
             {
                 A += item.ToString();
             }
             return "\ncode of test: " + codeOfTest + " trainee ID: " + Trainee_ID +
                 " tester ID: " + Tester_ID + " date:  " + Date.ToString() + A+
+                " carType: "+ carType.ToString()+
                 " starting point: " + StartingPoint.ToString() +
                 " success: " + Success + " comment: " + Comment;
         }
@@ -47,13 +48,13 @@ namespace BE
                 Trainee_ID = this.Trainee_ID,
                 Date = this.Date,
                 Comment = this.Comment,
-                Requirements = new Requirement[6]
-                {this.Requirements[0].Clone(),
-                this.Requirements[1].Clone(),
-                this.Requirements[2].Clone(),
-                this.Requirements[3].Clone(),
-                this.Requirements[4].Clone(),
-                this.Requirements[5].Clone(),
+                requirements = new Requirement[6]
+                {this.requirements[0].Clone(),
+                this.requirements[1].Clone(),
+                this.requirements[2].Clone(),
+                this.requirements[3].Clone(),
+                this.requirements[4].Clone(),
+                this.requirements[5].Clone(),
                 },
                 StartingPoint = this.StartingPoint.Clone(),
                 Success = this.Success,

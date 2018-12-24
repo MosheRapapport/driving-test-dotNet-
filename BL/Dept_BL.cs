@@ -19,7 +19,7 @@ namespace BL
         } //v
         public bool AddTrainee(Trainee trainee)
         {
-            if (trainee.DayOfBirth.Year - DateTime.Now.Year < Configuration.MIN_TRAINEE_AGE)
+            if (DateTime.Now.Year-trainee.DayOfBirth.Year < Configuration.MIN_TRAINEE_AGE)
                 throw new Exception("trainee under " + Configuration.MIN_TRAINEE_AGE + " years");
             try
             {
@@ -70,7 +70,7 @@ namespace BL
         public int numOfTests(Trainee trainee)
         {
             return (dal.GetTests().Count(Test =>
-            (Test.Trainee_ID == trainee.ID) && (Test.carType >= trainee.CarTrained)));
+            (Test.Trainee_ID == trainee.ID) && (Test.carType <= trainee.CarTrained)));
         }//v
         public bool PassedTest(Trainee trainee)
         {
@@ -178,7 +178,7 @@ namespace BL
             Random X = new Random();
             List<Tester> testersByRange = new List<Tester>();
             var rangGroup = from tester in dal.GetTesters()
-                            group tester by tester.MaxDistance > X.Next(10, 200) into g
+                            group tester by tester.MaxDistance > X.Next(0,100) into g
                             select new { corect = g.Key, testers = g };
             foreach (var item in rangGroup)
             {
@@ -330,14 +330,14 @@ namespace BL
         {
             if (drivingTest.Comment == null)
                 throw new Exception("Can not update the test because not all fields are filled");
-            if (drivingTest.Requirements[0].success == false ||
-                drivingTest.Requirements[1].success == false ||
-                drivingTest.Requirements[2].success == false ||
-                drivingTest.Requirements[3].success == false)
+            if (drivingTest.requirements[0].success == false ||
+                drivingTest.requirements[1].success == false ||
+                drivingTest.requirements[2].success == false ||
+                drivingTest.requirements[3].success == false)
                 drivingTest.Success = false;
             else
             {
-                if (drivingTest.Requirements[4].success == false && drivingTest.Requirements[5].success == false)
+                if (drivingTest.requirements[4].success == false && drivingTest.requirements[5].success == false)
                     drivingTest.Success = false;
                 else
                     drivingTest.Success = true;
@@ -366,7 +366,7 @@ namespace BL
 
         public IEnumerable<IGrouping<CarType, Tester>> TestersExpertise(bool sorted = false)
         {
-            if(sorted == false)
+            if(!sorted)
             {
                 var v = from tester in dal.GetTesters()
                         group tester by tester.Expertise;
@@ -381,7 +381,7 @@ namespace BL
 
         public IEnumerable<IGrouping<string, Trainee>> traineesBySchool(bool sorted = false)
         {
-            if (sorted == false)
+            if (!sorted)
             {
                 var v1 = from trainee in dal.GetTrainees()
                         group trainee by trainee.DrivingSchool;
@@ -395,7 +395,7 @@ namespace BL
 
         public IEnumerable<IGrouping<Name, Trainee>> traineesByTeacher(bool sorted = false)
         {
-            if (sorted == false)
+            if (!sorted )
             {
                 var v1 = from trainee in dal.GetTrainees()
                          group trainee by trainee.Instructor;
@@ -409,7 +409,7 @@ namespace BL
 
         public IEnumerable<IGrouping<int, Trainee>> traineesByNumOfTests(bool sorted = false)
         {
-            if (sorted == false)
+            if (!sorted)
             {
                 var v1 = from trainee in dal.GetTrainees()
                          group trainee by numOfTests(trainee);
