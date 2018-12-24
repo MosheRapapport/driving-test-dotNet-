@@ -11,32 +11,24 @@ namespace BE
         private int _codeOfTest = 0;
         public int codeOfTest { get => _codeOfTest; set => _codeOfTest = value; }
         public DateTime Date { get; set; }
-        public Requirement[] requirements = new Requirement[6]
-        { new Requirement {requirement="revers",success=false } ,
-          new Requirement { requirement = "U turn", success = false },
-          new Requirement {requirement = "speed", success = false },
-          new Requirement {requirement = "breks", success = false },
-          new Requirement {requirement = "blinks", success = false },
-          new Requirement { requirement = "Mirrors", success = false }
-        };
+        private Requirements _requirements = new Requirements();
+        public Requirements requirements { get=>_requirements; set=>_requirements=value; }
         public String Trainee_ID { get; set; }
         public String Tester_ID { get; set; }
         public Address StartingPoint { get; set; }
         public bool Success { get; set; }
-        private string comment;
+        private string comment="manyak";
         public String Comment { get => comment; set => comment = value; }
         public CarType carType { get; set; }
         public override string ToString()
         {
             string A = "";
-            foreach (Requirement item in requirements)
-            {
-                A += item.ToString();
-            }
+         
             return "\ncode of test: " + codeOfTest + " trainee ID: " + Trainee_ID +
                 " tester ID: " + Tester_ID + " date:  " + Date.ToString() + A+
                 " carType: "+ carType.ToString()+
                 " starting point: " + StartingPoint.ToString() +
+                 requirements.ToString()+
                 " success: " + Success + " comment: " + Comment;
         }
         public Test Clone()  //amok 
@@ -48,14 +40,8 @@ namespace BE
                 Trainee_ID = this.Trainee_ID,
                 Date = this.Date,
                 Comment = this.Comment,
-                requirements = new Requirement[6]
-                {this.requirements[0].Clone(),
-                this.requirements[1].Clone(),
-                this.requirements[2].Clone(),
-                this.requirements[3].Clone(),
-                this.requirements[4].Clone(),
-                this.requirements[5].Clone(),
-                },
+                requirements=this.requirements.Clone(),
+              
                 StartingPoint = this.StartingPoint.Clone(),
                 Success = this.Success,
                 carType = this.carType.Clone()
