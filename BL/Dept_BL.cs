@@ -330,14 +330,14 @@ namespace BL
         {
             if (drivingTest.Comment == null)
                 throw new Exception("Can not update the test because not all fields are filled");
-            if (drivingTest.requirements[0].success == false ||
-                drivingTest.requirements[1].success == false ||
-                drivingTest.requirements[2].success == false ||
-                drivingTest.requirements[3].success == false)
+            if (drivingTest.requirements.revers == false ||
+                drivingTest.requirements.U_turn == false ||
+                drivingTest.requirements.breks == false ||
+                drivingTest.requirements.speed== false)
                 drivingTest.Success = false;
             else
             {
-                if (drivingTest.requirements[4].success == false && drivingTest.requirements[5].success == false)
+                if (drivingTest.requirements.blinks == false && drivingTest.requirements.Mirrors== false)
                     drivingTest.Success = false;
                 else
                     drivingTest.Success = true;
