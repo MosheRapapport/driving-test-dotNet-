@@ -7,7 +7,7 @@ using BE;
 
 namespace BL
 {
-    interface IBL
+    public interface IBL
     {
         //G.A.R.U Trainee
         List<Trainee> GetTrainees();

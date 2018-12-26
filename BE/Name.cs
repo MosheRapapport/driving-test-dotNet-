@@ -12,7 +12,7 @@ namespace BE
         public String LastName { get; set; }
         public override string ToString()
         {
-            return "\nFirstName: " + FirstName.ToString() + " LastName: " + LastName.ToString();
+            return "FirstName: " + FirstName.ToString() + " LastName: " + LastName.ToString();
 
         }
     }

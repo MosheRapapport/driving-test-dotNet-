@@ -11,34 +11,74 @@ namespace UI
 {
     class Program
     {
+        private static BL.IBL bl = BL.FactorySingletonBL.getInstance();
         static void Main(string[] args)
         {
           
-            Dept_BL BL = new Dept_BL();
-            try
+
+            //-------------add trainees-----------------
+            //
+            //S1
+            try//הכנסת תלמיד עם בעיה S1
             {
-            BL.AddTrainee(new Trainee()
+                Console.WriteLine("The problem is that the trainee is young");
+                bl.AddTrainee(new Trainee()
+                {
+                    ID = "S1",
+                    Name = new Name { FirstName = "s1", LastName = "s1" },
+                    Address = new Address
+                    {
+                        City = "s1",
+                        Number = 1,
+                        StreetName = "s1",
+
+                    },
+                    PhoneNumber = "0542520196",
+                    CarTrained = new CarType { carType = carType.Private, gearType = GearType.Automatic },
+                    DrivingSchool = "beit sefer",
+                    Instructor = new Name { FirstName = "moshe", LastName = "bfx" },
+                    LessonsNb = 20,
+                    DayOfBirth = DateTime.Now.AddYears(-15),
+                    Gender = Gender.MALE,
+                });
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+            try// הכנסתתלמיד ללא בעיה S1
+            {
+                bl.AddTrainee(new Trainee()
+                {
+                    ID = "S1",
+                    Name = new Name { FirstName = "s1", LastName = "s1" },
+                    Address = new Address
+                    {
+                        City = "s1",
+                        Number = 1,
+                        StreetName = "s1",
+
+                    },
+                    PhoneNumber = "0542520196",
+                    CarTrained = new CarType { carType = carType.Private, gearType = GearType.Automatic },
+                    DrivingSchool = "beit sefer",
+                    Instructor = new Name { FirstName = "moshe", LastName = "bfx" },
+                    LessonsNb = 20,
+                    DayOfBirth = DateTime.Now.AddYears(-17),
+                    Gender = Gender.MALE,
+                });
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+            //S2
+            try//הכנסת תלמיד עם בעיה S2
+            {
+            Console.WriteLine("\n\nThe problem is that the trainee already exists in the system");
+            bl.AddTrainee(new Trainee()
             {
                 ID = "S1",
-                Name = new Name { FirstName = "s1", LastName = "s1" },
-                Address = new Address
-                {
-                    City = "s1",
-                    Number = 1,
-                    StreetName = "s1",
-
-                },
-                PhoneNumber = "0542520196",
-                CarTrained = new CarType { carType = carType.Private, gearType = GearType.Automatic },
-                DrivingSchool = "beit sefer",
-                Instructor = new Name { FirstName = "moshe", LastName = "bfx" },
-                LessonsNb = 20,
-                DayOfBirth = DateTime.Now.AddYears(-17),
-                Gender = Gender.MALE,
-            });
-            BL.AddTrainee(new Trainee()
-            {
-                ID = "S2",
                 Name = new Name { FirstName = "s2", LastName = "s2" },
                 Address = new Address
                 {
@@ -55,7 +95,41 @@ namespace UI
                 DayOfBirth = DateTime.Now.AddYears(-17),
                 Gender = Gender.MALE,
             });
-            BL.AddTrainee(new Trainee()
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+            try//הכנסת תלמיד ללא בעיה S2
+            {
+                bl.AddTrainee(new Trainee()
+                {
+                    ID = "S2",
+                    Name = new Name { FirstName = "s2", LastName = "s2" },
+                    Address = new Address
+                    {
+                        City = "s2",
+                        Number = 2,
+                        StreetName = "s2",
+
+                    },
+                    PhoneNumber = "0542520196",
+                    CarTrained = new CarType { carType = carType.Private, gearType = GearType.Automatic },
+                    DrivingSchool = "beit sefer",
+                    Instructor = new Name { FirstName = "moshe", LastName = "bfx" },
+                    LessonsNb = 20,
+                    DayOfBirth = DateTime.Now.AddYears(-17),
+                    Gender = Gender.MALE,
+                });
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+            //----------------להמשיך בעיות-------------
+            try
+            {
+                bl.AddTrainee(new Trainee()
             {
                 ID = "S3",
                 Name = new Name { FirstName = "s3", LastName = "s3" },
@@ -70,11 +144,18 @@ namespace UI
                 CarTrained = new CarType { carType = carType.Private, gearType = GearType.Automatic },
                 DrivingSchool = "beit sefer",
                 Instructor = new Name { FirstName = "moshe", LastName = "bfx" },
-                LessonsNb = 20,
+                LessonsNb = 19,
                 DayOfBirth = DateTime.Now.AddYears(-17),
-                Gender = Gender.MALE,
+                Gender = Gender.FEMALE,
             });
-            BL.AddTrainee(new Trainee()
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+            try
+            {
+                bl.AddTrainee(new Trainee()
             {
                 ID = "S4",
                 Name = new Name { FirstName = "s4", LastName = "s4" },
@@ -93,7 +174,14 @@ namespace UI
                 DayOfBirth = DateTime.Now.AddYears(-17),
                 Gender = Gender.MALE,
             });
-            BL.AddTrainee(new Trainee()
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+            try
+            {
+                bl.AddTrainee(new Trainee()
             {
                 ID = "S5",
                 Name = new Name { FirstName = "s5", LastName = "s5" },
@@ -112,7 +200,14 @@ namespace UI
                 DayOfBirth = DateTime.Now.AddYears(-17),
                 Gender = Gender.MALE,
             });
-            BL.AddTrainee(new Trainee()
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+            try
+            {
+                bl.AddTrainee(new Trainee()
             {
                 ID = "S6",
                 Name = new Name { FirstName = "s6", LastName = "s6" },
@@ -129,9 +224,16 @@ namespace UI
                 Instructor = new Name { FirstName = "moshe", LastName = "bfx" },
                 LessonsNb = 20,
                 DayOfBirth = DateTime.Now.AddYears(-17),
-                Gender = Gender.MALE,
+                Gender = Gender.FEMALE,
             });
-            BL.AddTrainee(new Trainee()
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+            try
+            {
+                bl.AddTrainee(new Trainee()
             {
                 ID = "S7",
                 Name = new Name { FirstName = "s7", LastName = "s7" },
@@ -151,57 +253,151 @@ namespace UI
                 Gender = Gender.MALE,
             });
 
-            BL.AddTester(new Tester()
+            }
+            catch (Exception e)
             {
-                ID = "T1",
-                Name = new Name { FirstName = "jojo", LastName = "chalass" },
-                Address = new Address
-                {
-                    City = "Jerusalem",
-                    Number = 21,
-                    StreetName = "havvad haleumi",
-                },
-                PhoneNumber = "054999999",
+                Console.WriteLine(e);
+            }
 
-                DayOfBirth = DateTime.Now.AddYears(-50),
-                Gender = Gender.MALE,
-                Experience = 10,
-                Expertise = new CarType { carType = carType.Private, gearType = GearType.Automatic },
-                MaxDistance = 1000,
-                MaxTestWeekly = 5,
-                Luz = new Schedule(new bool[5, 6] {
+
+            //-----------------------add testers------------------
+            //T1
+            try
+            {
+                Console.WriteLine("\nThe problem is that the tester is young");
+                bl.AddTester(new Tester()
+                {
+                    ID = "T1",
+                    Name = new Name { FirstName = "jojo", LastName = "chalass" },
+                    Address = new Address
+                    {
+                        City = "Jerusalem",
+                        Number = 21,
+                        StreetName = "havvad haleumi",
+                    },
+                    PhoneNumber = "054999999",
+
+                    DayOfBirth = DateTime.Now.AddYears(-39),
+                    Gender = Gender.MALE,
+                    Experience = 10,
+                    Expertise = new CarType { carType = carType.Private, gearType = GearType.Automatic },
+                    MaxDistance = 1000,
+                    MaxTestWeekly = 5,
+                    Luz = new Schedule(new bool[5, 6] {
                         { true, true,true, true, true, true},
                         { true, true, true, true, true, true},
                         { true, true, true, true, true, true},
                         { true, true, true, true, true, true},
                         { true, true, true, true, true, true} })
-            });
-            BL.AddTester(new Tester()
+                });
+            }
+            catch (Exception e)
             {
-                ID = "T2",
-                Name = new Name { FirstName = "jojo", LastName = "chalass" },
-                Address = new Address
+                Console.WriteLine(e);
+            }
+            try
+            {
+                bl.AddTester(new Tester()
                 {
-                    City = "Jerusalem",
-                    Number = 21,
-                    StreetName = "havvad haleumi",
-                },
-                PhoneNumber = "054999999",
+                    ID = "T1",
+                    Name = new Name { FirstName = "jojo", LastName = "chalass" },
+                    Address = new Address
+                    {
+                        City = "Jerusalem",
+                        Number = 21,
+                        StreetName = "havvad haleumi",
+                    },
+                    PhoneNumber = "054999999",
 
-                DayOfBirth = DateTime.Now.AddYears(-50),
-                Gender = Gender.MALE,
-                Experience = 10,
-                Expertise = new CarType { carType = carType.Private, gearType = GearType.Automatic },
-                MaxDistance = 1000,
-                MaxTestWeekly = 5,
-                Luz = new Schedule(new bool[5, 6] {
+                    DayOfBirth = DateTime.Now.AddYears(-50),
+                    Gender = Gender.MALE,
+                    Experience = 10,
+                    Expertise = new CarType { carType = carType.Private, gearType = GearType.Automatic },
+                    MaxDistance = 1000,
+                    MaxTestWeekly = 1,
+                    Luz = new Schedule(new bool[5, 6] {
                         { true, true,true, true, true, true},
                         { true, true, true, true, true, true},
                         { true, true, true, true, true, true},
                         { true, true, true, true, true, true},
                         { true, true, true, true, true, true} })
-            });
-            BL.AddTester(new Tester()
+                });
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+            //T2
+            try
+            {
+                Console.WriteLine("\n\nThe problem is that the tester already exists in the system");
+                bl.AddTester(new Tester()
+                {
+                    ID = "T1",
+                    Name = new Name { FirstName = "jojo", LastName = "chalass" },
+                    Address = new Address
+                    {
+                        City = "Jerusalem",
+                        Number = 21,
+                        StreetName = "havvad haleumi",
+                    },
+                    PhoneNumber = "054999999",
+
+                    DayOfBirth = DateTime.Now.AddYears(-50),
+                    Gender = Gender.MALE,
+                    Experience = 10,
+                    Expertise = new CarType { carType = carType.Private, gearType = GearType.Automatic },
+                    MaxDistance = 1000,
+                    MaxTestWeekly = 5,
+                    Luz = new Schedule(new bool[5, 6] {
+                        { true, true,true, true, true, true},
+                        { true, true, true, true, true, true},
+                        { true, true, true, true, true, true},
+                        { true, true, true, true, true, true},
+                        { true, true, true, true, true, true} })
+                });
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+            try
+            {
+                bl.AddTester(new Tester()
+                {
+                    ID = "T2",
+                    Name = new Name { FirstName = "jojo", LastName = "chalass" },
+                    Address = new Address
+                    {
+                        City = "Jerusalem",
+                        Number = 21,
+                        StreetName = "havvad haleumi",
+                    },
+                    PhoneNumber = "054999999",
+
+                    DayOfBirth = DateTime.Now.AddYears(-50),
+                    Gender = Gender.MALE,
+                    Experience = 10,
+                    Expertise = new CarType { carType = carType.Private, gearType = GearType.Automatic },
+                    MaxDistance = 1000,
+                    MaxTestWeekly = 5,
+                    Luz = new Schedule(new bool[5, 6] {
+                        { false, true,true, true, true, true},
+                        { true, true, true, true, true, true},
+                        { true, true, true, true, true, true},
+                        { true, true, true, true, true, true},
+                        { true, true, true, true, true, true} })
+                });
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+
+
+            try
+            {
+                bl.AddTester(new Tester()
             {
                 ID = "T3",
                 Name = new Name { FirstName = "jojo", LastName = "chalass" },
@@ -220,13 +416,20 @@ namespace UI
                 MaxDistance = 1000,
                 MaxTestWeekly = 5,
                 Luz = new Schedule(new bool[5, 6] {
-                        { true, true,true, true, true, true},
+                        { false, true,true, true, true, true},
                         { true, true, true, true, true, true},
                         { true, true, true, true, true, true},
                         { true, true, true, true, true, true},
                         { true, true, true, true, true, true} })
             });
-            BL.AddTester(new Tester()
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+            try
+            {
+                bl.AddTester(new Tester()
             {
                 ID = "T4",
                 Name = new Name { FirstName = "jojo", LastName = "chalass" },
@@ -245,106 +448,209 @@ namespace UI
                 MaxDistance = 1000,
                 MaxTestWeekly = 5,
                 Luz = new Schedule(new bool[5, 6] {
-                        { true, true,true, true, true, true},
+                        { false, true,true, true, true, true},
                         { true, true, true, true, true, true},
                         { true, true, true, true, true, true},
                         { true, true, true, true, true, true},
                         { true, true, true, true, true, true} })
             });
-
-            BL.AddDrivingTest(new Test()
-            {
-
-                Trainee_ID = "S1",
-                Date = new DateTime(2018, 12, 17, 9, 0, 0),
-                Success = false
-            });
-            BL.AddDrivingTest(new Test()
-            {
-
-                Trainee_ID = "S2",
-                Date = new DateTime(2018, 12, 17, 9, 0, 0),
-                Success = false
-            });
-            BL.AddDrivingTest(new Test()
-            {
-
-                Trainee_ID = "S3",
-                Date = new DateTime(2018, 12, 17, 9, 0, 0),
-                Success = false
-            });
-            BL.AddDrivingTest(new Test()
-            {
-
-                Trainee_ID = "S4",
-                Date = new DateTime(2018, 12, 17, 9, 0, 0),
-                Success = false
-            });
-            BL.AddDrivingTest(new Test()
-            {
-
-                Trainee_ID = "S5",
-                Date = new DateTime(2018, 12, 17, 9, 0, 0),
-                Success = false
-            });
-            BL.AddDrivingTest(new Test()
-            {
-
-                Trainee_ID = "S6",
-                Date = new DateTime(2018, 12, 17, 9, 0, 0),
-                Success = false
-            });
-            BL.AddDrivingTest(new Test()
-            {
-
-                Trainee_ID = "S7",
-                Date = new DateTime(2018, 12, 17, 9, 0, 0),
-                Success = false
-            });
-
             }
             catch (Exception e)
             {
                 Console.WriteLine(e);
             }
 
-            
-     
-            Console.WriteLine("Trainees\n--------------------------------------\n");
-           
-            foreach (Trainee item in BL.GetTrainees())
+
+
+            //-------------------add tests--------------------
+            try
             {
-                Console.WriteLine(item.ToString());
-              
+                bl.AddDrivingTest(new Test()
+                {
+
+                    Trainee_ID = "S1",
+                    Date = new DateTime(2018, 12, 2, 10, 0, 0),
+                    Success = false
+            });
             }
-           
-            Console.WriteLine("\nTesters\n---------------------------------------\n");
-           
-            foreach (Tester item in BL.GetTesters())
+            catch (Exception e)
             {
-                Console.WriteLine(item.ToString());
-                             
+                Console.WriteLine(e);
             }
-         
+            try
+            {
+                bl.AddDrivingTest(new Test()
+            {
+
+                Trainee_ID = "S1",
+                Date = new DateTime(2018, 12, 26, 9, 0, 0),
+                Success = false
+            });
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+            try
+            {
+                bl.UpdateTrainee(new Trainee()
+                {
+                    ID = "S1",
+                    Name = new Name { FirstName = "s1", LastName = "s1" },
+                    Address = new Address
+                    {
+                        City = "s1",
+                        Number = 1,
+                        StreetName = "s1",
+
+                    },
+                    PhoneNumber = "0542520196",
+                    CarTrained = new CarType { carType = carType.TwoWheels, gearType = GearType.Automatic },
+                    DrivingSchool = "beit sefer",
+                    Instructor = new Name { FirstName = "moshe", LastName = "bfx" },
+                    LessonsNb = 20,
+                    DayOfBirth = DateTime.Now.AddYears(-17),
+                    Gender = Gender.MALE,
+                });
+            }
+            catch (Exception e)
+            { Console.WriteLine(e); }
+
+
+            try
+            {
+                bl.AddDrivingTest(new Test()
+                {
+
+                    Trainee_ID = "S3",
+                    Date = new DateTime(2018, 12, 17, 9, 0, 0),
+                    Success = false
+                });
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+
+            try
+            {
+                bl.AddDrivingTest(new Test()
+                {
+
+                    Trainee_ID = "S4",
+                    Date = new DateTime(2018, 12, 30, 9, 0, 0),
+                    Success = false
+                });
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+            try
+            {
+                bl.AddDrivingTest(new Test()
+                {
+
+                    Trainee_ID = "S5",
+                    Date = new DateTime(2018, 12, 30, 9, 0, 0),
+                    Success = false
+                });
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+            try
+            {
+                bl.AddDrivingTest(new Test()
+                {
+
+                    Trainee_ID = "S1",
+                    Date = new DateTime(2018, 12, 30, 9, 0, 0),
+                    Success = false
+                });
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+            Console.WriteLine("\n\n\n-----------------------\n\n\n");
+            Test m1 = new Test
+            {
+
+                Trainee_ID = "S7",
+                Date = new DateTime(2018, 12, 27, 10, 0, 0),
+                Success = false
+
+            };
+
+            try
+            {
+                bl.AddDrivingTest(m1);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+            m1.requirements.U_turn = true;
+            m1.requirements.speed = true;
+            m1.requirements.revers = true;
+            m1.requirements.breks = true;
+            m1.requirements.Mirrors = true;
+            m1.requirements.blinks = true;
+            try
+            {
+                bl.UpdateDrivingTest(m1);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+            Console.WriteLine("\n\n\n-----------------------\n\n\n");
+            Console.WriteLine(m1.ToString());
+
+            //Console.WriteLine("Trainees\n--------------------------------------\n");
+
+            //foreach (Trainee item in bl.GetTrainees())
+            //{
+            //    Console.WriteLine(item.ToString());
+
+            //}
+
+            //Console.WriteLine("\nTesters\n---------------------------------------\n");
+
+            //foreach (Tester item in bl.GetTesters())
+            //{
+            //    Console.WriteLine(item.ToString());
+
+            //}
+
             Console.WriteLine("\nTests\n-----------------------------------------\n");
-            foreach (Test item in BL.GetTests())
+            foreach (Test item in bl.GetTests())
             {
                 Console.WriteLine(item.ToString());
-                          
+
             }
             Console.WriteLine("\nupdate\n-----------------------------------------\n");
+            foreach (var item in bl.traineesByNumOfTests(true))
+            {
+                Console.WriteLine(item.Key);
+                foreach (var v in item)
+                {
+                    Console.WriteLine(v.ID+"\t"+v.Gender);
+                }
+            }
+                ////Console.WriteLine("\nTests after update\n-----------------------------------------\n");
+                ////Console.WriteLine("\nupdate tranee\n-----------------------------------------\n");
+                ////Console.WriteLine("\ntranee after update\n-----------------------------------------\n");
+                ////Console.WriteLine("\nTests after update\n-----------------------------------------\n");
+                ////Console.WriteLine("\n---------------------\n-----------------------------------------\n");
+                ////Console.WriteLine("\n---------------------\n-----------------------------------------\n");
+                Console.ReadKey();
 
-            Console.WriteLine("\nTests after update\n-----------------------------------------\n");
-            Console.WriteLine("\nupdate tranee\n-----------------------------------------\n");
-            Console.WriteLine("\ntranee after update\n-----------------------------------------\n");
-            Console.WriteLine("\nTests after update\n-----------------------------------------\n");
-            Console.WriteLine("\n---------------------\n-----------------------------------------\n");
-            Console.WriteLine("\n---------------------\n-----------------------------------------\n");
-            Console.ReadKey();
 
 
-
-        }
+            }
     }
 }
 

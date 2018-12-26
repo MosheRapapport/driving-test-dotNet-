@@ -17,19 +17,19 @@ namespace BE
         public String Tester_ID { get; set; }
         public Address StartingPoint { get; set; }
         public bool Success { get; set; }
-        private string comment="manyak";
+        private string comment="";
         public String Comment { get => comment; set => comment = value; }
         public CarType carType { get; set; }
         public override string ToString()
         {
             string A = "";
          
-            return "\ncode of test: " + codeOfTest + " trainee ID: " + Trainee_ID +
+            return "\ncode of test: " + codeOfTest + "\ntrainee ID: " + Trainee_ID +
                 " tester ID: " + Tester_ID + " date:  " + Date.ToString() + A+
                 " carType: "+ carType.ToString()+
-                " starting point: " + StartingPoint.ToString() +
+                "\nstarting point: " + StartingPoint.ToString() +
                  requirements.ToString()+
-                " success: " + Success + " comment: " + Comment;
+                "\nsuccess: " + Success + " comment: " + Comment;
         }
         public Test Clone()  //amok 
         {

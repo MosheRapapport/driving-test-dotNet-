@@ -15,7 +15,15 @@ namespace BL
         //G.A.R.U Trainee
         public List<Trainee> GetTrainees()
         {
+            try
+            {
             return dal.GetTrainees();
+            }
+            catch (Exception e)
+            {
+
+                throw e;
+            }
         } //v
         public bool AddTrainee(Trainee trainee)
         {
@@ -67,10 +75,14 @@ namespace BL
         } //v
 
         //Functions for Trainee
-        public int numOfTests(Trainee trainee)
+        public int numOfTests(Trainee trainee)//Test.carType >= trainee.CarTrained
         {
             return (dal.GetTests().Count(Test =>
-            (Test.Trainee_ID == trainee.ID) && (Test.carType <= trainee.CarTrained)));
+            (Test.Trainee_ID == trainee.ID) && (Test.carType >= trainee.CarTrained)));
+        }//v
+        public int numOfAllTests(Trainee trainee)
+        {
+            return (dal.GetTests().Count(Test =>(Test.Trainee_ID == trainee.ID) ));
         }//v
         public bool PassedTest(Trainee trainee)
         {
@@ -100,7 +112,7 @@ namespace BL
                     if (item.Success)         //בדיקה האם עבר כבר טסט בסוג רכב זה
                         throw new Exception("Has already passed a test on this type of vehicle or better");
 
-                    if (item.Date > DateTime.Now)     //בדיקה האם יש לו טסט עתידי
+                    if (item.Date >= DateTime.Now)     //בדיקה האם יש לו טסט עתידי
                         throw new Exception("Has already have a test on this type of vehicle or better in the future");
                     lastTestsList.Add(item);
                 }
@@ -117,7 +129,15 @@ namespace BL
         //G.A.R.U Tester
         public List<Tester> GetTesters()
         {
+            try
+            {
             return dal.GetTesters();
+            }
+            catch (Exception e)
+            {
+
+                throw e;
+            }
         } //v
         public bool AddTester(Tester tester)
         {
@@ -289,11 +309,17 @@ namespace BL
             return false;
         }//v
 
-
         //G.A.U Test
         public List<Test> GetTests()
         {
+            try
+            {
             return dal.GetTests();
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
         } //v
         public bool AddDrivingTest(Test drivingTest)
         {
@@ -328,7 +354,7 @@ namespace BL
         }//v+9
         public bool UpdateDrivingTest(Test drivingTest)
         {
-            if (drivingTest.Comment == null)
+            if (drivingTest.Comment == "")
                 throw new Exception("Can not update the test because not all fields are filled");
             if (drivingTest.requirements.revers == false ||
                 drivingTest.requirements.U_turn == false ||
@@ -359,11 +385,6 @@ namespace BL
                 date2.AddDays(-(int)date2.DayOfWeek).AddHours(-date2.Hour);
         }//v++
 
-
-
-
-
-
         public IEnumerable<IGrouping<CarType, Tester>> TestersExpertise(bool sorted = false)
         {
             if(!sorted)
@@ -378,7 +399,6 @@ namespace BL
             return v1;
 
         }
-
         public IEnumerable<IGrouping<string, Trainee>> traineesBySchool(bool sorted = false)
         {
             if (!sorted)
@@ -392,7 +412,6 @@ namespace BL
                      group trainee by trainee.DrivingSchool;
             return v2;
         }
-
         public IEnumerable<IGrouping<Name, Trainee>> traineesByTeacher(bool sorted = false)
         {
             if (!sorted )
@@ -406,18 +425,17 @@ namespace BL
                      group trainee by trainee.Instructor;
             return v2;
         }
-
         public IEnumerable<IGrouping<int, Trainee>> traineesByNumOfTests(bool sorted = false)
         {
             if (!sorted)
             {
                 var v1 = from trainee in dal.GetTrainees()
-                         group trainee by numOfTests(trainee);
+                         group trainee by numOfAllTests(trainee);
                 return v1;
             }
             var v2 = from trainee in dal.GetTrainees()
-                     orderby trainee.Gender, trainee.ID
-                     group trainee by numOfTests(trainee);
+                     orderby trainee.ID, trainee.Gender
+                     group trainee by numOfAllTests(trainee);
             return v2;
         }
     }

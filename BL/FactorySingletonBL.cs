@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BL
 {
-    class FactorySingletonBL
+    public class FactorySingletonBL
     {
         protected static IBL instance = null;
 

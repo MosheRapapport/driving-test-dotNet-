@@ -15,9 +15,9 @@ namespace BE
        
         public override string ToString()
         {
-            return base.ToString() + " CarTrained: " + CarTrained.ToString() 
+            return base.ToString() + " \nCarTrained: " + CarTrained.ToString() 
                 + " DrivingSchool: " + DrivingSchool +
-               "Instructor: " + Instructor.ToString() + " LessonsNb: " + LessonsNb;
+               "Instructor: " + Instructor.ToString() + " LessonsNb: " + LessonsNb+"\n";
         }
         public new Trainee Clone()
         {
