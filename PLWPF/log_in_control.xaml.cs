@@ -22,12 +22,13 @@ namespace PLWPF
     /// </summary>
     public partial class log_in_control : UserControl
     {
-        private static BL.IBL bl = BL.FactorySingletonBL.getInstance();
-        Person thePerson;
+        public static BL.IBL bl = BL.FactorySingletonBL.getInstance();
+        public static Person thePerson;
         public log_in_control()
         {
             InitializeComponent();
             SetVisibiltyHidden();
+            thePerson = new Person();
         }
 
         private void ID_comboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)

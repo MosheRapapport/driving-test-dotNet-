@@ -33,5 +33,11 @@ namespace PLWPF
             add_trainee_Window add_Trainee_Window = new add_trainee_Window();
             add_Trainee_Window.Show();
         }
+
+        private void add_tester_button_Click(object sender, RoutedEventArgs e)
+        {
+            add_tester_Window add_tester_Window = new add_tester_Window();
+            add_tester_Window.Show();
+        }
     }
 }
