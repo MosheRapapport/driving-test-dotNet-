@@ -12,13 +12,8 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-        <Label x:Name="label_chose_id" Content="chose your id" Grid.Column="1" HorizontalAlignment="Left" Margin="102.333,10,0,0" Grid.Row="1" VerticalAlignment="Top"/>
-        <ComboBox x:Name="ID_comboBox" Grid.Column="1" HorizontalAlignment="Left" DisplayMemberPath="ID" Margin="65.333,41,0,0" Grid.Row="1" VerticalAlignment="Top" Width="120" SelectionChanged="ID_comboBox_SelectionChanged">
+        <Label x:Name="label_chose_id" Content="chose your id" Grid.Column="1" HorizontalAlignment="Left" Margin="65.333,121,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="ID_comboBox" Grid.Column="1" HorizontalAlignment="Left" DisplayMemberPath="ID" Margin="65.333,151,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="ID_comboBox_SelectionChanged">
             <ComboBox.Style>
                 <Style>
                     <Style.Triggers>
@@ -29,7 +24,7 @@
                 </Style>
             </ComboBox.Style>
         </ComboBox>
-        <Button x:Name="button_ok" Content="ok" Grid.Column="1" HorizontalAlignment="Left" Margin="97.333,106,0,0" Grid.Row="1" VerticalAlignment="Top" Width="75" Click="Button_ok_Click">
+        <Button x:Name="button_ok" Content="ok" Grid.Column="1" HorizontalAlignment="Left" Margin="71.333,194,0,0" VerticalAlignment="Top" Width="75" Click="Button_ok_Click">
             <Button.Style>
                 <Style>
                     <Style.Triggers>
@@ -41,7 +36,7 @@
             </Button.Style>
         </Button>
 
-        <StackPanel x:Name="statos_stakPanel" Grid.Column="1" HorizontalAlignment="Left" Height="44" Margin="65.333,79,0,0" VerticalAlignment="Top" Width="70">
+        <StackPanel x:Name="statos_stakPanel" Grid.Column="1" HorizontalAlignment="Left" Height="44" Margin="70.333,77,0,0" VerticalAlignment="Top" Width="70">
             <RadioButton x:Name="radioButton_trainee" Content="trainee" Checked="RadioButton_trainee_Checked"/>
             <RadioButton x:Name="radioButton_tester" Content="tester" Checked="RadioButton_tester_Checked"/>
             <RadioButton x:Name="radioButton2" Content="RadioButton" IsChecked="True" Visibility="Hidden"/>

@@ -17,9 +17,9 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Button x:Name="update_button" Content="update trainee" Grid.Column="2" HorizontalAlignment="Left" Margin="78.667,76,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button x:Name="remove_button" Content="remove trainee" Grid.Column="2" HorizontalAlignment="Left" Margin="112.667,71,0,0" Grid.Row="1" VerticalAlignment="Top" Width="75"/>
-        <Button x:Name="add_test_button" Content="add test" Grid.Column="2" HorizontalAlignment="Left" Margin="112.667,62,0,0" Grid.Row="2" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="update_button" Content="update user" Grid.Column="2" HorizontalAlignment="Left" Margin="106.667,70,0,0" VerticalAlignment="Top" Width="80"/>
+        <Button x:Name="remove_button" Content="remove user" Grid.Column="2" HorizontalAlignment="Left" Margin="106.667,70,0,0" Grid.Row="1" VerticalAlignment="Top" Width="80"/>
+        <Button x:Name="add_test_button" Content="add test" Grid.Column="2" HorizontalAlignment="Left" Margin="106.667,70,0,0" Grid.Row="2" VerticalAlignment="Top" Width="80"/>
 
     </Grid>
 </UserControl>

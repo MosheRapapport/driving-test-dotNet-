@@ -22,6 +22,8 @@ namespace PLWPF
     /// </summary>
     public partial class MainWindow : Window
     {
+        private static BL.IBL bl = BL.FactorySingletonBL.getInstance();
+
         public MainWindow()
         {
             InitializeComponent();
@@ -48,6 +50,16 @@ namespace PLWPF
         private void Video_butten_Click(object sender, RoutedEventArgs e)
         {
             SetVisibiltyHidden();
+            string a = "";
+            foreach (Person item in bl.GetAllPersons())
+            {
+                if (item is Trainee)
+                    a += "\ntrainee:   ";
+                if (item is Tester)
+                    a += "\ntester:    ";
+                a += item.Name.ToString() +" "+item.ID.ToString();
+            }
+            MessageBox.Show(a);
         }
     }
 }

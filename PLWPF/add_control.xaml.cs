@@ -27,5 +27,11 @@ namespace PLWPF
         {
             InitializeComponent();
         }
+
+        private void Add_trainee_button_Click(object sender, RoutedEventArgs e)
+        {
+            add_trainee_Window add_Trainee_Window = new add_trainee_Window();
+            add_Trainee_Window.Show();
+        }
     }
 }
