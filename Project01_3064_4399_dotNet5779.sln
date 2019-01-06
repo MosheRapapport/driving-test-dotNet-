@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI", "UI\UI.csproj", "{6C9D
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DS", "DS\DS.csproj", "{375DBAD1-97DC-43F1-B201-EF60F80675AB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PLWPF", "PLWPF\PLWPF.csproj", "{312282CD-22A4-42A5-8106-10A262A3D1FA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{375DBAD1-97DC-43F1-B201-EF60F80675AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{375DBAD1-97DC-43F1-B201-EF60F80675AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{375DBAD1-97DC-43F1-B201-EF60F80675AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{312282CD-22A4-42A5-8106-10A262A3D1FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{312282CD-22A4-42A5-8106-10A262A3D1FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{312282CD-22A4-42A5-8106-10A262A3D1FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{312282CD-22A4-42A5-8106-10A262A3D1FA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -38,6 +38,7 @@ namespace BL
         IEnumerable<IGrouping<string, Trainee>> traineesBySchool( bool sorted = false);
         IEnumerable<IGrouping<Name, Trainee>> traineesByTeacher( bool sorted = false);
         IEnumerable<IGrouping<int, Trainee>> traineesByNumOfTests( bool sorted = false);
+        List<Person> GetAllPersons();
 
 
 

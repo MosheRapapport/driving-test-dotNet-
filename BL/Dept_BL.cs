@@ -438,5 +438,18 @@ namespace BL
                      group trainee by numOfAllTests(trainee);
             return v2;
         }
+        public List<Person> GetAllPersons()
+        {
+            List<Person> people = new List<Person>();
+            IEnumerable<Person> result1 = (from p in dal.GetTrainees()
+                                           select p);
+            IEnumerable<Person> result2 = (from p in dal.GetTesters()
+                                           select p);
+            foreach (var item in result1)
+                people.Add(item);
+            foreach (var item in result2)
+                people.Add(item);
+            return people;
+        }
+        }
     }
-}

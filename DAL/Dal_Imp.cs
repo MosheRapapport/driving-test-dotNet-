@@ -11,19 +11,7 @@ namespace DAL
     {
         public Dal_Imp()
         {
-            AddTest(new Test()
-            {
-                Trainee_ID = "0",
-                Tester_ID="0",
-                StartingPoint=new Address
-                {
-                    City = "0",
-                    Number = 0,
-                    StreetName = "0",
-                },
-                Success= false,
-                carType= new CarType { carType = carType.Private, gearType = GearType.Automatic }
-            });
+            init();
         }
         public bool AddTest(Test drivingTest)
         {
@@ -171,6 +159,128 @@ namespace DAL
                 }
             }
             throw new Exception("The current trainee is not in the database");
+        }
+
+        public void init()
+        {
+            AddTrainee(new Trainee()
+            {
+                ID = "S1",
+                Name = new Name { FirstName = "s1", LastName = "s1" },
+                Address = new Address
+                {
+                    City = "s1",
+                    Number = 1,
+                    StreetName = "s1",
+
+                },
+                PhoneNumber = "0542520196",
+                CarTrained = new CarType { carType = carType.Private, gearType = GearType.Automatic },
+                DrivingSchool = "beit sefer",
+                Instructor = new Name { FirstName = "moshe", LastName = "bfx" },
+                LessonsNb = 25,
+                DayOfBirth = DateTime.Now.AddYears(-17),
+                Gender = Gender.MALE,
+            });
+            AddTrainee(new Trainee()
+            {
+                ID = "S2",
+                Name = new Name { FirstName = "s2", LastName = "s2" },
+                Address = new Address
+                {
+                    City = "s2",
+                    Number = 2,
+                    StreetName = "s2",
+
+                },
+                PhoneNumber = "0542520196",
+                CarTrained = new CarType { carType = carType.Private, gearType = GearType.Automatic },
+                DrivingSchool = "beit sefer",
+                Instructor = new Name { FirstName = "moshe", LastName = "bfx" },
+                LessonsNb = 25,
+                DayOfBirth = DateTime.Now.AddYears(-17),
+                Gender = Gender.MALE,
+            });
+            AddTrainee(new Trainee()
+            {
+                ID = "S3",
+                Name = new Name { FirstName = "s3", LastName = "s3" },
+                Address = new Address
+                {
+                    City = "s3",
+                    Number = 3,
+                    StreetName = "s3",
+
+                },
+                PhoneNumber = "0542520196",
+                CarTrained = new CarType { carType = carType.Private, gearType = GearType.Automatic },
+                DrivingSchool = "beit sefer",
+                Instructor = new Name { FirstName = "moshe", LastName = "bfx" },
+                LessonsNb = 25,
+                DayOfBirth = DateTime.Now.AddYears(-17),
+                Gender = Gender.MALE,
+            });
+
+            AddTester(new Tester()
+            {
+                ID = "T1",
+                Name = new Name { FirstName = "jojo", LastName = "chalass" },
+                Address = new Address
+                {
+                    City = "Jerusalem",
+                    Number = 21,
+                    StreetName = "havvad haleumi",
+                },
+                PhoneNumber = "054999999",
+
+                DayOfBirth = DateTime.Now.AddYears(-50),
+                Gender = Gender.MALE,
+                Experience = 10,
+                Expertise = new CarType { carType = carType.Private, gearType = GearType.Automatic },
+                MaxDistance = 1000,
+                MaxTestWeekly = 20,
+                Luz = new Schedule(new bool[5, 6] {
+                        { true, true,true, true, true, true},
+                        { true, true, true, true, true, true},
+                        { true, true, true, true, true, true},
+                        { true, true, true, true, true, true},
+                        { true, true, true, true, true, true} })
+            });
+            AddTester(new Tester()
+            {
+                ID = "T2",
+                Name = new Name { FirstName = "jojo", LastName = "chalass" },
+                Address = new Address
+                {
+                    City = "Jerusalem",
+                    Number = 21,
+                    StreetName = "havvad haleumi",
+                },
+                PhoneNumber = "054999999",
+
+                DayOfBirth = DateTime.Now.AddYears(-50),
+                Gender = Gender.MALE,
+                Experience = 10,
+                Expertise = new CarType { carType = carType.Private, gearType = GearType.Automatic },
+                MaxDistance = 1000,
+                MaxTestWeekly = 20,
+                Luz = new Schedule(new bool[5, 6] {
+                        { true, true,true, true, true, true},
+                        { true, true, true, true, true, true},
+                        { true, true, true, true, true, true},
+                        { true, true, true, true, true, true},
+                        { true, true, true, true, true, true} })
+            });
+
+            AddTest(new Test()
+            {
+                Trainee_ID = "S1",
+                Tester_ID = "T1",
+                carType = new CarType() { carType = carType.Private, gearType = GearType.Automatic },
+                codeOfTest = 0,
+                Date = DateTime.Now,
+                StartingPoint = new Address() { City = "s1", Number = 1, StreetName = "s1" },
+            });
         }
     }
 }
