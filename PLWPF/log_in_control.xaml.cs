@@ -49,6 +49,7 @@ namespace PLWPF
                 update_trainee.Visibility = Visibility.Visible;
             if (thePerson is Tester)
                 update_tester.Visibility = Visibility.Visible;
+
         }
 
         private void RadioButton_trainee_Checked(object sender, RoutedEventArgs e)
