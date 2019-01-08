@@ -18,6 +18,6 @@ namespace BE
     {
         Automatic, Manual
     }
-    public enum Day { Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday };
+    public enum Day { Sunday, Monday, Tuesday, Wednesday, Thursday};
 
 }

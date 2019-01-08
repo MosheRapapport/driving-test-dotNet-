@@ -61,6 +61,9 @@
     <Compile Include="add_trainee_Window.xaml.cs">
       <DependentUpon>add_trainee_Window.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Luz_UserControl1.xaml.cs">
+      <DependentUpon>Luz_UserControl1.xaml</DependentUpon>
+    </Compile>
     <Compile Include="update_tester_UserControl.xaml.cs">
       <DependentUpon>update_tester_UserControl.xaml</DependentUpon>
     </Compile>
@@ -83,6 +86,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="log_in_control.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Luz_UserControl1.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
