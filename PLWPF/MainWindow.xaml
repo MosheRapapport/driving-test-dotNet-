@@ -16,7 +16,7 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Button x:Name="log_in_button" Content="log in" HorizontalAlignment="Left" Margin="40,40,0,0" VerticalAlignment="Top" Width="180" Height="60" Click="Log_in_button_Click" Style="{DynamicResource ButtonStyle1}" />
+        <Button x:Name="log_in_button" Content="log in" HorizontalAlignment="Left" Margin="40,40,0,0" VerticalAlignment="Top" Width="180" Height="60" Click="Log_in_button_Click"  />
         <Button x:Name="new_user_butten" Content="new user" HorizontalAlignment="Left" Margin="40,40,0,0" Grid.Row="1" VerticalAlignment="Top" Width="180" Height="60" Click="New_user_butten_Click"/>
         <Button x:Name="video_butten" Content="video" HorizontalAlignment="Left" Margin="40,40,0,0" Grid.Row="2" VerticalAlignment="Top" Width="180" Height="61" Click="Video_butten_Click"/>
         <local:add_control x:Name="add" Visibility="Hidden" HorizontalAlignment="Left" Height="411" Margin="0,10,0,-0.333" Grid.RowSpan="3" VerticalAlignment="Top" Width="783" Grid.ColumnSpan="2"  />
