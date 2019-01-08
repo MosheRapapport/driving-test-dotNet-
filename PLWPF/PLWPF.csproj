@@ -61,14 +61,14 @@
     <Compile Include="add_trainee_Window.xaml.cs">
       <DependentUpon>add_trainee_Window.xaml</DependentUpon>
     </Compile>
-    <Compile Include="update_tester_UserControl.xaml.cs">
-      <DependentUpon>update_tester_UserControl.xaml</DependentUpon>
+    <Compile Include="tester_Control.xaml.cs">
+      <DependentUpon>tester_Control.xaml</DependentUpon>
     </Compile>
     <Compile Include="update_tester_Window.xaml.cs">
       <DependentUpon>update_tester_Window.xaml</DependentUpon>
     </Compile>
-    <Compile Include="update_trainee_Control1.xaml.cs">
-      <DependentUpon>update_trainee_Control1.xaml</DependentUpon>
+    <Compile Include="trainee_Control.xaml.cs">
+      <DependentUpon>trainee_Control.xaml</DependentUpon>
     </Compile>
     <Page Include="add_control.xaml">
       <SubType>Designer</SubType>
@@ -104,7 +104,7 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="update_tester_UserControl.xaml">
+    <Page Include="tester_Control.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -112,7 +112,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="update_trainee_Control1.xaml">
+    <Page Include="trainee_Control.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
