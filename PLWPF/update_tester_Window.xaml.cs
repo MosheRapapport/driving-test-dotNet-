@@ -21,6 +21,7 @@ namespace PLWPF
     /// </summary>
     public partial class update_tester_Window : Window
     {
+<<<<<<< HEAD
         private static BL.IBL bl = BL.FactorySingletonBL.getInstance();
         Tester myTester;
         public update_tester_Window()
@@ -49,5 +50,14 @@ namespace PLWPF
             myTester = (Tester)this.DataContext;
             Luz_user_control.DataContext = myTester.Luz;
         }
+=======
+        public update_tester_Window()
+        {
+            InitializeComponent();
+            this.DataContext = (Tester)log_in_control.thePerson;
+        }
+
+        
+>>>>>>> parent of 6db2ee7... Merge branch 'master' of https://github.com/YoniLabell/Project01_3064_4399_dotNet5779
     }
 }
