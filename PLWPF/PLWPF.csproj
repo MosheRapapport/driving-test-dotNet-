@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?<
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -66,14 +66,12 @@
     </Compile>
     <Compile Include="update_tester_UserControl.xaml.cs">
       <DependentUpon>update_tester_UserControl.xaml</DependentUpon>
-    <Compile Include="tester_Control.xaml.cs">
-      <DependentUpon>tester_Control.xaml</DependentUpon>
     </Compile>
     <Compile Include="update_tester_Window.xaml.cs">
       <DependentUpon>update_tester_Window.xaml</DependentUpon>
     </Compile>
-    <Compile Include="trainee_Control.xaml.cs">
-      <DependentUpon>trainee_Control.xaml</DependentUpon>
+    <Compile Include="update_trainee_Control1.xaml.cs">
+      <DependentUpon>update_trainee_Control1.xaml</DependentUpon>
     </Compile>
     <Page Include="add_control.xaml">
       <SubType>Designer</SubType>
@@ -113,7 +111,7 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="tester_Control.xaml">
+    <Page Include="update_tester_UserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -121,7 +119,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="trainee_Control.xaml">
+    <Page Include="update_trainee_Control1.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
