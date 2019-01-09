@@ -21,15 +21,17 @@ namespace PLWPF
     /// </summary>
     public partial class update_tester_Window : Window
     {
-<<<<<<< HEAD
         private static BL.IBL bl = BL.FactorySingletonBL.getInstance();
         Tester myTester;
         public update_tester_Window()
         {
             InitializeComponent();
+            
             this.genderComboBox.ItemsSource = Enum.GetValues(typeof(BE.Gender));
             this.carTypeComboBox.ItemsSource = Enum.GetValues(typeof(BE.carType));
             this.gearTypeComboBox.ItemsSource = Enum.GetValues(typeof(BE.GearType));
+            this.DataContext = (Tester)log_in_control.thePerson;
+
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -50,14 +52,7 @@ namespace PLWPF
             myTester = (Tester)this.DataContext;
             Luz_user_control.DataContext = myTester.Luz;
         }
-=======
-        public update_tester_Window()
-        {
-            InitializeComponent();
-            this.DataContext = (Tester)log_in_control.thePerson;
-        }
 
         
->>>>>>> parent of 6db2ee7... Merge branch 'master' of https://github.com/YoniLabell/Project01_3064_4399_dotNet5779
     }
 }

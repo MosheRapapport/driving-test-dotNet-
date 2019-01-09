@@ -64,14 +64,14 @@
     <Compile Include="Luz_UserControl1.xaml.cs">
       <DependentUpon>Luz_UserControl1.xaml</DependentUpon>
     </Compile>
-    <Compile Include="tester_Control.xaml.cs">
-      <DependentUpon>tester_Control.xaml</DependentUpon>
+    <Compile Include="update_tester_UserControl.xaml.cs">
+      <DependentUpon>update_tester_UserControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="update_tester_Window.xaml.cs">
       <DependentUpon>update_tester_Window.xaml</DependentUpon>
     </Compile>
-    <Compile Include="trainee_Control.xaml.cs">
-      <DependentUpon>trainee_Control.xaml</DependentUpon>
+    <Compile Include="update_trainee_Control1.xaml.cs">
+      <DependentUpon>update_trainee_Control1.xaml</DependentUpon>
     </Compile>
     <Page Include="add_control.xaml">
       <SubType>Designer</SubType>
@@ -111,7 +111,7 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="tester_Control.xaml">
+    <Page Include="update_tester_UserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -119,11 +119,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="trainee_Control.xaml">
+    <Page Include="update_trainee_Control1.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-	</ItemGroup>
+  </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>

@@ -48,19 +48,49 @@ namespace PLWPF
             if (thePerson is Trainee)
                 update_trainee.Visibility = Visibility.Visible;
             if (thePerson is Tester)
-                update_tester.Visibility = Visibility.Visible;
+
+            {
+              update_tester.DataContext= thePerson as Tester;
+              update_tester.Visibility = Visibility.Visible;
+              
+            }
+            radioButton2.IsChecked = true;
+               update_tester.Visibility = Visibility.Visible;
 
         }
 
         private void RadioButton_trainee_Checked(object sender, RoutedEventArgs e)
         {
             SetVisibiltyHidden();
+            
+            try
+            {
+              ID_comboBox.ItemsSource = bl.GetTrainees();
+            
+            }
+            catch (Exception x)
+            {
+               
+                MessageBox.Show(x.Message);
+            }
+            
             ID_comboBox.ItemsSource = bl.GetTrainees();
         }
 
         private void RadioButton_tester_Checked(object sender, RoutedEventArgs e)
         {
             SetVisibiltyHidden();
+           
+            try
+            {
+                ID_comboBox.ItemsSource = bl.GetTesters();
+              
+            }
+            catch (Exception x)
+            {
+                
+                MessageBox.Show(x.Message);
+            }
             ID_comboBox.ItemsSource = bl.GetTesters();
         }
     }
