@@ -64,6 +64,7 @@
             <Label Content="Last Name:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="13" VerticalAlignment="Center"/>
             <TextBox x:Name="lastNameTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="13" Text="{Binding Name.LastName, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
         </Grid>
-        <Button Content="Button" HorizontalAlignment="Left" Height="60" Margin="15,505,0,0" VerticalAlignment="Top" Width="215" RenderTransformOrigin="0.033,3.633" Click="Button_Click"/>
+        <Button Content="Button" HorizontalAlignment="Left" Height="60" Margin="533,416,0,0" VerticalAlignment="Top" Width="215" RenderTransformOrigin="0.033,3.633" Click="Button_Click"/>
+        <local:Luz_UserControl1 x:Name="Luz_user_control" HorizontalAlignment="Left" Height="100" Margin="533,80,0,0" VerticalAlignment="Top" Width="231" Loaded="Luz_user_control_Loaded"/>
     </Grid>
 </Window>

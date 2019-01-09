@@ -5,10 +5,10 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PLWPF"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="100" d:DesignWidth="250">
     <Grid>
         <ComboBox x:Name="comboBox_days" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" SelectedItem="{Binding Day}"/>
-        <StackPanel Name="Sunday" HorizontalAlignment="Left" Height="100" Margin="140,0,0,0" VerticalAlignment="Top" Width="100" Visibility="Visible">
+        <StackPanel Name="Sunday" HorizontalAlignment="Left" Height="100" Margin="140,0,0,0" VerticalAlignment="Top" Width="100" >
             <StackPanel.Style>
                 <Style>
                     <Setter Property="StackPanel.Visibility" Value="Hidden"/>
@@ -26,7 +26,7 @@
             <CheckBox x:Name="Sunday_c13" Content="13:00-14:00" IsChecked="{ Binding myTester.Luz.data[0][4], Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
             <CheckBox x:Name="Sunday_c14" Content="14:00-15:00" IsChecked="{ Binding myTester.Luz.data[0][5], Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
         </StackPanel>
-        <StackPanel Name="Monday" HorizontalAlignment="Left" Height="100" Margin="140,0,0,0" VerticalAlignment="Top" Width="100" Visibility="Hidden">
+        <StackPanel Name="Monday" HorizontalAlignment="Left" Height="100" Margin="140,0,0,0" VerticalAlignment="Top" Width="100" >
             <StackPanel.Style>
                 <Style>
                     <Setter Property="StackPanel.Visibility" Value="Hidden"/>
@@ -44,7 +44,7 @@
             <CheckBox x:Name="Monday_c13" Content="13:00-14:00" IsChecked="{ Binding myTester.Luz.data[1][4], Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
             <CheckBox x:Name="Monday_c14" Content="14:00-15:00" IsChecked="{ Binding myTester.Luz.data[1][5], Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
         </StackPanel>
-        <StackPanel Name="Tuesday" HorizontalAlignment="Left" Height="100" Margin="140,0,0,0" VerticalAlignment="Top" Width="100" Visibility="Hidden">
+        <StackPanel Name="Tuesday" HorizontalAlignment="Left" Height="100" Margin="140,0,0,0" VerticalAlignment="Top" Width="100">
             <StackPanel.Style>
                 <Style>
                     <Setter Property="StackPanel.Visibility" Value="Hidden"/>
@@ -55,14 +55,14 @@
                     </Style.Triggers>
                 </Style>
             </StackPanel.Style>
-            <CheckBox x:Name="Tuesday_c9" Content="  9:00-10:00" IsChecked="{ Binding myTester.Luz.data[2][0], Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
-            <CheckBox x:Name="Tuesday_c10" Content="10:00-11:00" IsChecked="{ Binding myTester.Luz.data[2][1], Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
-            <CheckBox x:Name="Tuesday_c11" Content="11:00-12:00" IsChecked="{ Binding myTester.Luz.data[2][2], Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
-            <CheckBox x:Name="Tuesday_c12" Content="12:00-13:00" IsChecked="{ Binding myTester.Luz.data[2][3], Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
-            <CheckBox x:Name="Tuesday_c13" Content="13:00-14:00" IsChecked="{ Binding myTester.Luz.data[2][4], Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
-            <CheckBox x:Name="Tuesday_c14" Content="14:00-15:00" IsChecked="{ Binding myTester.Luz.data[2][5], Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
+            <CheckBox x:Name="Tuesday_c9" Content="  9:00-10:00" IsChecked="{ Binding data[2][0], Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
+            <CheckBox x:Name="Tuesday_c10" Content="10:00-11:00" IsChecked="{ Binding data[2][1], Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
+            <CheckBox x:Name="Tuesday_c11" Content="11:00-12:00" IsChecked="{ Binding data[2][2], Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
+            <CheckBox x:Name="Tuesday_c12" Content="12:00-13:00" IsChecked="{ Binding data[2][3], Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
+            <CheckBox x:Name="Tuesday_c13" Content="13:00-14:00" IsChecked="{ Binding data[2][4], Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
+            <CheckBox x:Name="Tuesday_c14" Content="14:00-15:00" IsChecked="{ Binding data[2][5], Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
         </StackPanel>
-        <StackPanel Name="Wednesday" HorizontalAlignment="Left" Height="100" Margin="140,0,0,0" VerticalAlignment="Top" Width="100" Visibility="Hidden">
+        <StackPanel Name="Wednesday" HorizontalAlignment="Left" Height="100" Margin="140,0,0,0" VerticalAlignment="Top" Width="100" >
             <StackPanel.Style>
                 <Style>
                     <Setter Property="StackPanel.Visibility" Value="Hidden"/>
@@ -80,7 +80,7 @@
             <CheckBox x:Name="Wednesday_c13" Content="13:00-14:00" IsChecked="{ Binding myTester.Luz.data[3][4], Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
             <CheckBox x:Name="Wednesday_c14" Content="14:00-15:00" IsChecked="{ Binding myTester.Luz.data[3][5], Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
         </StackPanel>
-        <StackPanel Name="Thursday" HorizontalAlignment="Left" Height="100" Margin="140,0,0,0" VerticalAlignment="Top" Width="100" Visibility="Hidden">
+        <StackPanel Name="Thursday" HorizontalAlignment="Left" Height="100" Margin="140,0,0,0" VerticalAlignment="Top" Width="100">
             <StackPanel.Style>
                 <Style>
                     <Setter Property="StackPanel.Visibility" Value="Hidden"/>

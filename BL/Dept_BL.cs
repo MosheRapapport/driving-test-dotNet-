@@ -240,7 +240,7 @@ namespace BL
         public bool AvailableTester(Tester tester, DateTime Date)
         {
             //האם הטסטר עובד
-            if (tester.Luz.data[(int)Date.DayOfWeek, Date.Hour - 9] == false)
+            if (tester.Luz.data[(int)Date.DayOfWeek][Date.Hour - 9] == false)
             {
                 return false;
             }

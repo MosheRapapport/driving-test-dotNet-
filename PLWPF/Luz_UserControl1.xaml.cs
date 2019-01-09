@@ -23,7 +23,6 @@ namespace PLWPF
     public partial class Luz_UserControl1 : UserControl
     {
         Tester myTester;
-        Schedule mySchedule;
         public Luz_UserControl1()
         {
             InitializeComponent();

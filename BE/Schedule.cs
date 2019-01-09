@@ -9,21 +9,24 @@ namespace BE
     public class Schedule
     {
 
-        public bool[,] data = new bool[5, 6];
+        public bool[][] data = new bool[5][];
 
         public Schedule()
         {
-
+            for (int i = 0; i < 5; i++)
+            {
+                data[i] = new bool[6];
+            }
         }
 
-        public Schedule(bool[,] data)
+        public Schedule(bool[][] data)
         {
             this.data = data;
         }
 
         public Schedule Clone()
         {
-            Schedule result = new Schedule((bool[,])this.data.Clone());
+            Schedule result = new Schedule((bool[][])this.data.Clone());
             return result;
         }
         public override string ToString()
@@ -39,7 +42,7 @@ namespace BE
                
                 for (int j = 0; j < 6; j++)
                 {
-                    if (data[i, j] == true)
+                    if (data[i][j] == true)
                     {
                         oved = true;
                         hayom += "\t" + (starttime + j) + ":00-";
