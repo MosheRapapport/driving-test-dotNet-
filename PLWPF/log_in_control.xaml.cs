@@ -48,24 +48,22 @@ namespace PLWPF
             if (thePerson is Trainee)
                 update_trainee.Visibility = Visibility.Visible;
             if (thePerson is Tester)
-<<<<<<< HEAD
+
             {
               update_tester.DataContext= thePerson as Tester;
               update_tester.Visibility = Visibility.Visible;
               
             }
             radioButton2.IsChecked = true;
-            ///button_ok.IsEnabled = false;
-=======
+               update_tester.Visibility = Visibility.Visible;
+
                 update_tester.Visibility = Visibility.Visible;
->>>>>>> parent of 6db2ee7... Merge branch 'master' of https://github.com/YoniLabell/Project01_3064_4399_dotNet5779
 
         }
 
         private void RadioButton_trainee_Checked(object sender, RoutedEventArgs e)
         {
             SetVisibiltyHidden();
-<<<<<<< HEAD
             
             try
             {
@@ -78,15 +76,13 @@ namespace PLWPF
                 MessageBox.Show(x.Message);
             }
             
-=======
             ID_comboBox.ItemsSource = bl.GetTrainees();
->>>>>>> parent of 6db2ee7... Merge branch 'master' of https://github.com/YoniLabell/Project01_3064_4399_dotNet5779
+            ID_comboBox.ItemsSource = bl.GetTrainees();
         }
 
         private void RadioButton_tester_Checked(object sender, RoutedEventArgs e)
         {
             SetVisibiltyHidden();
-<<<<<<< HEAD
            
             try
             {
@@ -98,9 +94,8 @@ namespace PLWPF
                 
                 MessageBox.Show(x.Message);
             }
-=======
             ID_comboBox.ItemsSource = bl.GetTesters();
->>>>>>> parent of 6db2ee7... Merge branch 'master' of https://github.com/YoniLabell/Project01_3064_4399_dotNet5779
+            ID_comboBox.ItemsSource = bl.GetTesters();
         }
     }
 }
