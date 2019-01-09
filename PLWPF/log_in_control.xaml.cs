@@ -23,7 +23,7 @@ namespace PLWPF
     public partial class log_in_control : UserControl
     {
         public static BL.IBL bl = BL.FactorySingletonBL.getInstance();
-        public static Person thePerson;
+        public Person thePerson;
         public log_in_control()
         {
             InitializeComponent();
@@ -46,7 +46,11 @@ namespace PLWPF
         {
             SetVisibiltyHidden();
             if (thePerson is Trainee)
+            {
+                update_trainee.DataContext = thePerson as Trainee;
                 update_trainee.Visibility = Visibility.Visible;
+            }
+               
             if (thePerson is Tester)
 
             {
@@ -55,7 +59,8 @@ namespace PLWPF
               
             }
             radioButton2.IsChecked = true;
-               update_tester.Visibility = Visibility.Visible;
+            ID_comboBox.Text = "";
+              
 
         }
 
@@ -70,11 +75,12 @@ namespace PLWPF
             }
             catch (Exception x)
             {
-               
+                radioButton2.IsChecked = true;
                 MessageBox.Show(x.Message);
+               
             }
             
-            ID_comboBox.ItemsSource = bl.GetTrainees();
+            
         }
 
         private void RadioButton_tester_Checked(object sender, RoutedEventArgs e)
@@ -88,10 +94,11 @@ namespace PLWPF
             }
             catch (Exception x)
             {
-                
+                radioButton2.IsChecked = true;
                 MessageBox.Show(x.Message);
+               
             }
-            ID_comboBox.ItemsSource = bl.GetTesters();
+           
         }
     }
 }

@@ -22,18 +22,21 @@ namespace PLWPF
     /// </summary>
     public partial class update_tester_UserControl : UserControl
     {
-       
+        public static BL.IBL bl = BL.FactorySingletonBL.getInstance();
         public update_tester_UserControl()
         {
             InitializeComponent();
         }
+       
 
         private void remove_tester_button_Click(object sender, RoutedEventArgs e)
         {
+
+            MessageBox.Show("r u shure");
             try
             {
-                MessageBox.Show(log_in_control.thePerson.ID.ToString());
-                log_in_control.bl.RemoveTester((Tester)log_in_control.thePerson);
+                
+                bl.RemoveTester((Tester)DataContext);
             }
             catch (Exception ex)
             {
@@ -46,6 +49,8 @@ namespace PLWPF
         private void update_tester_button_Click(object sender, RoutedEventArgs e)
         {
             update_tester_Window window = new update_tester_Window();
+            window.DataContext = this.DataContext;
+            window.Luz_user_control.DataContext= this.DataContext;
             window.Show();
         }
     }

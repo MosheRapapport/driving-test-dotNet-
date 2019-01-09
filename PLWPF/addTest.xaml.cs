@@ -17,37 +17,30 @@ using BL;
 namespace PLWPF
 {
     /// <summary>
-    /// Interaction logic for update_tester_Window.xaml
+    /// Interaction logic for addTest.xaml
     /// </summary>
-    public partial class update_tester_Window : Window
+    public partial class addTest : Window
     {
-        private static BL.IBL bl = BL.FactorySingletonBL.getInstance();
-     //   Tester myTester;
-        public update_tester_Window()
+        public static BL.IBL bl = BL.FactorySingletonBL.getInstance();
+        public addTest()
         {
             InitializeComponent();
-            
-            this.genderComboBox.ItemsSource = Enum.GetValues(typeof(BE.Gender));
-            this.carTypeComboBox.ItemsSource = Enum.GetValues(typeof(BE.carType));
-            this.gearTypeComboBox.ItemsSource = Enum.GetValues(typeof(BE.GearType));
-           
+
+
+
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                  bl.UpdateTester((Tester)DataContext);
+                bl.AddDrivingTest((Test)DataContext);
             }
             catch (Exception ex)
             {
+
                 MessageBox.Show(ex.ToString());
             }
-            Close();       
         }
-
-       
-
-        
     }
 }
