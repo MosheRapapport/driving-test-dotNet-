@@ -58,10 +58,7 @@ namespace PLWPF
               update_tester.Visibility = Visibility.Visible;
               
             }
-            ID_comboBox.Text = "";
-            ID_comboBox.IsEnabled = false;
             radioButton2.IsChecked = true;
-
             ///button_ok.IsEnabled = false;
 
         }
@@ -69,7 +66,7 @@ namespace PLWPF
         private void RadioButton_trainee_Checked(object sender, RoutedEventArgs e)
         {
             SetVisibiltyHidden();
-            ID_comboBox.IsEnabled = true;
+            
             try
             {
               ID_comboBox.ItemsSource = bl.GetTrainees();
@@ -79,8 +76,6 @@ namespace PLWPF
             {
                
                 MessageBox.Show(x.Message);
-                radioButton2.IsChecked = true;
-                ID_comboBox.ItemsSource = null;
             }
             
         }
@@ -88,7 +83,7 @@ namespace PLWPF
         private void RadioButton_tester_Checked(object sender, RoutedEventArgs e)
         {
             SetVisibiltyHidden();
-            ID_comboBox.IsEnabled = true;
+           
             try
             {
                 ID_comboBox.ItemsSource = bl.GetTesters();
@@ -98,8 +93,6 @@ namespace PLWPF
             {
                 
                 MessageBox.Show(x.Message);
-                radioButton2.IsChecked = true;
-                ID_comboBox.ItemsSource = null;
             }
         }
     }
