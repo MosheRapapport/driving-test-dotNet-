@@ -5,10 +5,15 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PLWPF"
-        xmlns:BE="clr-namespace:BE;assembly=BE" x:Class="PLWPF.addTest"
+        xmlns:BE="clr-namespace:BE;assembly=BE" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:Converters="clr-namespace:MaterialDesignThemes.Wpf.Converters;assembly=MaterialDesignThemes.Wpf" x:Class="PLWPF.addTest"
         mc:Ignorable="d"
-        Title="addTest" Height="450" Width="800" >
-    <Grid>
+        Title="addTest" Height="450" Width="800" Loaded="Window_Loaded" >
+    <Window.Resources>
+        <CollectionViewSource x:Key="timePickerViewSource" d:DesignSource="{d:DesignInstance {x:Type materialDesign:TimePicker}, CreateList=True}"/>
+        <CollectionViewSource x:Key="cardClipConverterViewSource" d:DesignSource="{d:DesignInstance {x:Type Converters:CardClipConverter}, CreateList=True}"/>
+        <CollectionViewSource x:Key="cardViewSource" d:DesignSource="{d:DesignInstance {x:Type materialDesign:Card}, CreateList=True}"/>
+    </Window.Resources>
+   
 
         <Grid x:Name="grid1" VerticalAlignment="Top" Margin="255,72,0,0" HorizontalAlignment="Left" >
             <Grid.RowDefinitions>
@@ -19,10 +24,8 @@
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
             <Label VerticalAlignment="Center" Grid.Row="0" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content=""/>
-            <DatePicker x:Name="dateDatePicker" SelectedDate="{Binding Date, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Grid.Row="0" Margin="0,4,2.667,4" HorizontalAlignment="Right" Grid.Column="1"/>
-        </Grid>
-        <Label Content="Select a date and time" HorizontalAlignment="Left" Height="45" Margin="255,5,0,0" VerticalAlignment="Top" Width="140"/>
-        <Button Content="add" HorizontalAlignment="Left" Height="50" Margin="265,145,0,0" VerticalAlignment="Top" Width="130" Click="Button_Click"/>
-
+            <DatePicker x:Name="dateDatePicker" SelectedDate="{Binding Date, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Grid.Row="0" Margin="0,4,-1.333,4.333" HorizontalAlignment="Right" Grid.ColumnSpan="2" Width="134"/>
+        <materialDesign:TimePicker Margin="-2,110,4,-97.667"/>
     </Grid>
-</Window>
+    </Window>
+
