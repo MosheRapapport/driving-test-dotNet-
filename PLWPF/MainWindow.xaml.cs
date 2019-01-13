@@ -66,5 +66,13 @@ namespace PLWPF
             }
             MessageBox.Show(a);
         }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+
+            System.Windows.Data.CollectionViewSource buttonChromeViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("buttonChromeViewSource")));
+            // Load data by setting the CollectionViewSource.Source property:
+            // buttonChromeViewSource.Source = [generic data source]
+        }
     }
 }

@@ -53,5 +53,15 @@ namespace PLWPF
             window.Luz_user_control.DataContext= this.DataContext;
             window.Show();
         }
+
+        private void update_test_button_Click(object sender, RoutedEventArgs e)
+        {
+            update_test window = new update_test();
+            window.select.ItemsSource = bl.condition(test => ((Tester)DataContext).ID == test.Tester_ID);
+
+            window.DataContext = this.DataContext;
+            window.Show();
+
+        }
     }
 }

@@ -17,9 +17,9 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Button x:Name="update_button" Content="update user" Grid.Column="2" HorizontalAlignment="Left" Margin="106.667,70,0,0" VerticalAlignment="Top" Width="80" Click="update_button_Click"/>
-        <Button x:Name="remove_button" Content="remove user" Grid.Column="2" HorizontalAlignment="Left" Margin="106.667,70,0,0" Grid.Row="1" VerticalAlignment="Top" Width="80" Click="remove_button_Click"/>
-        <Button x:Name="add_test_button" Content="add test" Grid.Column="2" HorizontalAlignment="Left" Margin="106.667,70,0,0" Grid.Row="2" VerticalAlignment="Top" Width="80" Click="add_test_button_Click"/>
+        <Button x:Name="update_button" Content="update user" Grid.Column="2" HorizontalAlignment="Left" Margin="26.667,40,0,0" VerticalAlignment="Top" Width="200" Height="60" Click="update_button_Click" />
+        <Button x:Name="remove_button" Content="remove user" Grid.Column="2" HorizontalAlignment="Left" Margin="26.667,40,0,0" Grid.Row="1" VerticalAlignment="Top" Width="205" Click="remove_button_Click" Height="62"/>
+        <Button x:Name="add_test_button" Content="add test" Grid.Column="2" HorizontalAlignment="Left" Margin="26.667,40,0,0" Grid.Row="2" VerticalAlignment="Top" Width="205" Height="60" Click="add_test_button_Click" />
 
     </Grid>
 </UserControl>

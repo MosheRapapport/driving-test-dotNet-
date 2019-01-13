@@ -6,14 +6,14 @@
              xmlns:local="clr-namespace:PLWPF"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
+    <Grid  >
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*" />
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <Label x:Name="label_chose_id" Content="chose your id" Grid.Column="1" HorizontalAlignment="Left" Margin="65.333,121,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="ID_comboBox" Grid.Column="1" HorizontalAlignment="Left" DisplayMemberPath="ID" Margin="65.333,151,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="ID_comboBox_SelectionChanged">
+        <Label x:Name="label_chose_id" Content="chose your id" Grid.Column="1" HorizontalAlignment="Left" Margin="12.333,160,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.68,2.692"/>
+        <ComboBox x:Name="ID_comboBox" Grid.Column="1" HorizontalAlignment="Left" DisplayMemberPath="ID" Margin="98.333,163,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="ID_comboBox_SelectionChanged">
             <ComboBox.Style>
                 <Style>
                     <Style.Triggers>
@@ -24,7 +24,7 @@
                 </Style>
             </ComboBox.Style>
         </ComboBox>
-        <Button x:Name="button_ok" Content="ok" Grid.Column="1" HorizontalAlignment="Left" Margin="71.333,194,0,0" VerticalAlignment="Top" Width="75" Click="Button_ok_Click">
+        <Button x:Name="button_ok" Content="ok" Grid.Column="1" HorizontalAlignment="Left" Margin="73.333,205,0,0" VerticalAlignment="Top" Width="80" Click="Button_ok_Click" RenderTransformOrigin="0.733,5.966">
             <Button.Style>
                 <Style>
                     <Style.Triggers>
@@ -36,12 +36,12 @@
             </Button.Style>
         </Button>
 
-        <StackPanel x:Name="statos_stakPanel" Grid.Column="1" HorizontalAlignment="Left" Height="44" Margin="70.333,77,0,0" VerticalAlignment="Top" Width="70">
+        <StackPanel x:Name="statos_stakPanel" Grid.Column="1" HorizontalAlignment="Left" Height="44" Margin="143.333,106,0,0" VerticalAlignment="Top" Width="70">
             <RadioButton x:Name="radioButton_trainee" Content="trainee" Checked="RadioButton_trainee_Checked"/>
-            <RadioButton x:Name="radioButton_tester" Content="tester" Checked="RadioButton_tester_Checked"/>
+            <RadioButton x:Name="radioButton_tester" Content="tester" Checked="RadioButton_tester_Checked" Height="18"/>
             <RadioButton x:Name="radioButton2" Content="RadioButton" IsChecked="True" Visibility="Hidden"/>
         </StackPanel>
-        <Label x:Name="label_status" Content="your statos is:" Grid.Column="1" HorizontalAlignment="Left" Margin="65.333,44,0,0" VerticalAlignment="Top" Width="107"/>
+        <Label x:Name="label_status" Content="your statos is:" Grid.Column="1" HorizontalAlignment="Left" Margin="13.333,110,0,0" VerticalAlignment="Top" Width="107" RenderTransformOrigin="0.486,-1.947"/>
         <local:update_trainee_Control1 x:Name="update_trainee" Visibility="Hidden" HorizontalAlignment="Left" Height="450" Grid.RowSpan="3" VerticalAlignment="Top" Width="800" Grid.ColumnSpan="3"/>
         <local:update_tester_UserControl x:Name="update_tester" Visibility="Hidden" Grid.ColumnSpan="3" HorizontalAlignment="Left" Height="450" VerticalAlignment="Top" Width="800" Grid.RowSpan="3"/>
 

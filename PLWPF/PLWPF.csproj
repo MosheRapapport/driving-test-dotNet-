@@ -91,11 +91,17 @@
     <Compile Include="Luz_UserControl1.xaml.cs">
       <DependentUpon>Luz_UserControl1.xaml</DependentUpon>
     </Compile>
+    <Compile Include="update_test.xaml.cs">
+      <DependentUpon>update_test.xaml</DependentUpon>
+    </Compile>
     <Compile Include="update_tester_UserControl.xaml.cs">
       <DependentUpon>update_tester_UserControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="update_tester_Window.xaml.cs">
       <DependentUpon>update_tester_Window.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="update_Test_uset.xaml.cs">
+      <DependentUpon>update_Test_uset.xaml</DependentUpon>
     </Compile>
     <Compile Include="update_trainee_Control1.xaml.cs">
       <DependentUpon>update_trainee_Control1.xaml</DependentUpon>
@@ -145,11 +151,19 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="update_test.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="update_tester_UserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="update_tester_Window.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="update_Test_uset.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -190,6 +204,7 @@
     <None Include="Properties\DataSources\MaterialDesignThemes.Wpf.Clock.datasource" />
     <None Include="Properties\DataSources\MaterialDesignThemes.Wpf.Converters.CalendarDateCoalesceConverter.datasource" />
     <None Include="Properties\DataSources\MaterialDesignThemes.Wpf.TimePicker.datasource" />
+    <None Include="Properties\DataSources\Xceed.Wpf.Toolkit.Chromes.ButtonChrome.datasource" />
     <None Include="Properties\DataSources\Xceed.Wpf.Toolkit.DateTimePicker.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

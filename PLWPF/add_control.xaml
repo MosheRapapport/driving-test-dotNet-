@@ -15,8 +15,8 @@
             <ColumnDefinition Width="2*"/>
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
-        <Button x:Name="add_trainee_button" Content="add trainee" Grid.Column="1" HorizontalAlignment="Left" Margin="84.667,107,0,0" VerticalAlignment="Top" Width="75" Click="Add_trainee_button_Click"/>
-        <Button x:Name="add_tester_button" Content="add tester" Grid.Column="1" HorizontalAlignment="Left" Margin="80.667,99.667,0,0" Grid.Row="1" VerticalAlignment="Top" Width="75" RenderTransformOrigin="-0.542,-0.3" Click="add_tester_button_Click"/>
+        <Button x:Name="add_trainee_button" Content="add trainee" Grid.Column="1" HorizontalAlignment="Left" Margin="84.667,75,0,0" VerticalAlignment="Top" Width="110" Click="Add_trainee_button_Click" Height="60"/>
+        <Button x:Name="add_tester_button" Content="add tester" Grid.Column="1" HorizontalAlignment="Left" Margin="80.667,54.667,0,0" Grid.Row="1" VerticalAlignment="Top" Width="116" RenderTransformOrigin="-0.542,-0.3" Click="add_tester_button_Click" Height="60"/>
 
     </Grid>
 </UserControl>

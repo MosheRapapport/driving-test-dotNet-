@@ -57,7 +57,8 @@ namespace PLWPF
             Test atest = new Test();
             trainee = (Trainee)this.DataContext;
             atest.Trainee_ID = trainee.ID;
-            atest.Date.AddHours(10);
+          
+            atest.Date = DateTime.Now;
             addTest window = new addTest();
             window.DataContext = atest;
 
