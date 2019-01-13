@@ -26,17 +26,13 @@ namespace PLWPF
         {
             InitializeComponent();
 
-
-
         }
+
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                ((Test)DataContext).Date = ((Test)DataContext).Date.AddHours(9);
-                
-
                 bl.AddDrivingTest(((Test)DataContext));
             }
             catch (Exception ex)
@@ -44,20 +40,8 @@ namespace PLWPF
 
                 MessageBox.Show(ex.ToString());
             }
-        }
 
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-
-            System.Windows.Data.CollectionViewSource timePickerViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("timePickerViewSource")));
-            // Load data by setting the CollectionViewSource.Source property:
-            // timePickerViewSource.Source = [generic data source]
-            System.Windows.Data.CollectionViewSource cardClipConverterViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("cardClipConverterViewSource")));
-            // Load data by setting the CollectionViewSource.Source property:
-            // cardClipConverterViewSource.Source = [generic data source]
-            System.Windows.Data.CollectionViewSource cardViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("cardViewSource")));
-            // Load data by setting the CollectionViewSource.Source property:
-            // cardViewSource.Source = [generic data source]
+            Close();
         }
     }
 }

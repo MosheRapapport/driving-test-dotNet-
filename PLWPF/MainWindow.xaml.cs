@@ -59,6 +59,11 @@ namespace PLWPF
                     a += "\ntester:    ";
                 a += item.Name.ToString() +" "+item.ID.ToString();
             }
+            a += "\n\n TESTS:\n";
+            foreach (Test item in bl.GetTests())
+            {
+                a +=item.codeOfTest+ " Tester id: " + item.Tester_ID + " Trainee id " + item.Trainee_ID+item.Date+"\n";
+            }
             MessageBox.Show(a);
         }
     }

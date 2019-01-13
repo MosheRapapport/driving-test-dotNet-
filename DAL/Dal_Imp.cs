@@ -278,7 +278,7 @@ namespace DAL
                 Tester_ID = "T1",
                 carType = new CarType() { carType = carType.Private, gearType = GearType.Automatic },
                 codeOfTest = 0,
-                Date = DateTime.Now,
+                Date = new DateTime(2019,01,01),
                 StartingPoint = new Address() { City = "s1", Number = 1, StreetName = "s1" },
             });
         }
