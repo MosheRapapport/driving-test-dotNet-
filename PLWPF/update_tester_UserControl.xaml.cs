@@ -41,7 +41,7 @@ namespace PLWPF
             catch (Exception ex)
             {
 
-                MessageBox.Show(ex.ToString());
+                MessageBox.Show(ex.Message);
             }
              
         }
@@ -50,8 +50,49 @@ namespace PLWPF
         {
             update_tester_Window window = new update_tester_Window();
             window.DataContext = this.DataContext;
-            window.Luz_user_control.DataContext= this.DataContext;
+       
+            ischeck(window);
             window.Show();
+        }
+
+        private void ischeck(update_tester_Window window)
+        {
+
+            
+            window.s0.IsChecked = ((Tester)DataContext).Luz.data[0][0];
+            window.s1.IsChecked = ((Tester)DataContext).Luz.data[0][1];
+            window.s2.IsChecked = ((Tester)DataContext).Luz.data[0][2];
+            window.s3.IsChecked = ((Tester)DataContext).Luz.data[0][3];
+            window.s4.IsChecked = ((Tester)DataContext).Luz.data[0][4];
+            window.s5.IsChecked = ((Tester)DataContext).Luz.data[0][5];
+
+            window.m0.IsChecked = ((Tester)DataContext).Luz.data[1][0];
+            window.m1.IsChecked = ((Tester)DataContext).Luz.data[1][1];
+            window.m2.IsChecked = ((Tester)DataContext).Luz.data[1][2];
+            window.m3.IsChecked = ((Tester)DataContext).Luz.data[1][3];
+            window.m4.IsChecked = ((Tester)DataContext).Luz.data[1][4];
+            window.m5.IsChecked = ((Tester)DataContext).Luz.data[1][5];
+
+            window.w0.IsChecked = ((Tester)DataContext).Luz.data[2][0];
+            window.w1.IsChecked = ((Tester)DataContext).Luz.data[2][1];
+            window.w2.IsChecked = ((Tester)DataContext).Luz.data[2][2];
+            window.w3.IsChecked = ((Tester)DataContext).Luz.data[2][3];
+            window.w4.IsChecked = ((Tester)DataContext).Luz.data[2][4];
+            window.w5.IsChecked = ((Tester)DataContext).Luz.data[2][5];
+
+            window.t0.IsChecked = ((Tester)DataContext).Luz.data[3][0];
+            window.t1.IsChecked = ((Tester)DataContext).Luz.data[3][1];
+            window.t2.IsChecked = ((Tester)DataContext).Luz.data[3][2];
+            window.t3.IsChecked = ((Tester)DataContext).Luz.data[3][3];
+            window.t4.IsChecked = ((Tester)DataContext).Luz.data[3][4];
+            window.t5.IsChecked = ((Tester)DataContext).Luz.data[3][5];
+
+            window.h0.IsChecked = ((Tester)DataContext).Luz.data[4][0];
+            window.h1.IsChecked = ((Tester)DataContext).Luz.data[4][1];
+            window.h2.IsChecked = ((Tester)DataContext).Luz.data[4][2];
+            window.h3.IsChecked = ((Tester)DataContext).Luz.data[4][3];
+            window.h4.IsChecked = ((Tester)DataContext).Luz.data[4][4];
+            window.h5.IsChecked = ((Tester)DataContext).Luz.data[4][5];
         }
 
         private void update_test_button_Click(object sender, RoutedEventArgs e)

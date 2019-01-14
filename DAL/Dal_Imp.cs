@@ -240,11 +240,11 @@ namespace DAL
                 MaxDistance = 1000,
                 MaxTestWeekly = 20,
                 Luz = new Schedule(new bool[5][] {
-                       new bool[6] { true, true,true, true, true, true},
-                       new bool[6] { true, true, true, true, true, true},
-                       new bool[6] { true, true, true, true, true, true},
-                       new bool[6] { true, true, true, true, true, true},
-                       new bool[6] { true, true, true, true, true, true} })
+                       new bool[6] { false, true,true, true, true, true},
+                       new bool[6] { true, false, true, true, true, true},
+                       new bool[6] { true, true, false, true, true, true},
+                       new bool[6] { true, true, true, false, true, true},
+                       new bool[6] { true, true, true, true, false, false } })
             });
             AddTester(new Tester()
             {

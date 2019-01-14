@@ -43,6 +43,7 @@ namespace PLWPF
             try
             {
                 bl.UpdateDrivingTest(theTest);
+                Close();
             }
             catch (Exception x)
             {

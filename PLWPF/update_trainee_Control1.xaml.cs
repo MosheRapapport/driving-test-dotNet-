@@ -39,7 +39,7 @@ namespace PLWPF
             catch (Exception ex)
             {
 
-                MessageBox.Show(ex.ToString());
+                MessageBox.Show(ex.Message);
             }
         }
        
@@ -57,8 +57,10 @@ namespace PLWPF
             Test atest = new Test();
             trainee = (Trainee)this.DataContext;
             atest.Trainee_ID = trainee.ID;
-          
-            atest.Date = DateTime.Now;
+
+
+            atest.Date = DateTime.Today;
+            atest.Date = atest.Date.AddHours(9);
             addTest window = new addTest();
             window.DataContext = atest;
 
