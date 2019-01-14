@@ -36,6 +36,7 @@ namespace PLWPF
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            ischeck();
             try
             {
                 bl.AddTester(newTester);
@@ -45,6 +46,45 @@ namespace PLWPF
                 MessageBox.Show(ex.Message);
             }
             Close();
+        }
+        private void ischeck()
+        {
+
+            //Sunday 
+            newTester.Luz.data[0][0] = (bool)s0.IsChecked;
+            newTester.Luz.data[0][1] = (bool)s1.IsChecked;
+            newTester.Luz.data[0][2] = (bool)s2.IsChecked;
+            newTester.Luz.data[0][3] = (bool)s3.IsChecked;
+            newTester.Luz.data[0][4] = (bool)s4.IsChecked;
+            newTester.Luz.data[0][5] = (bool)s5.IsChecked;
+            //Monday 
+            newTester.Luz.data[1][0] = (bool)m0.IsChecked;
+            newTester.Luz.data[1][1] = (bool)m1.IsChecked;
+            newTester.Luz.data[1][2] = (bool)m2.IsChecked;
+            newTester.Luz.data[1][3] = (bool)m3.IsChecked;
+            newTester.Luz.data[1][4] = (bool)m4.IsChecked;
+            newTester.Luz.data[1][5] = (bool)m5.IsChecked;
+            //Tuesday 
+            newTester.Luz.data[2][0] = (bool)w0.IsChecked;
+            newTester.Luz.data[2][1] = (bool)w1.IsChecked;
+            newTester.Luz.data[2][2] = (bool)w2.IsChecked;
+            newTester.Luz.data[2][3] = (bool)w3.IsChecked;
+            newTester.Luz.data[2][4] = (bool)w4.IsChecked;
+            newTester.Luz.data[2][5] = (bool)w5.IsChecked;
+            //Wednesday 
+            newTester.Luz.data[3][0] = (bool)t0.IsChecked;
+            newTester.Luz.data[3][1] = (bool)t1.IsChecked;
+            newTester.Luz.data[3][2] = (bool)t2.IsChecked;
+            newTester.Luz.data[3][3] = (bool)t3.IsChecked;
+            newTester.Luz.data[3][4] = (bool)t4.IsChecked;
+            newTester.Luz.data[3][5] = (bool)t5.IsChecked;
+            //Thursday
+            newTester.Luz.data[4][0] = (bool)h0.IsChecked;
+            newTester.Luz.data[4][1] = (bool)h1.IsChecked;
+            newTester.Luz.data[4][2] = (bool)h2.IsChecked;
+            newTester.Luz.data[4][3] = (bool)h3.IsChecked;
+            newTester.Luz.data[4][4] = (bool)h4.IsChecked;
+            newTester.Luz.data[4][5] = (bool)h5.IsChecked;
         }
     }
 }

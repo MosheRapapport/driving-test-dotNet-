@@ -6,9 +6,9 @@
         xmlns:local="clr-namespace:PLWPF"
         xmlns:BE="clr-namespace:BE;assembly=BE" x:Class="PLWPF.add_tester_Window"
         mc:Ignorable="d"
-        Title="add_tester_Window" Height="550" Width="600" >
-    
-    <Grid >
+        Title="add_tester_Window" Height="550" Width="800" >
+
+    <Grid Margin="0,0,-134.667,-5.333" >
         <Button Content="ok" HorizontalAlignment="Left" Margin="375,450,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
         <Grid x:Name="grid1"  HorizontalAlignment="Left" Margin="38,52,0,0" VerticalAlignment="Top">
             <Grid.ColumnDefinitions>
@@ -59,6 +59,78 @@
             <TextBox x:Name="firstNameTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="12" Text="{Binding Name.FirstName, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
             <Label Content="Last Name:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="13" VerticalAlignment="Center"/>
             <TextBox x:Name="lastNameTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="13" Text="{Binding Name.LastName, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+        </Grid>
+        <Grid  x:Name="grid" HorizontalAlignment="Left" Height="160" Margin="385,175,0,0" VerticalAlignment="Top" Width="365">
+            <TabControl Margin="0,0,55,0">
+                <TabControl.Items>
+                    <TabItem Header="Sunday">
+                        <TabItem.Content>
+                            <StackPanel>
+                       
+                                <CheckBox  x:Name="s0" Content="9:00 - 10:00" />
+                                <CheckBox   x:Name="s1" Content="10:00 - 11:00" />
+                                <CheckBox x:Name="s2" Content="11:00 - 12:00" />
+                                <CheckBox x:Name="s3" Content="12:00 - 13:00" />
+                                <CheckBox  x:Name="s4" Content="13:00 - 14:00" />
+                                <CheckBox  x:Name="s5" Content="14:00 - 15:00" />
+
+                            </StackPanel>
+                        </TabItem.Content>
+                    </TabItem>
+                    <TabItem Header="Monday">
+                        <TabItem.Content>
+                            <StackPanel>
+                                <CheckBox  x:Name="m0" Content="9:00 - 10:00" />
+                                <CheckBox   x:Name="m1" Content="10:00 - 11:00" />
+                                <CheckBox x:Name="m2" Content="11:00 - 12:00" />
+                                <CheckBox x:Name="m3" Content="12:00 - 13:00" />
+                                <CheckBox  x:Name="m4" Content="13:00 - 14:00" />
+                                <CheckBox  x:Name="m5" Content="14:00 - 15:00" />
+
+                            </StackPanel>
+                        </TabItem.Content>
+                    </TabItem>
+                    <TabItem Header="Tuesday">
+                        <TabItem.Content>
+                            <StackPanel>
+                                <CheckBox  x:Name="w0" Content="9:00 - 10:00" />
+                                <CheckBox   x:Name="w1" Content="10:00 - 11:00" />
+                                <CheckBox x:Name="w2" Content="11:00 - 12:00" />
+                                <CheckBox x:Name="w3" Content="12:00 - 13:00" />
+                                <CheckBox  x:Name="w4" Content="13:00 - 14:00" />
+                                <CheckBox  x:Name="w5" Content="14:00 - 15:00" />
+
+                            </StackPanel>
+                        </TabItem.Content>
+                    </TabItem>
+                    <TabItem Header=" Wednesday">
+                        <TabItem.Content>
+                            <StackPanel>
+                                <CheckBox  x:Name="t0" Content="9:00 - 10:00" />
+                                <CheckBox   x:Name="t1" Content="10:00 - 11:00" />
+                                <CheckBox x:Name="t2" Content="11:00 - 12:00" />
+                                <CheckBox x:Name="t3" Content="12:00 - 13:00" />
+                                <CheckBox  x:Name="t4" Content="13:00 - 14:00" />
+                                <CheckBox  x:Name="t5" Content="14:00 - 15:00" />
+
+                            </StackPanel>
+                        </TabItem.Content>
+                    </TabItem>
+                    <TabItem Header="Thursday">
+                        <TabItem.Content>
+                            <StackPanel >
+                                <CheckBox  x:Name="h0" Content="9:00 - 10:00" />
+                                <CheckBox   x:Name="h1" Content="10:00 - 11:00" />
+                                <CheckBox x:Name="h2" Content="11:00 - 12:00" />
+                                <CheckBox x:Name="h3" Content="12:00 - 13:00" />
+                                <CheckBox  x:Name="h4" Content="13:00 - 14:00" />
+                                <CheckBox  x:Name="h5" Content="14:00 - 15:00" />
+                            </StackPanel>
+                        </TabItem.Content>
+                    </TabItem>
+                </TabControl.Items>
+            </TabControl>
+
         </Grid>
     </Grid>
 </Window>
