@@ -8,9 +8,9 @@ namespace BE
 {
     public class Address
     {
-        public String StreetName { get; set; }
+        public string StreetName { get; set; }
         public int Number { get; set; }
-        public String City { get; set; }
+        public string City { get; set; }
         public override string ToString()
         {
             return "StreetName:"+StreetName.ToString()+ " Number:"+Number.ToString()+ " City:"+ City.ToString();

@@ -8,12 +8,12 @@ namespace BE
 {
     public class Person
     {
-        public String ID { get; set; }
+        public string ID { get; set; }
         public Name Name { get; set; }
         public DateTime DayOfBirth { get; set; }
         public Gender Gender { get; set; }
         public Address Address { get; set; }
-        public String PhoneNumber { get; set; }
+        public string PhoneNumber { get; set; }
         public override string ToString()
         {
             return "\nID: "+ID+ "\nName: "+ Name.ToString()+ " DayOfBirth: "+ DayOfBirth.ToString()+

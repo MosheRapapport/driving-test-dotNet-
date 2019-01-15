@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -26,9 +27,10 @@ namespace PLWPF
         public add_trainee_Window()
         {
             InitializeComponent();
-            trainee = new Trainee {Address=new Address(), CarTrained=new CarType(), Name=new Name(),Instructor=new Name() };
+            trainee = new Trainee {DayOfBirth= new DateTime(2000,1,1), Address=new Address(), CarTrained=new CarType(), Name=new Name(),Instructor=new Name() };
             this.DataContext = trainee;
 
+            
             this.genderComboBox.ItemsSource = Enum.GetValues(typeof(BE.Gender));
             this.carTypeComboBox.ItemsSource = Enum.GetValues(typeof(BE.carType));
             this.gearTypeComboBox.ItemsSource = Enum.GetValues(typeof(BE.GearType));
@@ -43,10 +45,26 @@ namespace PLWPF
             }
             catch (Exception x)
             {
-                System.Windows.MessageBox.Show(x.Message);
+                MessageBox.Show(x.Message);
 
             }
             Close();
         }
+        private void iDTextBox_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (iDTextBox.Text.Length != 9 || !Regex.IsMatch(iDTextBox.Text, @"^[0-9]+$"))
+            {
+                iDTextBox.Foreground = Brushes.Red;
+                iDTextBox.Text = "The id must be 9 digits";
+            }
+        }
+
+        private void idTextBox_GotFocus(object sender, RoutedEventArgs e)
+        {
+            iDTextBox.Text = null;
+            iDTextBox.Foreground = Brushes.Black;
+
+        }
+
     }
 }
