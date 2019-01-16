@@ -34,11 +34,13 @@ namespace PLWPF
             try
             {
                 bl.AddDrivingTest(((Test)DataContext));
+                MessageBox.Show("Your test:\n"+((Test)DataContext).ToString());
+
             }
             catch (Exception ex)
             {
 
-                MessageBox.Show(ex.ToString());
+                MessageBox.Show(ex.Message);
             }
 
             Close();

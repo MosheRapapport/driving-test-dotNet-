@@ -13,11 +13,13 @@ namespace BE
         public string City { get; set; }
         public override string ToString()
         {
-            return "StreetName:"+StreetName.ToString()+ " Number:"+Number.ToString()+ " City:"+ City.ToString();
+            // "pisga 45 st. jerusalem
+            return StreetName + " " + Number + " " + "st." + City;
         }
 
         public Address Clone()
         {
+           
             Address result = new Address
             {
                 StreetName = this.StreetName,

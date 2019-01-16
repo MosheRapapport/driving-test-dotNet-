@@ -165,13 +165,15 @@ namespace DAL
         {
             AddTrainee(new Trainee()
             {
-                ID = "S1",
+            //    string origin = "pisga 45 st. jerusalem"; //or "תקווה פתח 100 העם אחד "etc.
+            
+            ID = "S1",
                 Name = new Name { FirstName = "s1", LastName = "s1" },
                 Address = new Address
                 {
-                    City = "s1",
-                    Number = 1,
-                    StreetName = "s1",
+                    City = "jerusalem",
+                    Number = 45,
+                    StreetName = "pisga",
 
                 },
                 PhoneNumber = "0542520196",
@@ -188,9 +190,9 @@ namespace DAL
                 Name = new Name { FirstName = "s2", LastName = "s2" },
                 Address = new Address
                 {
-                    City = "s2",
-                    Number = 2,
-                    StreetName = "s2",
+                    City = "jerusalem",
+                    Number = 45,
+                    StreetName = "pisga",
 
                 },
                 PhoneNumber = "0542520196",
@@ -207,9 +209,9 @@ namespace DAL
                 Name = new Name { FirstName = "s3", LastName = "s3" },
                 Address = new Address
                 {
-                    City = "s3",
-                    Number = 3,
-                    StreetName = "s3",
+                    City = "jerusalem",
+                    Number = 45,
+                    StreetName = "pisga",
 
                 },
                 PhoneNumber = "0542520196",
@@ -248,13 +250,14 @@ namespace DAL
             });
             AddTester(new Tester()
             {
+                //string destination = "gilgal 78 st. ramat-gan";//or "גן רמת 10 בוטינסקי'ז "etc.
                 ID = "T2",
                 Name = new Name { FirstName = "jojo", LastName = "chalass" },
                 Address = new Address
                 {
-                    City = "Jerusalem",
-                    Number = 21,
-                    StreetName = "havvad haleumi",
+                    City = "ramat-gan",
+                    Number = 78,
+                    StreetName = "gilgal",
                 },
                 PhoneNumber = "054999999",
 
@@ -262,7 +265,7 @@ namespace DAL
                 Gender = Gender.MALE,
                 Experience = 10,
                 Expertise = new CarType { carType = carType.Private, gearType = GearType.Automatic },
-                MaxDistance = 1000,
+                MaxDistance = 50,
                 MaxTestWeekly = 20,
                 Luz = new Schedule(new bool[5][] {
                         new bool[6] { true, true,true, true, true, true},
