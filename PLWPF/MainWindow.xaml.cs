@@ -33,6 +33,8 @@ namespace PLWPF
         {
             add.Visibility = Visibility.Hidden;
             log_in.Visibility = Visibility.Hidden;
+            log_in.update_tester.Visibility = Visibility.Hidden;
+            log_in.update_trainee.Visibility= Visibility.Hidden;
         }
         private void New_user_butten_Click(object sender, RoutedEventArgs e)
         {
@@ -43,6 +45,7 @@ namespace PLWPF
         private void Log_in_button_Click(object sender, RoutedEventArgs e)
         {
             SetVisibiltyHidden();
+            
             log_in.Visibility = Visibility.Visible;
             
         }

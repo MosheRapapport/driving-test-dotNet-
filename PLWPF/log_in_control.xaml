@@ -38,7 +38,7 @@
 
         <StackPanel x:Name="statos_stakPanel" Grid.Column="1" HorizontalAlignment="Left" Height="44" Margin="143.333,106,0,0" VerticalAlignment="Top" Width="70">
             <RadioButton x:Name="radioButton_trainee" Content="trainee" Checked="RadioButton_trainee_Checked"/>
-            <RadioButton x:Name="radioButton_tester" Content="tester" Checked="RadioButton_tester_Checked" Height="18"/>
+            <RadioButton x:Name="radioButton_tester" Content="tester" Checked="RadioButton_tester_Checked"/>
             <RadioButton x:Name="radioButton2" Content="RadioButton" IsChecked="True" Visibility="Hidden"/>
         </StackPanel>
         <Label x:Name="label_status" Content="your statos is:" Grid.Column="1" HorizontalAlignment="Left" Margin="13.333,110,0,0" VerticalAlignment="Top" Width="107" RenderTransformOrigin="0.486,-1.947"/>

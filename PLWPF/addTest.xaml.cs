@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using BE;
 using BL;
+using System.Threading;
 
 namespace PLWPF
 {
@@ -22,6 +23,7 @@ namespace PLWPF
     public partial class addTest : Window
     {
         public static BL.IBL bl = BL.FactorySingletonBL.getInstance();
+        Test test;
         public addTest()
         {
             InitializeComponent();
@@ -31,19 +33,40 @@ namespace PLWPF
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            try
-            {
-                bl.AddDrivingTest(((Test)DataContext));
-                MessageBox.Show("Your test:\n"+((Test)DataContext).ToString());
-
-            }
-            catch (Exception ex)
-            {
-
-                MessageBox.Show(ex.Message);
-            }
-
-            Close();
+            test =((Test)DataContext);
+            gif.Visibility = Visibility.Visible;
+            new Thread(() =>
+            
+          {
+              try
+              {
+                       
+                       bl.AddDrivingTest(test);
+                       
+                       MessageBox.Show(test.ToString(), "Your test:");
+                      
+              }
+               catch (Exception m)
+               {
+                 // gif.Visibility = Visibility.Hidden;
+                  MessageBox.Show(m.Message);
+               }
+              Dispatcher.Invoke(new Action(() =>
+              {
+                  try
+                  {
+                      gif.Visibility = Visibility.Hidden;
+                      Close();
+                  }
+                  catch (Exception n)
+                  {
+                      MessageBox.Show(n.Message);
+                  }
+              }));
+              
+          }).Start();
+          
+           
         }
     }
 }
