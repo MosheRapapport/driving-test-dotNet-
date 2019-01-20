@@ -6,11 +6,11 @@
         xmlns:local="clr-namespace:PLWPF"
         xmlns:BE="clr-namespace:BE;assembly=BE" x:Class="PLWPF.update_test"
         mc:Ignorable="d"
-        Title="update_test" Height="696" Width="1000" >
+        Title="update_test" Height="635.113" Width="727.059" Background="BlanchedAlmond" >
 
-    <Grid Margin="0,0,-511.333,-0.333" RenderTransformOrigin="0.696,0.48" HorizontalAlignment="Left" Width="1028">
-        <ComboBox HorizontalAlignment="Left" x:Name="select" DisplayMemberPath="codeOfTest"  Margin="100,105,0,0" VerticalAlignment="Top" Width="260" Height="65" RenderTransformOrigin="0.944,1.621" SelectionChanged="select_SelectionChanged"/>
-        <local:update_Test_uset x:Name="update_Test_use" Visibility="Hidden"  HorizontalAlignment="Left" Height="665" VerticalAlignment="Top" Width="515" Margin="495,-5,0,0" />
-        <Button Content="Button" HorizontalAlignment="Left" Height="115" Margin="125,275,0,0" VerticalAlignment="Top" Width="230" Click="Button_Click"/>
+    <Grid Margin="0,0,57.667,-19" RenderTransformOrigin="0.696,0.48" HorizontalAlignment="Right" Width="663">
+        <ComboBox HorizontalAlignment="Left" x:Name="select" DisplayMemberPath="codeOfTest"  Margin="54,44,0,0" VerticalAlignment="Top" Width="260" Height="65" RenderTransformOrigin="0.944,1.621" SelectionChanged="select_SelectionChanged"/>
+        <local:update_Test_uset x:Name="update_Test_use" Visibility="Hidden"  HorizontalAlignment="Left" Height="585" VerticalAlignment="Top" Width="309" Margin="319,10,0,-10" />
+        <Button Content="Button" HorizontalAlignment="Left" Height="115" Margin="54,306,0,0" VerticalAlignment="Top" Width="230" Click="Button_Click"/>
     </Grid>
 </Window>

@@ -8,7 +8,7 @@
         xmlns:local="clr-namespace:PLWPF"
         xmlns:BE="clr-namespace:BE;assembly=BE" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:Converters="clr-namespace:MaterialDesignThemes.Wpf.Converters;assembly=MaterialDesignThemes.Wpf" x:Class="PLWPF.addTest"
         mc:Ignorable="d"
-        Title="addTest" Height="255.833" Width="388.333"   >
+        Title="addTest" Height="255.833" Width="388.333"   Background="BlanchedAlmond" >
 
     <Grid>
         <Grid x:Name="grid1"  HorizontalAlignment="Left" Margin="81,95,0,0" VerticalAlignment="Top">

@@ -5,8 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PLWPF"
              xmlns:BE="clr-namespace:BE;assembly=BE" x:Class="PLWPF.update_Test_uset"
-             mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800" >
+             mc:Ignorable="d" d:DesignWidth="800" Height="642" >
 
     <Grid Height="645" VerticalAlignment="Top" Margin="0,0,85,-195">
 
@@ -66,6 +65,6 @@
             <Label VerticalAlignment="Center" Grid.Row="15" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="Street Name:"/>
             <Label x:Name="streetNameLabel" VerticalAlignment="Center" Grid.Row="15" Margin="3" HorizontalAlignment="Left" Grid.Column="1" Content="{Binding StartingPoint.StreetName}"/>
         </Grid>
-     
+
     </Grid>
 </UserControl>

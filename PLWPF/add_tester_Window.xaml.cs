@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -26,7 +27,7 @@ namespace PLWPF
         public add_tester_Window()
         {
             InitializeComponent();
-            newTester = new Tester { Address = new Address(), Expertise = new CarType(), Name = new Name(), Luz=new Schedule() };
+            newTester = new Tester { DayOfBirth = new DateTime(2000, 1, 1), Address = new Address(), Expertise = new CarType(), Name = new Name(), Luz=new Schedule() };
             this.DataContext = newTester;
             this.genderComboBox.ItemsSource = Enum.GetValues(typeof(BE.Gender));
             this.carTypeComboBox.ItemsSource = Enum.GetValues(typeof(BE.carType));
@@ -86,5 +87,21 @@ namespace PLWPF
             newTester.Luz.data[4][4] = (bool)h4.IsChecked;
             newTester.Luz.data[4][5] = (bool)h5.IsChecked;
         }
+        private void iDTextBox_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (iDTextBox.Text.Length != 9 || !Regex.IsMatch(iDTextBox.Text, @"^[0-9]+$"))
+            {
+                iDTextBox.Foreground = Brushes.Red;
+                iDTextBox.Text = "The id must be 9 digits";
+            }
+        }
+
+        private void idTextBox_GotFocus(object sender, RoutedEventArgs e)
+        {
+            iDTextBox.Text = null;
+            iDTextBox.Foreground = Brushes.Black;
+
+        }
+
     }
 }

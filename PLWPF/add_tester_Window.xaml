@@ -6,67 +6,79 @@
         xmlns:local="clr-namespace:PLWPF"
         xmlns:BE="clr-namespace:BE;assembly=BE" x:Class="PLWPF.add_tester_Window"
         mc:Ignorable="d"
-        Title="add_tester_Window" Height="550" Width="800" >
+        Title="add_tester_Window" Height="550" Width="800"  Background="BlanchedAlmond">
 
-    <Grid Margin="0,0,-134.667,-5.333" >
-        <Button Content="ok" HorizontalAlignment="Left" Margin="375,450,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
-        <Grid x:Name="grid1"  HorizontalAlignment="Left" Margin="38,52,0,0" VerticalAlignment="Top">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="Auto"/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-            </Grid.RowDefinitions>
-            <Label Content="Day Of Birth:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
-            <DatePicker x:Name="dayOfBirthDatePicker" Grid.Column="1" HorizontalAlignment="Left" Margin="3" Grid.Row="0" SelectedDate="{Binding DayOfBirth, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center"/>
-            <Label Content="Experience:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="1" VerticalAlignment="Center"/>
-            <TextBox x:Name="experienceTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="1" Text="{Binding Experience, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
-            <Label Content="Gender:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="2" VerticalAlignment="Center"/>
-            <ComboBox x:Name="genderComboBox" SelectedItem="{Binding Gender}" Grid.Column="1" Grid.Row="2" />
-            <Label Content="ID:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="3" VerticalAlignment="Center"/>
-            <TextBox x:Name="iDTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="3" Text="{Binding ID, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
-            <Label Content="Max Distance:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="4" VerticalAlignment="Center"/>
-            <TextBox x:Name="maxDistanceTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="4" Text="{Binding MaxDistance, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
-            <Label Content="Max Test Weekly:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="5" VerticalAlignment="Center"/>
-            <TextBox x:Name="maxTestWeeklyTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="5" Text="{Binding MaxTestWeekly, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
-            <Label Content="Phone Number:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="6" VerticalAlignment="Center"/>
-            <TextBox x:Name="phoneNumberTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="6" Text="{Binding PhoneNumber, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
-            <Label Content="City:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="7" VerticalAlignment="Center"/>
-            <TextBox x:Name="cityTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="7" Text="{Binding Address.City, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
-            <Label Content="Number:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="8" VerticalAlignment="Center"/>
-            <TextBox x:Name="numberTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="8" Text="{Binding Address.Number, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
-            <Label Content="Street Name:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="9" VerticalAlignment="Center"/>
-            <TextBox x:Name="streetNameTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="9" Text="{Binding Address.StreetName, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
-            <Label Content="car Type:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="10" VerticalAlignment="Center"/>
-            <ComboBox x:Name="carTypeComboBox" SelectedItem="{Binding CarType.carType}" Grid.Column="1"  Grid.Row="10" />
-            <Label Content="gear Type:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="11" VerticalAlignment="Center"/>
-            <ComboBox x:Name="gearTypeComboBox" SelectedItem="{Binding CarType.gearType}" Grid.Column="1" Grid.Row="11" />
-            <Label Content="First Name:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="12" VerticalAlignment="Center"/>
-            <TextBox x:Name="firstNameTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="12" Text="{Binding Name.FirstName, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
-            <Label Content="Last Name:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="13" VerticalAlignment="Center"/>
-            <TextBox x:Name="lastNameTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="13" Text="{Binding Name.LastName, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
-        </Grid>
-        <Grid  x:Name="grid" HorizontalAlignment="Left" Height="160" Margin="385,175,0,0" VerticalAlignment="Top" Width="365">
-            <TabControl Margin="0,0,55,0">
+    <Grid Margin="0,0,-6.667,-29.333" >
+        <Button Content="ok" HorizontalAlignment="Left" Margin="167,422,0,0" Width="172" Click="Button_Click" Height="51" VerticalAlignment="Top" Background="#FF673AB7" BorderBrush="#FF673AB7">
+            <Button.Style>
+                <Style>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding ElementName=iDTextBox, Path=Text}" Value="">
+                            <Setter Property="Button.IsEnabled" Value="False"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding ElementName=iDTextBox, Path=Text}" Value="The id must be 9 digits">
+                            <Setter Property="Button.IsEnabled" Value="False"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding ElementName=firstNameTextBox, Path=Text}" Value="">
+                            <Setter Property="Button.IsEnabled" Value="False"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding ElementName=lastNameTextBox, Path=Text}" Value="">
+                            <Setter Property="Button.IsEnabled" Value="False"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding ElementName=dayOfBirthDatePicker, Path=Text}" Value="">
+                            <Setter Property="Button.IsEnabled" Value="False"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding ElementName=cityTextBox, Path=Text}" Value="">
+                            <Setter Property="Button.IsEnabled" Value="False"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding ElementName=streetNameTextBox, Path=Text}" Value="s">
+                            <Setter Property="Button.IsEnabled" Value="False"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding ElementName=numberTextBox, Path=Text}" Value="">
+                            <Setter Property="Button.IsEnabled" Value="False"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding ElementName=phoneNumberTextBox, Path=Text}" Value="">
+                            <Setter Property="Button.IsEnabled" Value="False"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding ElementName=genderComboBox, Path=Text}" Value="">
+                            <Setter Property="Button.IsEnabled" Value="False"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding ElementName=experienceTextBox, Path=Text}" Value="">
+                            <Setter Property="Button.IsEnabled" Value="False"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding ElementName=carTypeComboBox, Path=Text}" Value="">
+                            <Setter Property="Button.IsEnabled" Value="False"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding ElementName=gearTypeComboBox, Path=Text}" Value="">
+                            <Setter Property="Button.IsEnabled" Value="False"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding ElementName=maxDistanceTextBox, Path=Text}" Value="">
+                            <Setter Property="Button.IsEnabled" Value="False"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding ElementName=maxTestWeeklyTextBox, Path=Text}" Value="">
+                            <Setter Property="Button.IsEnabled" Value="False"/>
+                        </DataTrigger>
+
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
+        <Grid  x:Name="grid" HorizontalAlignment="Left" Height="139" Margin="441,315,0,0" VerticalAlignment="Top" Width="322">
+            <TabControl HorizontalAlignment="Left" Width="310" >
+                <TabControl.Background>
+                    <SolidColorBrush Color="BlanchedAlmond"/>
+                </TabControl.Background>
                 <TabControl.Items>
                     <TabItem Header="Sunday">
+                        <TabItem.Background>
+                            <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                                <GradientStop Color="#FFF0F0F0" Offset="0"/>
+                                <GradientStop Color="#FFF6E9A2" Offset="1"/>
+                            </LinearGradientBrush>
+                        </TabItem.Background>
                         <TabItem.Content>
                             <StackPanel>
-                       
+
                                 <CheckBox  x:Name="s0" Content="9:00 - 10:00" />
                                 <CheckBox   x:Name="s1" Content="10:00 - 11:00" />
                                 <CheckBox x:Name="s2" Content="11:00 - 12:00" />
@@ -78,6 +90,12 @@
                         </TabItem.Content>
                     </TabItem>
                     <TabItem Header="Monday">
+                        <TabItem.Background>
+                            <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                                <GradientStop Color="#FFF0F0F0" Offset="0"/>
+                                <GradientStop Color="#FFF6E9A2" Offset="1"/>
+                            </LinearGradientBrush>
+                        </TabItem.Background>
                         <TabItem.Content>
                             <StackPanel>
                                 <CheckBox  x:Name="m0" Content="9:00 - 10:00" />
@@ -91,6 +109,12 @@
                         </TabItem.Content>
                     </TabItem>
                     <TabItem Header="Tuesday">
+                        <TabItem.Background>
+                            <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                                <GradientStop Color="#FFF0F0F0" Offset="0"/>
+                                <GradientStop Color="#FFF6E9A2" Offset="1"/>
+                            </LinearGradientBrush>
+                        </TabItem.Background>
                         <TabItem.Content>
                             <StackPanel>
                                 <CheckBox  x:Name="w0" Content="9:00 - 10:00" />
@@ -104,6 +128,12 @@
                         </TabItem.Content>
                     </TabItem>
                     <TabItem Header=" Wednesday">
+                        <TabItem.Background>
+                            <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                                <GradientStop Color="#FFF0F0F0" Offset="0"/>
+                                <GradientStop Color="#FFF6E9A2" Offset="1"/>
+                            </LinearGradientBrush>
+                        </TabItem.Background>
                         <TabItem.Content>
                             <StackPanel>
                                 <CheckBox  x:Name="t0" Content="9:00 - 10:00" />
@@ -117,6 +147,12 @@
                         </TabItem.Content>
                     </TabItem>
                     <TabItem Header="Thursday">
+                        <TabItem.Background>
+                            <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                                <GradientStop Color="#FFF0F0F0" Offset="0"/>
+                                <GradientStop Color="#FFF6E9A2" Offset="1"/>
+                            </LinearGradientBrush>
+                        </TabItem.Background>
                         <TabItem.Content>
                             <StackPanel >
                                 <CheckBox  x:Name="h0" Content="9:00 - 10:00" />
@@ -132,5 +168,37 @@
             </TabControl>
 
         </Grid>
+        <Label x:Name="label3" Content="Fill in all the details" HorizontalAlignment="Left" Margin="259,28,0,0" VerticalAlignment="Top" Width="200" Height="47" FontSize="18" FontWeight="Bold" FontStyle="Italic" Foreground="#DDFF0000"/>
+        <Label x:Name="label" Content="Your personal information:" HorizontalAlignment="Left" Margin="67,70,0,0" Width="199" Foreground="#DDFF0000" Height="25" VerticalAlignment="Top"/>
+        <Label Content="ID:" Grid.Column="0" HorizontalAlignment="Left" Margin="43,105,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="iDTextBox" GotFocus="idTextBox_GotFocus" LostFocus="iDTextBox_LostFocus"  HorizontalAlignment="Left" Height="23" Margin="149,109,0,0" Text="{Binding ID, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="120"/>
+        <Label Content="First Name:" Grid.Column="0" HorizontalAlignment="Left" Margin="43,133,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="firstNameTextBox" HorizontalAlignment="Left" Height="23" Margin="149,137,0,0" Text="{Binding Name.FirstName, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Last Name:" Grid.Column="0" HorizontalAlignment="Left" Margin="43,161,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="lastNameTextBox" HorizontalAlignment="Left" Height="23" Margin="149,165,0,0" Text="{Binding Name.LastName, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Day Of Birth:" Grid.Column="0" HorizontalAlignment="Left" Margin="43,188,0,0" Grid.Row="0" VerticalAlignment="Top"/>
+        <DatePicker x:Name="dayOfBirthDatePicker" HorizontalAlignment="Left" Margin="149,190,0,0" Grid.Row="0" SelectedDate="{Binding DayOfBirth, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top"/>
+        <Label Content="Street Name:" Grid.Column="0" HorizontalAlignment="Left" Margin="43,245,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="streetNameTextBox" HorizontalAlignment="Left" Height="23" Margin="149,249,0,0" Text="{Binding Address.StreetName, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Number:" Grid.Column="0" HorizontalAlignment="Left" Margin="43,273,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="numberTextBox" HorizontalAlignment="Left" Height="23" Margin="149,277,0,0" Text="{Binding Address.Number, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Phone Number:" Grid.Column="0" HorizontalAlignment="Left" Margin="43,301,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="phoneNumberTextBox" HorizontalAlignment="Left" Height="23" Margin="149,305,0,0" Text="{Binding PhoneNumber, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Gender:" Grid.Column="0" HorizontalAlignment="Left" Margin="46,332,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="genderComboBox" SelectedItem="{Binding Gender}" Margin="149,332,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="126" />
+        <Label Content="City:" Grid.Column="0" HorizontalAlignment="Left" Margin="43,217,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="cityTextBox" HorizontalAlignment="Left" Height="23" Margin="149,221,0,0" Text="{Binding Address.City, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="label1" Content="Details of your expertise:" HorizontalAlignment="Left" Margin="495,66,0,0" VerticalAlignment="Top" Width="195" Foreground="#DDFF0000"/>
+        <Label Content="Experience:" Grid.Column="0" HorizontalAlignment="Left" Margin="454,101,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="experienceTextBox" HorizontalAlignment="Left" Height="23" Margin="560,103,0,0" Text="{Binding Experience, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="120"/>
+        <Label Content="car Type:" Grid.Column="0" HorizontalAlignment="Left" Margin="457,131,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="carTypeComboBox" SelectedItem="{Binding CarType.carType}" Margin="560,131,0,0" HorizontalAlignment="Left" Width="126" VerticalAlignment="Top" />
+        <Label Content="gear Type:" Grid.Column="0" HorizontalAlignment="Left" Margin="457,163,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="gearTypeComboBox" SelectedItem="{Binding CarType.gearType}" Margin="560,163,0,0" HorizontalAlignment="Left" Width="126" VerticalAlignment="Top" />
+        <Label Content="Max Distance:" Grid.Column="0" HorizontalAlignment="Left" Margin="454,255,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="maxDistanceTextBox" HorizontalAlignment="Left" Height="23" Margin="560,257,0,0" Text="{Binding MaxDistance, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Max Test Weekly:" Grid.Column="0" HorizontalAlignment="Left" Margin="454,283,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="maxTestWeeklyTextBox" HorizontalAlignment="Left" Height="23" Margin="560,285,0,0" Text="{Binding MaxTestWeekly, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="label1_Copy" Content="Details of your working hours:" HorizontalAlignment="Left" Margin="485,217,0,0" VerticalAlignment="Top" Width="195" Foreground="#DDFF0000"/>
     </Grid>
 </Window>
