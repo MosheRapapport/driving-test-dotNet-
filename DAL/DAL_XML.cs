@@ -355,6 +355,7 @@ namespace DAL
                  new XElement("carType", new XElement("carType", test.carType.carType.ToString()),
                               new XElement("gearType", test.carType.gearType.ToString())),
                  new XElement("Comment", test.Comment),
+                 new XElement("Success", test.Success),
                  new XElement("requirements", new XElement("Mirrors", test.requirements.Mirrors)
                                  , new XElement("revers", test.requirements.revers)
                                  , new XElement("speed", test.requirements.speed)
@@ -390,15 +391,11 @@ namespace DAL
         }
         public bool AddTest(Test drivingTest)
         {
-            if (drivingTest.codeOfTest != 0)
-                throw new Exception("this test is already in the system");
-            //initillizing the test code
-           // Test test = drivingTest.Clone();
-        
-           // test.codeOfTest = Configuration.CODE_OF_TEST++;
-
-        
-            drivingTest.codeOfTest = Configuration.CODE_OF_TEST++;
+            if (drivingTest.codeOfTest==0)
+            {
+                drivingTest.codeOfTest = Configuration.CODE_OF_TEST++;
+            }
+            
             testRoot.Add(convertTest(drivingTest));
             testRoot.Save(testPath);
             return true;
@@ -406,7 +403,15 @@ namespace DAL
 
         public bool RemoveTest(Test drivingTest)
         {
-            throw new NotImplementedException();
+            XElement temp_Test = null;
+            temp_Test = (from item in testRoot.Elements()
+                            where drivingTest.codeOfTest == int.Parse(item.Element("codeOfTest").Value)
+                            select item).FirstOrDefault();
+            if (temp_Test == null)
+                throw new Exception("The current drivingTest is not in the database");
+            temp_Test.Remove();
+            testRoot.Save(testPath);
+            return true;
         }
 
         public bool UpdateTest(Test drivingTest)
@@ -535,7 +540,7 @@ namespace DAL
                 Tester_ID = "T1",
                 carType = new CarType() { carType = carType.Private, gearType = GearType.Automatic },
                 codeOfTest = 0,
-                Date = new DateTime(2019, 01, 01),
+                Date = new DateTime(3000, 01, 01),
                 StartingPoint = new Address() { City = "s1", Number = 1, StreetName = "s1" },
             });
         }
