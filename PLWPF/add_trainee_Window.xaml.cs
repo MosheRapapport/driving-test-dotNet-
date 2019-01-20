@@ -30,7 +30,6 @@ namespace PLWPF
             trainee = new Trainee {DayOfBirth= new DateTime(2000,1,1), Address=new Address(), CarTrained=new CarType(), Name=new Name(),Instructor=new Name() };
             this.DataContext = trainee;
 
-            
             this.genderComboBox.ItemsSource = Enum.GetValues(typeof(BE.Gender));
             this.carTypeComboBox.ItemsSource = Enum.GetValues(typeof(BE.carType));
             this.gearTypeComboBox.ItemsSource = Enum.GetValues(typeof(BE.GearType));
