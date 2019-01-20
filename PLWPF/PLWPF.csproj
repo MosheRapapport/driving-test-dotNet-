@@ -91,6 +91,9 @@
     <Compile Include="add_trainee_Window.xaml.cs">
       <DependentUpon>add_trainee_Window.xaml</DependentUpon>
     </Compile>
+    <Compile Include="exercise.xaml.cs">
+      <DependentUpon>exercise.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Luz_UserControl1.xaml.cs">
       <DependentUpon>Luz_UserControl1.xaml</DependentUpon>
     </Compile>
@@ -125,6 +128,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="add_trainee_Window.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="exercise.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -229,6 +236,12 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="gif\giphy.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="video\VD.mp4" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

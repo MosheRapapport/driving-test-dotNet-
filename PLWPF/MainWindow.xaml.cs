@@ -31,6 +31,8 @@ namespace PLWPF
         }
         private void SetVisibiltyHidden()
         {
+            video.Visibility = Visibility.Hidden;
+            video.LoadedBehavior = MediaState.Pause;
             add.Visibility = Visibility.Hidden;
             log_in.Visibility = Visibility.Hidden;
             log_in.update_tester.Visibility = Visibility.Hidden;
@@ -52,7 +54,10 @@ namespace PLWPF
 
         private void Video_butten_Click(object sender, RoutedEventArgs e)
         {
+            
             SetVisibiltyHidden();
+            video.Visibility = Visibility.Visible;
+            video.LoadedBehavior = MediaState.Play;
             string a = "";
             foreach (Person item in bl.GetAllPersons())
             {
@@ -68,14 +73,12 @@ namespace PLWPF
                 a +=item.codeOfTest+ " Tester id: " + item.Tester_ID + " Trainee id " + item.Trainee_ID+item.Date+"\n";
             }
             MessageBox.Show(a);
+            
         }
-
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-
-            System.Windows.Data.CollectionViewSource buttonChromeViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("buttonChromeViewSource")));
-            // Load data by setting the CollectionViewSource.Source property:
-            // buttonChromeViewSource.Source = [generic data source]
-        }
+      
+       
+       
+      
+        
     }
 }
