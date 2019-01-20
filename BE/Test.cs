@@ -16,7 +16,8 @@ namespace BE
         public String Trainee_ID { get; set; }
         public String Tester_ID { get; set; }
         public Address StartingPoint { get; set; }
-        public bool Success { get; set; }
+        private bool success = false;
+        public bool Success { get=>success; set=>success=value; }
         private string comment="";
         public String Comment { get => comment; set => comment = value; }
         public CarType carType { get; set; }
