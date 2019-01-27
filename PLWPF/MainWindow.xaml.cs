@@ -32,8 +32,9 @@ namespace PLWPF
         private void SetVisibiltyHidden()
         {
             video.Visibility = Visibility.Hidden;
-            video.LoadedBehavior = MediaState.Pause;
+            video.LoadedBehavior = MediaState.Stop;
             add.Visibility = Visibility.Hidden;
+            log_in.radioButton2.IsChecked = true;
             log_in.Visibility = Visibility.Hidden;
             log_in.update_tester.Visibility = Visibility.Hidden;
             log_in.update_trainee.Visibility= Visibility.Hidden;
@@ -54,10 +55,10 @@ namespace PLWPF
 
         private void Video_butten_Click(object sender, RoutedEventArgs e)
         {
-            
-            SetVisibiltyHidden();
-            video.Visibility = Visibility.Visible;
-            video.LoadedBehavior = MediaState.Play;
+
+            //SetVisibiltyHidden();
+            //           video.Visibility = Visibility.Visible;
+            //          video.LoadedBehavior = MediaState.Play;
             string a = "";
             foreach (Person item in bl.GetAllPersons())
             {
@@ -65,20 +66,20 @@ namespace PLWPF
                     a += "\ntrainee:   ";
                 if (item is Tester)
                     a += "\ntester:    ";
-                a += item.Name.ToString() +" "+item.ID.ToString();
+                a += item.Name.ToString() + " " + item.ID.ToString();
             }
             a += "\n\n TESTS:\n";
             foreach (Test item in bl.GetTests())
             {
-                a +=item.codeOfTest+ " Tester id: " + item.Tester_ID + " Trainee id " + item.Trainee_ID+item.Date+"\n";
+                a += item.codeOfTest + " Tester id: " + item.Tester_ID + " Trainee id " + item.Trainee_ID + item.Date + "\n";
             }
             MessageBox.Show(a);
-            
+
         }
-      
-       
-       
-      
-        
+
+
+
+
+
     }
 }

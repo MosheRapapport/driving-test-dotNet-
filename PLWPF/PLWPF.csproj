@@ -241,7 +241,9 @@
     <Resource Include="gif\giphy.gif" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="video\VD.mp4" />
+    <Content Include="video\VD.mp4">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

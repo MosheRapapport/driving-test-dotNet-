@@ -15,6 +15,7 @@ using BE;
 using BL;
 using System.Threading;
 
+
 namespace PLWPF
 {
     /// <summary>
@@ -33,6 +34,8 @@ namespace PLWPF
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            if (!ERROR())
+                return;
             test =((Test)DataContext);
             gif.Visibility = Visibility.Visible;
             new Thread(() =>
@@ -67,6 +70,26 @@ namespace PLWPF
           }).Start();
           
            
+        }
+
+        private bool ERROR()
+        {
+            if (((Test)DataContext).Date.DayOfWeek == (DayOfWeek)6 || ((Test)DataContext).Date.DayOfWeek == (DayOfWeek)7)
+            {
+                MessageBox.Show("You can only select between Sunday and Thursday and between 9 and 14full hour", "ERROR");
+                return false;
+            }
+            if (((Test)DataContext).Date.Hour < 9 || ((Test)DataContext).Date.Hour > 14)
+            {
+                MessageBox.Show("You can only select between Sunday and Thursday and between 9 and 14full hour", "ERROR");
+                return false;
+            }
+            if (((Test)DataContext).Date.Minute != 0 && ((Test)DataContext).Date.Second != 0)
+            {
+                MessageBox.Show("You can only select between Sunday and Thursday and between 9 and 14full hour", "ERROR");
+                return false;
+            }
+            return true;
         }
     }
 }

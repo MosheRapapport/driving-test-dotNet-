@@ -16,12 +16,13 @@ namespace DAL
         public DAL_XML()
         {
             if (!File.Exists(traineePath))
-                CreateFiles();
+            {
+               CreateFiles();
+               init();
+             }
             else
                 LoadData();
-            init();
-
-        }
+         }
 
         protected static DAL_XML dal;
         public static DAL_XML Dal
@@ -65,9 +66,9 @@ namespace DAL
                 testerRoot = XElement.Load(testerPath);
                 testRoot = XElement.Load(testPath);
 
-                traineeRoot.RemoveAll();
-                testerRoot.RemoveAll();
-                testRoot.RemoveAll();
+                //traineeRoot.RemoveAll();
+               // testerRoot.RemoveAll();
+                //testRoot.RemoveAll();
             }
             catch
             {
@@ -172,7 +173,8 @@ namespace DAL
         public List<Tester> GetTesters()
         {
             List<Tester> testers = new List<Tester>();
-            testers= (from item in testerRoot.Elements()
+            LoadData();
+            testers = (from item in testerRoot.Elements()
                     select convertTester(item)).ToList();
             if(!testers.Any())
                 throw new Exception("There is no testers in the database");
@@ -259,6 +261,7 @@ namespace DAL
         public List<Trainee> GetTrainees()
         {
             List<Trainee> trainees = new List<Trainee>();
+            LoadData();
             trainees = (from item in traineeRoot.Elements()
                        select convertTrainee(item)).ToList();
             if (!trainees.Any())
@@ -366,6 +369,7 @@ namespace DAL
         public List<Test> GetTests()
         {
             List<Test> tests = new List<Test>();
+            LoadData();
             tests = (from item in testRoot.Elements()
                         select convertTest(item)).ToList();
             if (!tests.Any())
@@ -389,13 +393,22 @@ namespace DAL
                 return null;
             return convertTest(newTest);
         }
+
+        public int num()
+        {
+            for(; getTest(Configuration.CODE_OF_TEST) !=null; Configuration.CODE_OF_TEST++)
+            {
+
+            }
+            return Configuration.CODE_OF_TEST++;
+        }
         public bool AddTest(Test drivingTest)
         {
-            if (drivingTest.codeOfTest==0)
-            {
-                drivingTest.codeOfTest = Configuration.CODE_OF_TEST++;
-            }
-            
+
+
+            drivingTest.codeOfTest = num();
+
+
             testRoot.Add(convertTest(drivingTest));
             testRoot.Save(testPath);
             return true;
