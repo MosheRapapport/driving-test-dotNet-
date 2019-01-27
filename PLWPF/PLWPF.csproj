@@ -91,8 +91,20 @@
     <Compile Include="add_trainee_Window.xaml.cs">
       <DependentUpon>add_trainee_Window.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AllTasters.xaml.cs">
+      <DependentUpon>AllTasters.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AllTests.xaml.cs">
+      <DependentUpon>AllTests.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AllTrainees.xaml.cs">
+      <DependentUpon>AllTrainees.xaml</DependentUpon>
+    </Compile>
     <Compile Include="exercise.xaml.cs">
       <DependentUpon>exercise.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GroupWindow.xaml.cs">
+      <DependentUpon>GroupWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Luz_UserControl1.xaml.cs">
       <DependentUpon>Luz_UserControl1.xaml</DependentUpon>
@@ -131,7 +143,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="AllTasters.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AllTests.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AllTrainees.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="exercise.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GroupWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
