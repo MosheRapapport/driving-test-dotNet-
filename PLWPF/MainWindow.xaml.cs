@@ -77,12 +77,9 @@ namespace PLWPF
 
         }
 
-        
 
-        private void GroupWindow_Click(object sender, RoutedEventArgs e)
-        {
-            GroupWindow g = new GroupWindow();
-            g.ShowDialog();
-        }
+
+
+
     }
 }

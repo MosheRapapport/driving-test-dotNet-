@@ -26,7 +26,6 @@
         <local:add_control x:Name="add" Visibility="Hidden" HorizontalAlignment="Left" Height="411" Margin="0,10,0,-0.333" Grid.RowSpan="3" VerticalAlignment="Top" Width="783" Grid.ColumnSpan="2"  />
         <local:log_in_control x:Name="log_in" Visibility="Hidden" HorizontalAlignment="Left" Height="421" Margin="0,0,0,-0.333" Grid.RowSpan="3" VerticalAlignment="Top" Width="793" Grid.ColumnSpan="2" />
         <MediaElement x:Name="video" LoadedBehavior="Manual"   Source="video/VD.mp4"  Visibility="Hidden" Grid.Column="1" Margin="0.333,3,3.333,2.667" Grid.RowSpan="3"/>
-        <Button x:Name="GroupWindow" Content="GroupWindow" Grid.Column="1" HorizontalAlignment="Left" Height="79" Margin="79.333,14,0,0" Grid.Row="2" VerticalAlignment="Top" Width="228" Click="GroupWindow_Click" />
 
 
     </Grid>
