@@ -28,6 +28,7 @@ namespace PLWPF
         {
             InitializeComponent();
             SetVisibiltyHidden();
+
         }
         private void SetVisibiltyHidden()
         {

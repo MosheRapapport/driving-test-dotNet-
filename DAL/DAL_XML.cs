@@ -15,25 +15,37 @@ namespace DAL
     {
         public DAL_XML()
         {
+           
             if (!File.Exists(traineePath))
             {
-               CreateFiles();
-               init();
-             }
-            else
-                LoadData();
-         }
-
-        protected static DAL_XML dal;
-        public static DAL_XML Dal
-        {
-            get
-            {
-                if (dal == null)
-                    dal = new DAL_XML();
-                return dal;
+                CreateFiles();
+                
             }
+            else { LoadData(); }
+               
+            
+
         }
+
+        //public static DAL_XML dal;
+        //public static DAL_XML Dal
+        //{
+        //    get
+        //    {
+        //        try
+        //        {
+        //            if (dal == null)
+        //                dal = new DAL_XML();
+        //            return dal;
+        //        }
+        //        catch (Exception e)
+        //        {
+
+        //            throw e;
+        //        }
+
+        //    }
+        //}
 
 
         XElement traineeRoot;
@@ -56,6 +68,7 @@ namespace DAL
 
             testRoot = new XElement("tests");
             testRoot.Save(testPath);
+           
 
         }
         private void LoadData()
@@ -66,9 +79,7 @@ namespace DAL
                 testerRoot = XElement.Load(testerPath);
                 testRoot = XElement.Load(testPath);
 
-                //traineeRoot.RemoveAll();
-               // testerRoot.RemoveAll();
-                //testRoot.RemoveAll();
+                
             }
             catch
             {
@@ -396,17 +407,19 @@ namespace DAL
 
         public int num()
         {
-            for(; getTest(Configuration.CODE_OF_TEST) !=null; Configuration.CODE_OF_TEST++)
-            {
+            for (; getTest(Configuration.CODE_OF_TEST) != null; Configuration.CODE_OF_TEST++) { }
+            
 
-            }
             return Configuration.CODE_OF_TEST++;
         }
         public bool AddTest(Test drivingTest)
         {
 
-
-            drivingTest.codeOfTest = num();
+            if (drivingTest.codeOfTest==0)
+            {
+                drivingTest.codeOfTest = num();
+            }
+           
 
 
             testRoot.Add(convertTest(drivingTest));

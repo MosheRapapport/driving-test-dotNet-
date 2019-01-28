@@ -10,7 +10,7 @@ namespace DAL
     {
         protected static Idal instance = null;
 
-        protected FactorySingletonDal() { }
+       /// protected FactorySingletonDal() { }
         public static Idal getInstance()
         {
             if (instance == null)
