@@ -7,17 +7,26 @@
              mc:Ignorable="d" 
              d:DesignHeight="200" d:DesignWidth="500" Background="BlanchedAlmond">
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-        <ListView  x:Name="listView">
+        <ListView  x:Name="listView" UseLayoutRounding="True">
+          
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel />
                 </ItemsPanelTemplate>
             </ListView.ItemsPanel>
            
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Border BorderThickness="2" BorderBrush="LightSkyBlue" Margin="5">
+                        <StackPanel VerticalAlignment="Top">
+                            <TextBlock Text="{Binding Path=Key}" FontSize="16" Foreground="Red" TextAlignment="Center" />
+                            <ListView ItemsSource="{Binding}">
+                            </ListView>
+                        </StackPanel>
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            
         </ListView>
        
     </Grid>

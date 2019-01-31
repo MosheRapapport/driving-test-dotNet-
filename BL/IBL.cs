@@ -34,7 +34,7 @@ namespace BL
         bool PassedTest(Trainee trainee);
         List<Test> TestsToday(DateTime dateTime);
         //grouping
-        IEnumerable<IGrouping<CarType,Tester>> TestersExpertise( bool sorted=false);
+        IEnumerable<IGrouping<carType,Tester>> TestersExpertise( bool sorted=false);
         IEnumerable<IGrouping<string, Trainee>> traineesBySchool( bool sorted = false);
         IEnumerable<IGrouping<Name, Trainee>> traineesByTeacher( bool sorted = false);
         IEnumerable<IGrouping<int, Trainee>> traineesByNumOfTests( bool sorted = false);

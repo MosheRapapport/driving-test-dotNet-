@@ -434,17 +434,17 @@ namespace BL
                 date2.AddDays(-(int)date2.DayOfWeek).AddHours(-date2.Hour);
         }//v++
 
-        public IEnumerable<IGrouping<CarType, Tester>> TestersExpertise(bool sorted = false)
+        public IEnumerable<IGrouping<carType, Tester>> TestersExpertise(bool sorted = false)
         {
             if(!sorted)
             {
                 var v = from tester in dal.GetTesters()
-                        group tester by tester.Expertise;
+                        group tester by tester.Expertise.carType;
                 return v;
             }
             var v1 = from tester in dal.GetTesters()
                      orderby tester.Experience descending
-                    group tester by tester.Expertise;
+                    group tester by tester.Expertise.carType;
             return v1;
 
         }
