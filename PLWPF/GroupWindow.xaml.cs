@@ -49,7 +49,7 @@ namespace PLWPF
             {
 
                AllTasters uc = new AllTasters();
-                uc.Source = bl.TestersExpertise(true);
+                uc.Source = bl.TestersExpertise(false);
                 this.page.Content = uc;
 
             }
@@ -67,7 +67,7 @@ namespace PLWPF
             {
 
                 AllTrainees uc = new AllTrainees();
-                uc.Source = bl.traineesByNumOfTests(true);
+                uc.Source = bl.GetTrainees();
                 this.page.Content = uc;
 
             }

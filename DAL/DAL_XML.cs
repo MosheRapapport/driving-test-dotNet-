@@ -19,33 +19,15 @@ namespace DAL
             if (!File.Exists(traineePath))
             {
                 CreateFiles();
-                
+                init();
             }
             else { LoadData(); }
-               
-            
+
+           
 
         }
 
-        //public static DAL_XML dal;
-        //public static DAL_XML Dal
-        //{
-        //    get
-        //    {
-        //        try
-        //        {
-        //            if (dal == null)
-        //                dal = new DAL_XML();
-        //            return dal;
-        //        }
-        //        catch (Exception e)
-        //        {
-
-        //            throw e;
-        //        }
-
-        //    }
-        //}
+      
 
 
         XElement traineeRoot;
