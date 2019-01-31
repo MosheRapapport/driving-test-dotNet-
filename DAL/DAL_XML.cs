@@ -21,10 +21,13 @@ namespace DAL
                 CreateFiles();
                 init();
             }
-            else { LoadData(); }
+            else {
+
+                LoadData();
+               
+                }
 
            
-
         }
 
       
@@ -39,6 +42,9 @@ namespace DAL
         XElement testRoot;
         string testPath = @"testXml.xml";
 
+        XElement configurationRoot;
+        string configurationPath = @"configurationXml.xml";
+
 
         private void CreateFiles()
         {
@@ -50,7 +56,9 @@ namespace DAL
 
             testRoot = new XElement("tests");
             testRoot.Save(testPath);
-           
+
+            configurationRoot = new XElement("configuration");
+            configurationRoot.Save(configurationPath);
 
         }
         private void LoadData()
@@ -60,17 +68,53 @@ namespace DAL
                 traineeRoot = XElement.Load(traineePath);
                 testerRoot = XElement.Load(testerPath);
                 testRoot = XElement.Load(testPath);
+                configurationRoot = XElement.Load(configurationPath);
 
-                
+                //traineeRoot.RemoveAll();
+                //testerRoot.RemoveAll();
+                //testRoot.RemoveAll();
+                //configurationRoot.RemoveAll();
+
             }
             catch
             {
                 throw new Exception("File upload problem");
             }
         }
+        int convertereNOT(XElement xElement)
+        {
+            return int.Parse(xElement.Value);
+        }
+        XElement converterN(int numOftest)
+        {
+            return new XElement("numOftest", numOftest);
+        }
+        int getNOT()
+        {
+            XElement NOT = null;
+            try
+            {
+                NOT = configurationRoot.Elements().First();
 
+            }
+            catch (Exception)
+            {
+                return 0;
+            }
+            if (NOT == null)
+                return 0;
+            return convertereNOT(NOT);
+        }
+        void removNOT()
+        {
+            configurationRoot.RemoveAll();
+        }
 
-
+        void addNOT()
+        {
+            configurationRoot.ReplaceAll(converterN(getNOT()+1));
+            configurationRoot.Save(configurationPath);
+        }
         //A.R.U.D tester
         BE.Schedule converterSchedule(XElement xElement)
         {
@@ -399,7 +443,9 @@ namespace DAL
 
             if (drivingTest.codeOfTest==0)
             {
-                drivingTest.codeOfTest = num();
+
+                drivingTest.codeOfTest = getNOT();
+                addNOT();
             }
            
 
