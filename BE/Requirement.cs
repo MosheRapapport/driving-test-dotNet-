@@ -24,12 +24,12 @@ namespace BE
 
         public override string ToString()
         {
-            return "\nrevers: " + revers +
-                "  U_turn: " + U_turn+
-                "  speed: " + speed+
-                "  breks: "+ breks+
-                "  blinks: "+ blinks+
-                "  Mirrors: "+ Mirrors;
+            return "\n    revers: " + revers + "." +
+                "\n    U_turn: " + U_turn + "." +
+                "\n    speed: " + speed + "." +
+                "\n    breks: " + breks + "." +
+                "\n    blinks: " + blinks + "." +
+                "\n    Mirrors: " + Mirrors + "." ;
         }
         public Requirements Clone()
         {

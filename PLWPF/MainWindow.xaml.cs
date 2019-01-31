@@ -28,12 +28,16 @@ namespace PLWPF
         {
             InitializeComponent();
             SetVisibiltyHidden();
+            //video.Opacity = 100;
+            video.Visibility = Visibility.Visible;
+            video.LoadedBehavior = MediaState.Play;
 
         }
         private void SetVisibiltyHidden()
         {
+            //video.Opacity = 20;
             video.Visibility = Visibility.Hidden;
-            video.LoadedBehavior = MediaState.Stop;
+            video.LoadedBehavior = MediaState.Pause;
             add.Visibility = Visibility.Hidden;
             log_in.radioButton2.IsChecked = true;
             log_in.Visibility = Visibility.Hidden;
@@ -57,24 +61,25 @@ namespace PLWPF
         private void Video_butten_Click(object sender, RoutedEventArgs e)
         {
 
-            //SetVisibiltyHidden();
-            //           video.Visibility = Visibility.Visible;
-            //          video.LoadedBehavior = MediaState.Play;
-            string a = "";
-            foreach (Person item in bl.GetAllPersons())
-            {
-                if (item is Trainee)
-                    a += "\ntrainee:   ";
-                if (item is Tester)
-                    a += "\ntester:    ";
-                a += item.Name.ToString() + " " + item.ID.ToString();
-            }
-            a += "\n\n TESTS:\n";
-            foreach (Test item in bl.GetTests())
-            {
-                a += item.codeOfTest + " Tester id: " + item.Tester_ID + " Trainee id " + item.Trainee_ID + item.Date + "\n";
-            }
-            MessageBox.Show(a);
+            SetVisibiltyHidden();
+        //    video.Opacity = 100;
+            video.Visibility = Visibility.Visible;
+            video.LoadedBehavior = MediaState.Play;
+            //string a = "";
+            //foreach (Person item in bl.GetAllPersons())
+            //{
+            //    if (item is Trainee)
+            //        a += "\ntrainee:   ";
+            //    if (item is Tester)
+            //        a += "\ntester:    ";
+            //    a += item.Name.ToString() + " " + item.ID.ToString();
+            //}
+            //a += "\n\n TESTS:\n";
+            //foreach (Test item in bl.GetTests())
+            //{
+            //    a += item.codeOfTest + " Tester id: " + item.Tester_ID + " Trainee id " + item.Trainee_ID + item.Date + "\n";
+            //}
+            //MessageBox.Show(a);
 
         }
 
@@ -82,6 +87,7 @@ namespace PLWPF
 
         private void GroupWindow_Click(object sender, RoutedEventArgs e)
         {
+            SetVisibiltyHidden();
             GroupWindow g = new GroupWindow();
             g.ShowDialog();
         }

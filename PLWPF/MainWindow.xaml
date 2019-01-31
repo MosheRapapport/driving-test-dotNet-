@@ -19,14 +19,15 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Button x:Name="log_in_button" Content="log in" HorizontalAlignment="Left" Margin="40,40,0,0" VerticalAlignment="Top" Width="180" Height="60" Click="Log_in_button_Click"  />
-        <Button x:Name="new_user_butten" Content="new user" HorizontalAlignment="Left" Margin="40,40,0,0" Grid.Row="1" VerticalAlignment="Top" Width="180" Height="60" Click="New_user_butten_Click"/>
-        <Button x:Name="video_butten" Content="video" HorizontalAlignment="Left" Margin="40,40,0,0" Grid.Row="2" VerticalAlignment="Top" Width="180" Height="61" Click="Video_butten_Click"/>
-        <local:add_control x:Name="add" Visibility="Hidden" HorizontalAlignment="Left" Height="411" Margin="0,10,0,-0.333" Grid.RowSpan="3" VerticalAlignment="Top" Width="783" Grid.ColumnSpan="2"  />
-        <local:log_in_control x:Name="log_in" Visibility="Hidden" HorizontalAlignment="Left" Height="421" Margin="0,0,0,-0.333" Grid.RowSpan="3" VerticalAlignment="Top" Width="793" Grid.ColumnSpan="2" />
-        <MediaElement x:Name="video" LoadedBehavior="Manual"   Source="video/VD.mp4"  Visibility="Hidden" Grid.Column="1" Margin="0.333,3,3.333,2.667" Grid.RowSpan="3"/>
-        <Button x:Name="GroupWindow" Content="GroupWindow" Grid.Column="1" HorizontalAlignment="Left" Height="79" Margin="79.333,14,0,0" Grid.Row="2" VerticalAlignment="Top" Width="228" Click="GroupWindow_Click" />
+        <Button x:Name="log_in_button" Content="log in" HorizontalAlignment="Left" Margin="40,22.5,0,0" VerticalAlignment="Top" Width="180" Height="60" Click="Log_in_button_Click"  />
+        <Button x:Name="new_user_butten" Content="new user" HorizontalAlignment="Left" Margin="40,22.5,0,0" Grid.Row="1" VerticalAlignment="Top" Width="180" Height="60" Click="New_user_butten_Click"/>
+        <Button x:Name="video_butten" Content="video" HorizontalAlignment="Left" Margin="40,22.5,0,0" Grid.Row="3" VerticalAlignment="Top" Width="180" Height="60" Click="Video_butten_Click"/>
+        <local:add_control x:Name="add" Visibility="Hidden" HorizontalAlignment="Left" Height="411" Margin="0,10,0,-0.334" Grid.RowSpan="4" VerticalAlignment="Top" Width="783" Grid.ColumnSpan="2"  />
+        <local:log_in_control x:Name="log_in" Visibility="Hidden" HorizontalAlignment="Left" Height="421" Margin="0,0,0,-0.334" Grid.RowSpan="4" VerticalAlignment="Top" Width="793" Grid.ColumnSpan="2" />
+        <MediaElement x:Name="video" LoadedBehavior="Manual"   Source="video/VD.mp4"  Visibility="Hidden" Grid.Column="1" Margin="0.333,3,3.333,2.666" Grid.RowSpan="4"/>
+        <Button x:Name="GroupWindow" Content="Grouping" HorizontalAlignment="Left" Height="60" Margin="40,22.5,0,0" Grid.Row="2" VerticalAlignment="Top" Width="180" Click="GroupWindow_Click" />
 
 
     </Grid>

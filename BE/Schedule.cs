@@ -46,13 +46,24 @@ namespace BE
                     {
                         oved = true;
                         hayom += "\t" + (starttime + j) + ":00-";
-                        hayom += (starttime + j + 1).ToString() + ":00\n";
+                        hayom += (starttime + j + 1).ToString() + ":00  ";
                     }
+                    else
+                        hayom += "\t\t             ";
                 }
                 if (oved == true)
                 {
-                    result += ((Day)i).ToString() + "\n";
+                    if (i==3||i==4)
+                    {
+                        result += "\n" + ((Day)i).ToString() ;
+                        result += hayom;
+
+                    }
+                    else
+                    {
+                    result += "\n"+((Day)i).ToString() + "\t";
                     result += hayom;
+                    }
                 }
             }
             if (result == null)

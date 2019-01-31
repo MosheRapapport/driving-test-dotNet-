@@ -15,8 +15,8 @@ namespace BE
         public int MaxDistance { get; set; }
         public override string ToString()
         {
-            return base.ToString() + "\n Expertise: " + Expertise.ToString() + " MaxTestWeekly: " + MaxTestWeekly +
-                " MaxDistance: " + MaxDistance + "\nLuz:\n " + Luz.ToString();
+            return base.ToString() + "\nExpertise: " + Expertise.ToString() + "\nMaxTestWeekly: " + MaxTestWeekly +
+                "\nMaxDistance: " + MaxDistance + "\nLuz: " + Luz.ToString();
         }
         public new Tester Clone()
         {

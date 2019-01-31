@@ -16,8 +16,8 @@ namespace BE
         public string PhoneNumber { get; set; }
         public override string ToString()
         {
-            return "\nID: "+ID+ "\nName: "+ Name.ToString()+ " DayOfBirth: "+ DayOfBirth.ToString()+
-                " Gender: "+ Gender.ToString()+"\n"+ Address.ToString()+ " PhoneNumber: "+ PhoneNumber;
+            return "\nID: "+ID+ "\nName: "+ Name.ToString()+ "\nDayOfBirth: "+ DayOfBirth.ToString()+
+                "\nGender: "+ Gender.ToString()+ "\nAddress: " + Address.ToString()+ "\nPhoneNumber: "+ PhoneNumber;
         }
         public virtual Person Clone()  //deep clone 
         {

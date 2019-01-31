@@ -26,11 +26,12 @@ namespace BE
             string A = "";
          
             return "\ncode of test: " + codeOfTest + "\ntrainee ID: " + Trainee_ID +
-                " tester ID: " + Tester_ID + " date:  " + Date.ToString() + A+
-                " carType: "+ carType.ToString()+
+                "\ntester ID: " + Tester_ID + "\ndate:  " + Date.ToString() + A+
+                "\ncarType: "+ carType.ToString()+
                 "\nstarting point: " + StartingPoint.ToString() +
+                "\nrequirements: "+
                  requirements.ToString()+
-                "\nsuccess: " + Success + " comment: " + Comment;
+                "\nsuccess: " + Success + "\ncomment: " + Comment;
         }
         public Test Clone()  //amok 
         {
