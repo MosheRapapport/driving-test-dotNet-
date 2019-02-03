@@ -99,10 +99,15 @@ namespace DAL
             }
             catch (Exception)
             {
-                return 0;
+                return BE.Configuration.CODE_OF_TEST;
             }
             if (NOT == null)
-                return 0;
+            {
+                return BE.Configuration.CODE_OF_TEST;
+            }
+
+
+
             return convertereNOT(NOT);
         }
         void removNOT()

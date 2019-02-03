@@ -67,7 +67,7 @@ namespace PLWPF
             {
 
                 AllTrainees uc = new AllTrainees();
-                uc.Source = bl.traineesByNumOfTests(true);
+                uc.Source = bl.GetTrainees();
                 this.page.Content = uc;
 
             }

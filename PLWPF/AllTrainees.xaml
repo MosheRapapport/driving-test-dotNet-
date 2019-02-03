@@ -8,26 +8,31 @@
              d:DesignHeight="200" d:DesignWidth="500" Background="BlanchedAlmond">
     <Grid>
         <ListView  x:Name="listView" UseLayoutRounding="True">
+
           
-            <ListView.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <WrapPanel />
-                </ItemsPanelTemplate>
-            </ListView.ItemsPanel>
-           
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <Border BorderThickness="2" BorderBrush="LightSkyBlue" Margin="5">
-                        <StackPanel VerticalAlignment="Top">
-                            <TextBlock Text="{Binding Path=Key}" FontSize="16" Foreground="Red" TextAlignment="Center" />
-                            <ListView ItemsSource="{Binding}">
-                            </ListView>
-                        </StackPanel>
-                    </Border>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-            
-        </ListView>
-       
+                <ListView.View> 
+                    <GridView>
+                     <GridViewColumn Header="ID" Width="120" DisplayMemberBinding="{Binding ID}" />
+                    <GridViewColumn Header="Last Name" Width="120" DisplayMemberBinding="{Binding Name.FirstName}" />
+                    <GridViewColumn Header="First Name" Width="120" DisplayMemberBinding="{Binding Name.LastName}" />
+
+                     <GridViewColumn Header="Date Of Birth" Width="150" DisplayMemberBinding="{Binding DayOfBirth}" />
+                    <GridViewColumn x:Name ="Gender" Header="Gender" Width="100" DisplayMemberBinding="{Binding Gender}" />
+                    <GridViewColumn Header="Phone" Width="120" DisplayMemberBinding="{Binding PhoneNumber}" />
+                    <GridViewColumn x:Name ="Vheicle" Header="CarType" Width="120" DisplayMemberBinding="{Binding CarTrained.carType}" />
+                    <GridViewColumn Header="Gear" Width="100" DisplayMemberBinding="{Binding CarTrained.gearType}" />
+                    <GridViewColumn x:Name="City"  Header="City" Width="100" DisplayMemberBinding="{Binding Address.City}" />
+                    <GridViewColumn Header="StreetName" Width="100" DisplayMemberBinding="{Binding Address.StreetName}" /> 
+                    <GridViewColumn Header="BuildingNumber" Width="100" DisplayMemberBinding="{Binding Address.Number}" />
+                    <GridViewColumn Header="Teacher first name" Width="100" DisplayMemberBinding="{Binding Instructor.FirstName}" />
+                    <GridViewColumn Header="Teacher last name" Width="100" DisplayMemberBinding="{Binding Instructor.LastName}" />
+                  
+                    <GridViewColumn Header="School" Width="100" DisplayMemberBinding="{Binding DrivingSchool}" />
+                    </GridView>
+                </ListView.View>
+
+                
+            </ListView>
+
     </Grid>
 </UserControl>

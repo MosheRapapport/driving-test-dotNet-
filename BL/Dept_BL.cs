@@ -401,8 +401,17 @@ namespace BL
             }
             return true;
         }//v+9
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="drivingTest"></param>
+        /// <returns></returns>
         public bool UpdateDrivingTest(Test drivingTest)
         {
+            if(drivingTest.Date.AddDays(3) < (DateTime.Now))
+            {
+                throw new Exception("Can not update before 3 days passed");
+            }
             if (drivingTest.Comment == "")
                 throw new Exception("Can not update the test because not all fields are filled");
             if (drivingTest.requirements.revers == false ||

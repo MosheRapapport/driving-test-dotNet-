@@ -19,8 +19,8 @@
         <RowDefinition Height="3*"/>
     </Grid.RowDefinitions>
         <Button  x:Name="GetTests" Content="GetTests"  Height="30"  Width="200" Click="GetTests_Click"/>
-        <Button  x:Name="TestersExpertise" Content="TestersExpertise" Grid.Column="1"  Height="30"   Width="200" Click="TestersExpertise_Click"  />
-        <Button  x:Name="traineesByNumOfTests" Content="traineesByNumOfTests" Grid.Column="2" Height="30"  Width="200" Click="traineesByNumOfTests_Click"/>
+        <Button  x:Name="TestersExpertise" Content="Testers" Grid.Column="1"  Height="30"   Width="200" Click="TestersExpertise_Click"  />
+        <Button  x:Name="traineesByNumOfTests" Content="trainees" Grid.Column="2" Height="30"  Width="200" Click="traineesByNumOfTests_Click"/>
         <ContentControl x:Name="page" Grid.ColumnSpan="6" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" BorderBrush="Black" BorderThickness="2">
         </ContentControl>
     </Grid>

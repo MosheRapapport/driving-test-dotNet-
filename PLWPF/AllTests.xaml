@@ -9,6 +9,7 @@
     <Grid>
      
         <ListView  x:Name="listView">
+            
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel />
