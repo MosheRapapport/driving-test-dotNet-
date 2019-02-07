@@ -7,14 +7,22 @@
              mc:Ignorable="d" 
              d:DesignHeight="200" d:DesignWidth="500" Background="BlanchedAlmond">
     <Grid>
-     
         <ListView  x:Name="listView">
-            
-            <ListView.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <WrapPanel />
-                </ItemsPanelTemplate>
-            </ListView.ItemsPanel>
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Code Of Test" Width="120" DisplayMemberBinding="{Binding codeOfTest}" />
+                    <GridViewColumn Header="Trainee ID" Width="120" DisplayMemberBinding="{Binding Trainee_ID}" />
+                    <GridViewColumn Header="Tester ID" Width="120" DisplayMemberBinding="{Binding Tester_ID}" />
+                    <GridViewColumn Header="Date" Width="150" DisplayMemberBinding="{Binding Date}" />
+                    <GridViewColumn x:Name="StartingPoint"  Header="StartingPoint" Width="150" DisplayMemberBinding="{Binding StartingPoint}" />
+                    <GridViewColumn x:Name ="Vheicle" Header="CarType" Width="120" DisplayMemberBinding="{Binding carType.carType}" />
+                    <GridViewColumn Header="Gear" Width="100" DisplayMemberBinding="{Binding carType.gearType}" />
+                    <GridViewColumn Header="requirements" Width="150" DisplayMemberBinding="{Binding requirements}" />
+                    <GridViewColumn Header="Success" Width="150" DisplayMemberBinding="{Binding Success}" />
+                    <GridViewColumn Header="Comment" Width="150" DisplayMemberBinding="{Binding Comment}" />
+
+                </GridView>
+            </ListView.View>
            
         </ListView>
 

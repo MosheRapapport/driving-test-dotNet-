@@ -32,11 +32,16 @@ namespace PLWPF
             {
                 source = value;
                 this.listView.ItemsSource = source;
+                CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(listView.ItemsSource);
+                PropertyGroupDescription groupDescription = new PropertyGroupDescription("Expertise.carType");
+                view.GroupDescriptions.Add(groupDescription);
             }
         }
         public AllTasters()
         {
             InitializeComponent();
+
         }
+
     }
 }

@@ -1,21 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using BE;
-using BL;
 using System.Threading;
-using TextmagicRest;
-using TextmagicRest.Model;
 
 
 namespace PLWPF
@@ -93,18 +79,18 @@ namespace PLWPF
             }
             return true;
         }
-        public void sendMessage()
-        {
-            var client = new Client("test", "000000");
-            var link = client.SendMessage("Hello from TextMagic API", "+97542520196");
-            if (link.Success)
-            {
-                MessageBox.Show("Message ID {0} has been successfully sent");
-            }
-            else
-            {
-                MessageBox.Show(link.ClientException.Message.ToString());
-            }
-        }
+        //public void sendMessage()
+        //{
+        //    var client = new Client("test", "000000");
+        //    var link = client.SendMessage("Hello from TextMagic API", "+97542520196");
+        //    if (link.Success)
+        //    {
+        //        MessageBox.Show("Message ID {0} has been successfully sent");
+        //    }
+        //    else
+        //    {
+        //        MessageBox.Show(link.ClientException.Message.ToString());
+        //    }
+        //}
     }
 }

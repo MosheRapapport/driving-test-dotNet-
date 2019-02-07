@@ -29,13 +29,13 @@ namespace PLWPF
             InitializeComponent();
             SetVisibiltyHidden();
             //video.Opacity = 100;
-            video.Visibility = Visibility.Visible;
-            video.LoadedBehavior = MediaState.Play;
+            //video.Visibility = Visibility.Visible;
+            //video.LoadedBehavior = MediaState.Play;
 
         }
         private void SetVisibiltyHidden()
         {
-            //video.Opacity = 20;
+            //video.Opacity = ;
             video.Visibility = Visibility.Hidden;
             video.LoadedBehavior = MediaState.Pause;
             add.Visibility = Visibility.Hidden;

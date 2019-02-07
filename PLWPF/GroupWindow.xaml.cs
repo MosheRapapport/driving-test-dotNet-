@@ -29,8 +29,9 @@ namespace PLWPF
         {
             try
             {
-
-               AllTests uc = new AllTests();
+                setVisibility();
+                this.All_tests.Visibility = Visibility.Visible;
+                AllTests uc = new AllTests();
                uc.Source = bl.GetTests();
                 this.page.Content = uc;
 
@@ -47,9 +48,10 @@ namespace PLWPF
         {
             try
             {
-
-               AllTasters uc = new AllTasters();
-                uc.Source = bl.TestersExpertise(false);
+                setVisibility();
+                this.All_testers_by_expertise.Visibility = Visibility.Visible;
+                AllTasters uc = new AllTasters() { Source = bl.GetTesters() };
+                //uc.Source = bl.GetTesters();
                 this.page.Content = uc;
 
             }
@@ -65,9 +67,11 @@ namespace PLWPF
         {
             try
             {
-
+                setVisibility();
+                this.All_trainees.Visibility = Visibility.Visible;
                 AllTrainees uc = new AllTrainees();
                 uc.Source = bl.GetTrainees();
+            //    uc.Source = bl.traineesByNumOfTests();
                 this.page.Content = uc;
 
             }
@@ -76,6 +80,12 @@ namespace PLWPF
 
                 MessageBox.Show(x.Message);
             }
+        }
+        public void setVisibility()
+        {
+            this.All_testers_by_expertise.Visibility = Visibility.Hidden;
+            this.All_tests.Visibility = Visibility.Hidden;
+            this.All_trainees.Visibility = Visibility.Hidden;
         }
     }
 }

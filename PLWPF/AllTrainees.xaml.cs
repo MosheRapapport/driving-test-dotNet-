@@ -37,6 +37,7 @@ namespace PLWPF
         public AllTrainees()
         {
             InitializeComponent();
+
         }
     }
 }

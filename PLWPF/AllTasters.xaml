@@ -9,22 +9,43 @@
     <Grid>
         
         <ListView  x:Name="listView">
-            <ListView.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <WrapPanel />
-                </ItemsPanelTemplate>
-            </ListView.ItemsPanel>
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <Border BorderThickness="2" BorderBrush="LightSkyBlue" Margin="5">
-                        <StackPanel VerticalAlignment="Top">
-                            <TextBlock Text="{Binding Path=Key}" FontSize="16" Foreground="Red" TextAlignment="Center" />
-                            <ListView ItemsSource="{Binding}">
-                            </ListView>
-                        </StackPanel>
-                    </Border>
-                </DataTemplate>
-            </ListView.ItemTemplate>
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="" Width="100">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text=""/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+
+                    <GridViewColumn Header="ID" Width="120" DisplayMemberBinding="{Binding ID}" />
+                    <GridViewColumn Header="First Name" Width="120" DisplayMemberBinding="{Binding Name.FirstName}" />
+                    <GridViewColumn Header="Last Name" Width="120" DisplayMemberBinding="{Binding Name.LastName}" />
+                    <GridViewColumn Header="Date Of Birth" Width="150" DisplayMemberBinding="{Binding DayOfBirth}" />
+                    <GridViewColumn x:Name ="Gender" Header="Gender" Width="100" DisplayMemberBinding="{Binding Gender}" />
+                    <GridViewColumn Header="Phone" Width="120" DisplayMemberBinding="{Binding PhoneNumber}" />
+                    <GridViewColumn x:Name ="Vheicle" Header="CarType" Width="120" DisplayMemberBinding="{Binding Expertise.carType}" />
+                    <GridViewColumn Header="Gear" Width="100" DisplayMemberBinding="{Binding Expertise.gearType}" />
+                    <GridViewColumn x:Name="City"  Header="City" Width="100" DisplayMemberBinding="{Binding Address.City}" />
+                    <GridViewColumn Header="StreetName" Width="100" DisplayMemberBinding="{Binding Address.StreetName}" />
+                    <GridViewColumn Header="BuildingNumber" Width="100" DisplayMemberBinding="{Binding Address.Number}" />
+                    <GridViewColumn Header="Experience" Width="100" DisplayMemberBinding="{Binding Experience}" />
+                    <GridViewColumn Header="MaxTestWeekly" Width="100" DisplayMemberBinding="{Binding MaxTestWeekly}" />
+                    <GridViewColumn Header="MaxDistance" Width="100" DisplayMemberBinding="{Binding MaxDistance}" />
+
+                    <GridViewColumn Header="Luz" Width="720" DisplayMemberBinding="{Binding Luz}" />
+                </GridView>
+            </ListView.View>
+            <ListView.GroupStyle>
+                <GroupStyle>
+                    <GroupStyle.HeaderTemplate>
+                        <DataTemplate>
+                            <TextBlock FontWeight="Bold" FontSize="14" Text="{Binding Name}"/>
+                        </DataTemplate>
+                    </GroupStyle.HeaderTemplate>
+                </GroupStyle>
+            </ListView.GroupStyle>
         </ListView>
 
     </Grid>

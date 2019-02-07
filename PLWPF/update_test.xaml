@@ -11,6 +11,6 @@
     <Grid Margin="0,0,57.667,-19" RenderTransformOrigin="0.696,0.48" HorizontalAlignment="Right" Width="663">
         <ComboBox HorizontalAlignment="Left" x:Name="select" DisplayMemberPath="codeOfTest"  Margin="54,44,0,0" VerticalAlignment="Top" Width="260" Height="65" RenderTransformOrigin="0.944,1.621" SelectionChanged="select_SelectionChanged"/>
         <local:update_Test_uset x:Name="update_Test_use" Visibility="Hidden"  HorizontalAlignment="Left" Height="585" VerticalAlignment="Top" Width="309" Margin="319,10,0,-10" />
-        <Button Content="Button" HorizontalAlignment="Left" Height="115" Margin="54,306,0,0" VerticalAlignment="Top" Width="230" Click="Button_Click"/>
+        <Button Content="OK" HorizontalAlignment="Left" Height="115" Margin="54,306,0,0" VerticalAlignment="Top" Width="230" Click="Button_Click" FontSize="36"/>
     </Grid>
 </Window>

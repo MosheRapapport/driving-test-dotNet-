@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<trainees>
+  <Trainee>
+    <ID>S1</ID>
+    <Name>
+      <FirstName>s1</FirstName>
+      <LastName>s1</LastName>
+    </Name>
+    <DayOfBirth>2/7/2002 11:35:15 AM</DayOfBirth>
+    <Gender>MALE</Gender>
+    <Address>
+      <City>jerusalem</City>
+      <StreetName>pisga</StreetName>
+      <Number>45</Number>
+    </Address>
+    <PhoneNumber>0542520196</PhoneNumber>
+    <LessonsNb>25</LessonsNb>
+    <DrivingSchool>beit sefer</DrivingSchool>
+    <Instructor>
+      <FirstName>moshe</FirstName>
+      <LastName>bfx</LastName>
+    </Instructor>
+    <CarTrained>
+      <carType>Private</carType>
+      <gearType>Automatic</gearType>
+    </CarTrained>
+  </Trainee>
+  <Trainee>
+    <ID>S2</ID>
+    <Name>
+      <FirstName>s2</FirstName>
+      <LastName>s2</LastName>
+    </Name>
+    <DayOfBirth>2/7/2002 11:35:15 AM</DayOfBirth>
+    <Gender>MALE</Gender>
+    <Address>
+      <City>jerusalem</City>
+      <StreetName>pisga</StreetName>
+      <Number>45</Number>
+    </Address>
+    <PhoneNumber>0542520196</PhoneNumber>
+    <LessonsNb>25</LessonsNb>
+    <DrivingSchool>beit sefer</DrivingSchool>
+    <Instructor>
+      <FirstName>moshe</FirstName>
+      <LastName>bfx</LastName>
+    </Instructor>
+    <CarTrained>
+      <carType>Private</carType>
+      <gearType>Automatic</gearType>
+    </CarTrained>
+  </Trainee>
+  <Trainee>
+    <ID>S3</ID>
+    <Name>
+      <FirstName>s3</FirstName>
+      <LastName>s3</LastName>
+    </Name>
+    <DayOfBirth>2/7/2002 11:35:15 AM</DayOfBirth>
+    <Gender>MALE</Gender>
+    <Address>
+      <City>jerusalem</City>
+      <StreetName>pisga</StreetName>
+      <Number>45</Number>
+    </Address>
+    <PhoneNumber>0542520196</PhoneNumber>
+    <LessonsNb>25</LessonsNb>
+    <DrivingSchool>beit sefer</DrivingSchool>
+    <Instructor>
+      <FirstName>moshe</FirstName>
+      <LastName>bfx</LastName>
+    </Instructor>
+    <CarTrained>
+      <carType>Private</carType>
+      <gearType>Automatic</gearType>
+    </CarTrained>
+  </Trainee>
+</trainees>

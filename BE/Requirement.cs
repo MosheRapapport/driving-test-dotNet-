@@ -24,7 +24,7 @@ namespace BE
 
         public override string ToString()
         {
-            return "\n    revers: " + revers + "." +
+            return "    revers: " + revers + "." +
                 "\n    U_turn: " + U_turn + "." +
                 "\n    speed: " + speed + "." +
                 "\n    breks: " + breks + "." +
